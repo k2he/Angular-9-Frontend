@@ -1,0 +1,44 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+	background: #a4a7b4;
+	color: #0f0c0c;
+	min-height: 80px;
+	border: none;
+}
+
+.nav-bar {
+	min-height: 80px;
+	border-radius: 0;
+}
+
+.nav-title {
+	padding: 5px 5px;
+	color: #3f024ee0;
+	font-size: 25px;
+    line-height: 50px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius:5px;
+    border-color: #3f024ee0;
+    margin-left: 20px;
+}
+
+.nav-bar a {
+	text-decoration: none;
+}
+
+.nav-links {
+	position: absolute;
+	right: 170px;
+}
+
+.login {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 16px;
+	color: #2a199e;
+}
