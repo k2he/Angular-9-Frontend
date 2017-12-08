@@ -6,28 +6,41 @@
 	<div class="page-main-content">
 		<div>
 			<div >Fill out the form and we will call you back</div>
-			<form (ngSubmit)="onSubmit()" #contactUsForm='ngForm' class="form-container width-400px">
-				<div></div>
+			<form (ngSubmit)="onSubmit()" #contactUsForm='ngForm' class="form-container width-500px margin-top-50px">
+				
 				<mat-form-field>
-					<input matInput placeholder="Name" required [(ngModel)]="contectInfo.name" name="name">
+					<input matInput placeholder="Name" name="name" required [(ngModel)]="contectInfo.name">
+					<mat-error>This field is required</mat-error>
 				</mat-form-field>
-			
+					
 				<mat-form-field>
-					<input matInput placeholder="Email" required [(ngModel)]="contectInfo.email" name="email">
+					<input matInput placeholder="Email" email required [(ngModel)]="contectInfo.email" name="email" #email="ngModel">
+					<mat-error *ngIf="email.errors && (email.dirty || email.touched)">
+						<span *ngIf="email.errors.required; else invalid_email">This field is required</span>
+			          	<ng-template #invalid_email>Please enter a valid email address</ng-template>
+			        </mat-error>
 				</mat-form-field>
 				
 				<mat-form-field>
-					<input matInput placeholder="Phone Number" required [(ngModel)]="contectInfo.phone" name="phone">
+					<input matInput placeholder="Phone Number" required [(ngModel)]="contectInfo.phone" name="phone" 
+						pattern="^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$" #phone="ngModel">
+					<mat-error *ngIf="phone.errors?.required">This field is required</mat-error>
+					<mat-error *ngIf="phone.errors?.pattern">Please enter a valid phone number</mat-error>
 				</mat-form-field>
-				
+				{{SUBJECT_MAX}}
 				<mat-form-field>
-					<input matInput placeholder="Subject" required [(ngModel)]="contectInfo.subject" name="subject">
+					<input matInput placeholder="Subject" required maxlength="50" [(ngModel)]="contectInfo.subject" name="subject">
+					<mat-error>This field is required</mat-error>
 				</mat-form-field>
 				<mat-form-field>
-				    <textarea matInput placeholder="Message" required [(ngModel)]="contectInfo.message" name="message"></textarea>
+				    <textarea matInput placeholder="Message" required maxlength="500" [(ngModel)]="contectInfo.message" name="message"></textarea>
+			  		<mat-error>This field is required</mat-error>
 			  	</mat-form-field>
 			  	<button mat-button type="submit" [disabled]="!contactUsForm.valid">Submit</button>
 	      
+	      		<div *ngIf="submitOK" class="successReceived">
+	      			Succuess! Message received. 
+	      		</div>
 			</form>
 		</div>
 	

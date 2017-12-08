@@ -11,7 +11,7 @@ body {
 	background-color: white;
 	margin:15px 50px 10px 50px;
 	padding: 20px 30px;
-	min-height:800px;
+	min-height:650px;
 	border-radius: 5px;
 }
 
@@ -33,10 +33,18 @@ body {
   	flex-direction: column;
 }
 
-.width-400px {
-	width: 400px;
+.width-500px {
+	width: 500px;
+}
+
+.margin-top-50px {
+	margin-top: 50px;
 }
 
 .display-inline { 
 	display: inline-block;
+}
+
+.mat-form-field {
+	margin-top:10px;
 }
