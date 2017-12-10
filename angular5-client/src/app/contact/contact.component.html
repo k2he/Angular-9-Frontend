@@ -22,10 +22,10 @@
 				</mat-form-field>
 				
 				<mat-form-field>
-					<input matInput placeholder="Phone Number" required [(ngModel)]="contectInfo.phone" name="phone" 
-						pattern="^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$" #phone="ngModel">
-					<mat-error *ngIf="phone.errors?.required">This field is required</mat-error>
-					<mat-error *ngIf="phone.errors?.pattern">Please enter a valid phone number</mat-error>
+					<input matInput placeholder="Phone Number" required [(ngModel)]="contectInfo.phoneNumber" name="phoneNumber" 
+						pattern="^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$" #phoneNumber="ngModel">
+					<mat-error *ngIf="phoneNumber.errors?.required">This field is required</mat-error>
+					<mat-error *ngIf="phoneNumber.errors?.pattern">Please enter a valid phone number</mat-error>
 				</mat-form-field>
 				{{SUBJECT_MAX}}
 				<mat-form-field>
@@ -33,13 +33,13 @@
 					<mat-error>This field is required</mat-error>
 				</mat-form-field>
 				<mat-form-field>
-				    <textarea matInput placeholder="Message" required maxlength="500" [(ngModel)]="contectInfo.message" name="message"></textarea>
+				    <textarea matInput placeholder="Message" required maxlength="500" rows="5" [(ngModel)]="contectInfo.message" name="message"></textarea>
 			  		<mat-error>This field is required</mat-error>
 			  	</mat-form-field>
-			  	<button mat-button type="submit" [disabled]="!contactUsForm.valid">Submit</button>
+			  	<button mat-button [disabled]="!contactUsForm.valid">Submit</button>
 	      
-	      		<div *ngIf="submitOK" class="successReceived">
-	      			Succuess! Message received. 
+	      		<div *ngIf="statusMessage" [class]="statusClass">
+	      			{{statusMessage}}
 	      		</div>
 			</form>
 		</div>

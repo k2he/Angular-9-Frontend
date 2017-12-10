@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule} from '@angular/material';
 import { MatToolbarModule} from '@angular/material/toolbar';
@@ -16,7 +16,12 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './notfound.component';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
+import { ContactusService } from './contact/contactus.service';
+import { UtilService } from './util.service';
 
+//Below should be mored out into Project module
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -37,9 +42,13 @@ import { HttpClientModule} from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
+    
+    MatSidenavModule,
+    MatListModule,
+    
     HttpClientModule
   ],
-  providers: [],
+  providers: [ContactusService, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

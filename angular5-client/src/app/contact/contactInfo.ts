@@ -1,7 +1,12 @@
 export class ContactInfo {
-    public name: string;
-    public email: string;
-    public phone: string;
-    public subject: string;
-    public message: string;
+    id: number;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    subject: string;
+    message: string;
+    createdOn: Date;
+    updatedOn: Date;
+    isResolved: boolean;
+    resovedBy: string;
 }

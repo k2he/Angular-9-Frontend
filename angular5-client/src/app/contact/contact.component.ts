@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContactInfo } from './contactInfo'
 import {FormControl, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
+import {ContactusService} from './contactus.service';
+import { UtilService } from '../util.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,13 +13,36 @@ import {ErrorStateMatcher} from '@angular/material';
 export class ContactComponent {
     contectInfo: ContactInfo = new ContactInfo();
     PHONE_NUMBER_REGEX  = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
-    submitOK = false;
+    statusMessage: string;
+    statusClass: string;
     
-    constructor() { }
+    constructor(private contactService: ContactusService, private utilService: UtilService) { }
     
-    onSubmit() {
-      alert("Name:" + this.contectInfo.name);
-      //      this.http.
-      this.submitOK = true;
+    onSubmit(): void {
+        this.statusMessage = '';
+        this.utilService.deepTrim(this.contectInfo);
+        this.contactService.createContactInfo(this.contectInfo)
+          .subscribe(
+              hero => {
+                  this.displaySubmitMessage(false);
+              },
+              error => {
+                  this.displaySubmitMessage(true);
+              }
+          );
+    }
+    
+    displaySubmitMessage(hasError: boolean) {
+        if (hasError) {
+            this.statusMessage = "Submission Failed !!!";
+            this.statusClass = "status-failed";
+        } else {
+            this.statusMessage = "Submission Successful. Message inserted into database";
+            this.statusClass = "status-ok";
+        }
+    }
+    
+    clearSubmitMessage() {
+        
     }
 }
