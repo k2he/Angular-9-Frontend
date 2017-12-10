@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-projects',

@@ -22,6 +22,7 @@ import { UtilService } from './util.service';
 //Below should be mored out into Project module
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SideNaviComponent } from './side-navi/side-navi.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatListModule } from '@angular/material/list';
     ProjectsComponent,
     CoursesComponent,
     ContactComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SideNaviComponent
   ],
   imports: [
     BrowserModule,

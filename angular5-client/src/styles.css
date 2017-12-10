@@ -24,14 +24,25 @@ body {
 	position: relative;
 }
 
-.page-main-title {
+.page-main-container-with-sideNavi .main-container {
+	width: 100%;
+}
+
+.page-main-container-with-sideNavi .main-container .content {
+	padding: 1em;
+    overflow: hidden;
+    min-height: 500px;
+    margin-left: 130px;
+}
+
+.content-title {
 	font-size: 30px;
 	margin-button:30px;
 	font-weight: bold;
 	font-family: Raleway;
 }
 
-.page-main-content { 
+.content-main { 
 	margin-top: 20px;
 	font-family: inherit;
 	color: #514747;
