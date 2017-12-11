@@ -1,0 +1,49 @@
+<div>
+	<div class="content-title">Create New Project</div>
+	
+	<div class="content-main">
+		<div>
+			<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="form-container width-600px  margin-top-50px">
+				
+				<mat-form-field>
+					<input matInput type="text" placeholder="Project Name" name="name" formControlName="name" [(ngModel)]="projectInfo.projectName">
+					<mat-error *ngIf="projectForm.controls['name'].errors?.required">This field is required</mat-error>
+					<mat-error *ngIf="projectForm.controls['name'].errors?.minlength">You have to enter more than 3 characters</mat-error>
+				</mat-form-field>
+					
+				<mat-form-field>
+					<input matInput type="text" placeholder="Skills Required" name="skills" formControlName="skills" [(ngModel)]="projectInfo.requiredSkills">
+					<mat-error *ngIf="projectForm.controls['skills'].errors?.required">This field is required</mat-error>
+				</mat-form-field>
+				
+				<mat-form-field>
+					<input matInput type="number" placeholder="Estimated Cost" name="cost" formControlName="cost" [(ngModel)]="projectInfo.estimatedCost">
+					<mat-error *ngIf="projectForm.controls['cost'].errors?.required">This field is required</mat-error>
+					<mat-error *ngIf="projectForm.controls['cost'].errors?.max">Wow, it's too expensive, we not gonna do it !!!</mat-error>
+				</mat-form-field>
+				
+				<mat-form-field>
+				  <input matInput [matDatepicker]="picker" placeholder="Choose a Project due Date" name="dueDate" formControlName="dueDate" [(ngModel)]="projectInfo.dueDate">
+				  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				  <mat-datepicker #picker></mat-datepicker>
+				  <mat-error *ngIf="projectForm.controls['dueDate'].errors?.required">This field is required</mat-error>
+				</mat-form-field>
+								
+				
+				<mat-form-field>
+				    <textarea matInput placeholder="Project Description" rows="8" formControlName="description" [(ngModel)]="projectInfo.projectSummary"></textarea>
+			  		<mat-error *ngIf="projectForm.controls['description'].errors?.required">This field is required</mat-error>
+					<mat-error *ngIf="projectForm.controls['description'].errors?.minlength">You have to enter more than 3 characters</mat-error>
+			  	</mat-form-field>
+			  	
+			  	<button mat-button [disabled]="!projectForm.valid">Submit</button>
+	      
+	      		<div *ngIf="statusMessage" [class]="statusClass">
+	      			{{statusMessage}}
+	      		</div>
+			</form>
+		</div>
+	
+	</div>
+
+</div>

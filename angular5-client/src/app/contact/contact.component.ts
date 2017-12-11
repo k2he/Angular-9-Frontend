@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactInfo } from './contactInfo'
-import {FormControl, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material';
+import { FormControl, Validators} from '@angular/forms';
+import { ErrorStateMatcher} from '@angular/material';
 import {ContactusService} from './contactus.service';
 import { UtilService } from '../util.service';
 import { MatListModule} from '@angular/material/list';
@@ -36,14 +36,10 @@ export class ContactComponent {
     displaySubmitMessage(hasError: boolean) {
         if (hasError) {
             this.statusMessage = "Submission Failed !!!";
-            this.statusClass = "status-failed";
+            this.statusClass = "restful_call_status_failed";
         } else {
             this.statusMessage = "Submission Successful. Message inserted into database";
-            this.statusClass = "status-ok";
+            this.statusClass = "restful_call_status_ok ";
         }
-    }
-    
-    clearSubmitMessage() {
-        
     }
 }

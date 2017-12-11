@@ -29,17 +29,17 @@ body {
 }
 
 .page-main-container-with-sideNavi .main-container .content {
-	padding: 1em;
+	padding: 30px 35px 30px 35px;
     overflow: hidden;
     min-height: 500px;
-    margin-left: 130px;
+    margin-left: 150px;
 }
 
 .content-title {
-	font-size: 30px;
-	margin-button:30px;
-	font-weight: bold;
-	font-family: Raleway;
+	font-size: 23px;
+	margin-button:70px;
+	color: #635f5f;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
 .content-main { 
@@ -57,6 +57,10 @@ body {
 	width: 500px;
 }
 
+.width-600px { 
+	width: 600px;
+}
+
 .margin-top-50px {
 	margin-top: 50px;
 }
@@ -67,4 +71,18 @@ body {
 
 .mat-form-field {
 	margin-top:10px;
+}
+
+
+
+.restful_call_status_ok {
+	color: #2424a5;
+	font-weight: bold;
+	text-align: center;
+}
+
+.restful_call_status_failed {
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }

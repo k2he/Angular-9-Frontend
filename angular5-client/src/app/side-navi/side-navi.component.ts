@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { sideNavItem } from './sideNavItem'
 
 @Component({
   selector: 'app-side-navi',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNaviComponent implements OnInit {
 
-  constructor() { }
+    @Input() naviItemList: sideNavItem[];
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

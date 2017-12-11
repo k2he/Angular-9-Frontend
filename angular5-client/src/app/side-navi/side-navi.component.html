@@ -1,11 +1,9 @@
 <nav>
   <ul>
-    <li><a href="#">London</a></li>
-    <li><a href="#">Paris</a></li>
-    <li><a href="#">Tokyo</a></li>
-    <li><a href="#">Tokyo</a></li>
-    <li><a href="#">Tokyo</a></li>
-    <li><a href="#">Tokyo</a></li>
-    
+  	<li *ngFor="let item of naviItemList">
+  		<a routerLink="{{item.url}}">{{item.name}}</a>
+  	</li>
   </ul>
 </nav>
+
+ 

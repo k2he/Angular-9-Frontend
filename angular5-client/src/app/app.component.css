@@ -3,10 +3,11 @@
 }
 
 .mat-toolbar.mat-primary {
-	background: #a4a7b4;
-	color: #0f0c0c;
+	background: #353639;
+	color: #E1E1E1;
 	min-height: 80px;
 	border: none;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
 .nav-bar {
@@ -14,13 +15,19 @@
 	border-radius: 0;
 }
 
+.mat-button: hover, .mat-button: focus{
+	background: white;
+}
+
 .nav-title {
 	padding: 5px 5px;
-	color: #3f024ee0;
+	color: #efefef;
 	font-size: 25px;
     line-height: 50px;
+    /*
     border-style: solid;
     border-width: 3px;
+    */
     border-radius:5px;
     border-color: #3f024ee0;
     margin-left: 20px;
@@ -40,5 +47,6 @@
 	right: 20px;
 	top: 10px;
 	font-size: 16px;
-	color: #2a199e;
+	color: #d2f9ff;
+	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 }

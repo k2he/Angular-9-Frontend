@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
-import { ContactInfo } from './contactInfo';
+import { ProjectInfo } from './projectInfo';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { UtilService } from '../util.service';
@@ -10,41 +10,41 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-const httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-      };
-
 @Injectable()
-export class ContactusService {
-    url =  `${environment.apiUrl}/contactus/messages`;
+export class ProjectService {
+    url =  `${environment.apiUrl}/projects/project`;
     
-    constructor(private http: HttpClient, private utilService: UtilService) { }
+    constructor(private http: HttpClient, private util: UtilService) { }
     
-    public getAllContactInfos(): Observable<ContactInfo[]>{
-        return this.http.get<ContactInfo[]>(this.url).pipe(
-            tap(_ => this.log("ContactusService.getAllContactInfos() called")),
+    public getAllProjects(): Observable<ProjectInfo[]>{
+        return this.http.get<ProjectInfo[]>(this.url)
+        .pipe(
+            tap(_ => this.log("ProjectService.getAllProjects() called")),
             catchError(this.handleError)
         );
     }
 
-    public createContactInfo(info: ContactInfo): Observable<ContactInfo> {
-        return this.http.post<ContactInfo>(this.url, info, this.utilService.httpOptions)
+    public createProjectInfo(info: ProjectInfo): Observable<ProjectInfo> {
+        return this.http.post<ProjectInfo>(this.url, info, this.util.httpOptions)
                 .pipe(
-                    tap(_ => this.log("ContactusService.createContactInfo() called")),
+                    tap(_ => this.log("ProjectService.createProjectInfo() called")),
                     catchError(this.handleError)
                 );
     }
 
-    public getContactInfoById(todoId: number) {
+    public getProjectInfoById(todoId: number) {
       // will use this.http.get()
     }
 
-    public updateContactInfo(info: ContactInfo) {
+    public updateProjectInfo(info: ProjectInfo) {
       // will use this.http.put()
     }
 
-    public deleteContactInfoById(infoId: number) {
-      // will use this.http.delete()
+    public deleteProjectInfo(info: ProjectInfo) {
+        const userID = 'testUser1';//This should get from session
+        info.statusId = environment.project_deleted_status;
+        info.lastupdatedBy = userID;
+        this.updateProjectInfo(info);
     }
     
     handleError (error: Response | any) {
@@ -57,12 +57,12 @@ export class ContactusService {
         } else {
           errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
+        this.log(errMsg);
         return Observable.throw(errMsg);
     }
     
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-      console.error('ContactusService: ' + message);
+      console.error('HeroService: ' + message);
     }
 }
