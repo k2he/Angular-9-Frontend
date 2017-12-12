@@ -9,6 +9,7 @@ import { UtilService } from '../util.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import 'rxjs/Rx';
 
 @Injectable()
 export class ProjectService {
@@ -24,6 +25,11 @@ export class ProjectService {
         );
     }
 
+    public getAllProjectList(): Observable<ProjectInfo[]> {
+        return this.http.get<ProjectInfo[]>(this.url)
+                .catch((error:any) => this.handleError(error));
+    }
+    
     public createProjectInfo(info: ProjectInfo): Observable<ProjectInfo> {
         return this.http.post<ProjectInfo>(this.url, info, this.util.httpOptions)
                 .pipe(
@@ -63,6 +69,6 @@ export class ProjectService {
     
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-      console.error('HeroService: ' + message);
+      console.log('HeroService: ' + message);
     }
 }

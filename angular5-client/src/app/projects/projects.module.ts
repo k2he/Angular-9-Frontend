@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { ProjectService } from "./project.service";
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatTableModule, MatSortModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -22,6 +23,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
+    MatSortModule,
     ProjectsRoutingModule
   ],
   declarations: [
@@ -30,6 +33,6 @@ import { ErrorStateMatcher } from '@angular/material/core';
                      InprogressprojectsComponent, 
                      EditprojectComponent
                  ],
-                 providers: [ProjectService],
+  providers: [ProjectService],
 })
 export class ProjectsModule { }

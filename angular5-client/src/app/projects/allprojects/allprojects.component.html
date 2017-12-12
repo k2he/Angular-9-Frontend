@@ -1,7 +1,59 @@
 <div>
 	<div class="content-title">All Projects</div>
-	<div>
+	<div class="content-main">
+		<div class="mat-elevation-z8">
+		  <div class="mat-header">
+		    <mat-form-field>
+		      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search: ">
+		    </mat-form-field>
+		  </div>
 		
+		  <mat-table #table [dataSource]="dataSource" matSort>
+		
+		    <!-- Position Column -->
+		    <ng-container matColumnDef="name">
+		      <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
+		      <mat-cell *matCellDef="let project">{{project.projectName}} </mat-cell>
+		    </ng-container>
+		
+		    <!-- Name Column -->
+		    <ng-container matColumnDef="description">
+		      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.projectSummary}} </mat-cell>
+		    </ng-container>
+		
+		    <!-- Weight Column -->
+		    <ng-container matColumnDef="due">
+		      <mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.dueDate | date}} </mat-cell>
+		    </ng-container>
+		
+		    <!-- Symbol Column -->
+		    <ng-container matColumnDef="skills">
+		      <mat-header-cell *matHeaderCellDef>Required Skills</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.requiredSkills}} </mat-cell>
+		    </ng-container>
+		
+			<ng-container matColumnDef="estimatedCost">
+		      <mat-header-cell *matHeaderCellDef mat-sort-header>Estimated Cost</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.estimatedCost | currency }} </mat-cell>
+		    </ng-container>
+		    
+		    <ng-container matColumnDef="status">
+		      <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.projectStatus.description}} </mat-cell>
+		    </ng-container>
+		    
+		    <ng-container matColumnDef="createdOn">
+		      <mat-header-cell *matHeaderCellDef>Created On</mat-header-cell>
+		      <mat-cell *matCellDef="let project"> {{project.createdOn | date }} </mat-cell>
+		    </ng-container>
+		    
+		    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+		    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+		  </mat-table>
+		</div>
+				
 	
 	</div>
 

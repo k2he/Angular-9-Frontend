@@ -24,7 +24,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name="contact_us", catalog= "my_database")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value= {"createdOn", "updatedOn"})
 public class ContactUsInfo {
 	
 	@Id

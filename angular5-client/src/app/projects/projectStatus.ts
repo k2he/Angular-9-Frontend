@@ -1,4 +1,4 @@
-export class ProjectInfo {
-    statusId: number;
+export class ProjectStatus {
+    id: number;
     description: string;
 }

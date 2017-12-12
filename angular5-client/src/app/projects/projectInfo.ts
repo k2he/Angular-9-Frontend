@@ -1,3 +1,5 @@
+import { ProjectStatus } from "./projectStatus";
+
 export class ProjectInfo {
     projectId: number;
     projectName: string;
@@ -6,8 +8,10 @@ export class ProjectInfo {
     requiredSkills: string;
     estimatedCost: number;
     statusId: number;
+    projectStatus: ProjectStatus;
     createdOn: Date;
     createdBy: string;
     updatedOn: Date;
     lastupdatedBy: string;
 }
+
