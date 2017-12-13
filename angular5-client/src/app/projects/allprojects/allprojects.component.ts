@@ -13,9 +13,8 @@ import { ProjectStatus } from "../projectStatus";
 })
 export class AllprojectsComponent implements OnInit, AfterViewChecked {
 
-    displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status',  'createdOn'];
+    displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status',  'actions'];
     dataSource;
-    //    dataSource = new ProjectDataSource(this.projectService);
     
     @ViewChild(MatSort) sort: MatSort;
     

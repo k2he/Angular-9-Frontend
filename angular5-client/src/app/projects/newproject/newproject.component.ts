@@ -3,6 +3,7 @@ import { ProjectInfo } from "../projectInfo";
 import { ProjectService } from '../project.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilService } from '../../util.service';
+import { CustomCurrencyFormatterDirective } from "../../directives/custom-currency-formatter.directive";
 
 const NAME_FIELD_MIN: number = 3;
 

@@ -20,6 +20,8 @@ import { ContactusService } from './contact/contactus.service';
 import { UtilService } from './util.service';
 import { SideNaviComponent } from './side-navi/side-navi.component';
 import { ProjectsModule } from './projects/projects.module';
+import { CustomCurrencyPipe } from './pipes/custom-currency.pipe';
+import { CustomCurrencyFormatterDirective } from './directives/custom-currency-formatter.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ProjectsModule } from './projects/projects.module';
     CoursesComponent,
     ContactComponent,
     PageNotFoundComponent,
-    SideNaviComponent
+    SideNaviComponent,
+    CustomCurrencyPipe,
+    CustomCurrencyFormatterDirective
   ],
   imports: [
     BrowserModule,

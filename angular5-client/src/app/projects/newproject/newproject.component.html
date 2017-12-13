@@ -17,7 +17,7 @@
 				</mat-form-field>
 				
 				<mat-form-field>
-					<input matInput type="number" placeholder="Estimated Cost" name="cost" formControlName="cost" [(ngModel)]="projectInfo.estimatedCost">
+					<input matInput type="number" placeholder="Estimated Cost" name="cost" formControlName="cost" [(ngModel)]="projectInfo.estimatedCost" myCurrencyFormatter>
 					<mat-error *ngIf="projectForm.controls['cost'].errors?.required">This field is required</mat-error>
 					<mat-error *ngIf="projectForm.controls['cost'].errors?.max">Wow, it's too expensive, we not gonna do it !!!</mat-error>
 				</mat-form-field>
