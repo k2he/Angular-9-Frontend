@@ -29,6 +29,10 @@ const routes: Routes = [
                                   component: AllprojectsComponent,  
                               },
                               {
+                                  path: 'edit/:id',
+                                  component: NewprojectComponent,  
+                              },
+                              {
                                   path: 'new',
                                   component: NewprojectComponent,  
                               },

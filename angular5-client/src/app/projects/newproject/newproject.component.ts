@@ -4,6 +4,7 @@ import { ProjectService } from '../project.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilService } from '../../util.service';
 import { CustomCurrencyFormatterDirective } from "../../directives/custom-currency-formatter.directive";
+import { ActivatedRoute } from '@angular/router';
 
 const NAME_FIELD_MIN: number = 3;
 
@@ -15,11 +16,15 @@ const NAME_FIELD_MIN: number = 3;
 export class NewprojectComponent implements OnInit {
     projectInfo: ProjectInfo = new ProjectInfo();
     projectForm: FormGroup;
+    title = "Create New Project";
     statusMessage: string;
     statusClass: string;
     
     
-    constructor(private fb: FormBuilder, private utilService: UtilService, private projectService: ProjectService) { 
+    constructor(private fb: FormBuilder, 
+                private utilService: UtilService, 
+                private projectService: ProjectService,
+                private route: ActivatedRoute) { 
         this.projectForm = fb.group({ 
             'name': ['', Validators.compose([Validators.required, Validators.minLength(NAME_FIELD_MIN), Validators.maxLength(100)])], 
             'skills': ['', null],
@@ -31,6 +36,21 @@ export class NewprojectComponent implements OnInit {
     }
 
     ngOnInit() {
+        const productID = this.route.snapshot.params['id'];
+        if (productID) {
+            this.projectService.getProjectInfoById(productID)
+            .subscribe(
+                result => this.setProjectInfo(result)
+            );
+        }
+    }
+    
+    setProjectInfo(info: ProjectInfo) {
+        if(info) {
+            this.projectInfo = info;
+            this.title = "Edit Project Detail";
+        }
+        console.log("setProjectInfo:" + this.projectInfo);
     }
     
     onSubmit() {

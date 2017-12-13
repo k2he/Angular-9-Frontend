@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 import { ProjectInfo } from './projectInfo';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
@@ -38,8 +38,9 @@ export class ProjectService {
                 );
     }
 
-    public getProjectInfoById(todoId: number) {
-      // will use this.http.get()
+    public getProjectInfoById(id: number): Observable<ProjectInfo> {
+        return this.http.get<ProjectInfo>(`${this.url}/${id}`)
+        .catch((error:any) => this.handleError(error));
     }
 
     public updateProjectInfo(info: ProjectInfo) {
