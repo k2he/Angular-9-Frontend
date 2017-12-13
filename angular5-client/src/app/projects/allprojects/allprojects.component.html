@@ -36,7 +36,7 @@
 		
 			<ng-container matColumnDef="estimatedCost">
 		      <mat-header-cell *matHeaderCellDef mat-sort-header>Estimated Cost</mat-header-cell>
-		      <mat-cell *matCellDef="let project"> {{project.estimatedCost | currency }} </mat-cell>
+		      <mat-cell *matCellDef="let project"> {{project.estimatedCost | customCurrency }} </mat-cell>
 		    </ng-container>
 		    
 		    <ng-container matColumnDef="status">

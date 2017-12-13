@@ -16,15 +16,13 @@ export class CustomCurrencyFormatterDirective implements OnInit {
         this.element.value = this.currencyPipe.transform(this.element.value);
     }
     
-    @HostListener("focus")
+    @HostListener("focus", ["$event.target.value"])
     onFocus(value) {
-      this.element.value = this.currencyPipe.parse(value); // opposite of transform
-      alert("onFocus():" + this.currencyPipe.parse(value));
+        this.element.value = this.currencyPipe.parse(value); // opposite of transform
     }
 
-    @HostListener("blur")
+    @HostListener("blur", ["$event.target.value"])
     onBlur(value) {
-      this.element.value = this.currencyPipe.transform(value);
-      alert("onBlur():" + this.currencyPipe.transform(value));
-  }
+        this.element.value = this.currencyPipe.transform(value);
+    }
 }

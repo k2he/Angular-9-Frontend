@@ -6,14 +6,6 @@ import { EditprojectComponent } from "./editproject/editproject.component";
 import { InprogressprojectsComponent } from "./inprogressprojects/inprogressprojects.component";
 import { ProjectsComponent } from "./projects.component";
 
-//const routes: Routes = [
-//                        { path: 'projects', redirectTo: '/allprojects' },
-//                        { path: 'newproject', component: NewprojectComponent},
-//                        { path: 'allprojects',  component: AllprojectsComponent },
-//                        { path: 'inprogressprojects',  component: InprogressprojectsComponent },
-//                        { path: 'editproject/:id', component: EditprojectComponent }
-//                      ];
-
 const routes: Routes = [
                         {
                             path: 'projects',

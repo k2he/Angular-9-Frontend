@@ -5,6 +5,7 @@ import { ProjectInfo } from "../projectInfo";
 //import { DataSource} from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { ProjectStatus } from "../projectStatus";
+import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
 
 @Component({
   selector: 'app-allprojects',

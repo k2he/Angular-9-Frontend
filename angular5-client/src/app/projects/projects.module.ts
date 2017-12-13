@@ -13,6 +13,8 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { ProjectService } from "./project.service";
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatTableModule, MatSortModule } from '@angular/material';
+import { CustomCurrencyPipe } from '../pipes/custom-currency.pipe';
+import { CustomCurrencyFormatterDirective } from '../directives/custom-currency-formatter.directive';
 
 @NgModule({
   imports: [
@@ -31,8 +33,10 @@ import { MatTableModule, MatSortModule } from '@angular/material';
                      AllprojectsComponent,
                      NewprojectComponent, 
                      InprogressprojectsComponent, 
-                     EditprojectComponent
+                     EditprojectComponent,
+                     CustomCurrencyPipe,
+                     CustomCurrencyFormatterDirective,
                  ],
-  providers: [ProjectService],
+  providers: [ProjectService, CustomCurrencyPipe],
 })
 export class ProjectsModule { }
