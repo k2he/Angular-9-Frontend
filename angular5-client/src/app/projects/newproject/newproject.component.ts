@@ -3,8 +3,9 @@ import { ProjectInfo } from "../projectInfo";
 import { ProjectService } from '../project.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilService } from '../../util.service';
-import { CustomCurrencyFormatterDirective } from "../../directives/custom-currency-formatter.directive";
+import { CustomCurrencyFormatterDirective } from "../../shared/directives/custom-currency-formatter.directive";
 import { ActivatedRoute } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 const NAME_FIELD_MIN: number = 3;
 

@@ -5,7 +5,7 @@ import { ProjectInfo } from "../projectInfo";
 //import { DataSource} from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { ProjectStatus } from "../projectStatus";
-import { CustomCurrencyPipe } from '../../pipes/custom-currency.pipe';
+import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 
 @Component({
   selector: 'app-allprojects',
@@ -23,11 +23,14 @@ export class AllprojectsComponent implements OnInit, AfterViewChecked {
     }
 
     ngOnInit() {
-        this.projectService.getAllProjectList().subscribe(
-               result => this.dataSource = new MatTableDataSource(result)
-        );
+        this.fetchData();
     }
 
+    fetchData() {
+        this.projectService.getAllProjectList().subscribe(
+                result => this.dataSource = new MatTableDataSource(result)
+         );
+    }
     /**
      * Set the sort after the view init since this component will
      * be able to query its view for the initialized sort.
@@ -45,4 +48,8 @@ export class AllprojectsComponent implements OnInit, AfterViewChecked {
         this.dataSource.filter = filterValue;
     }
     
+    onDelete(projectId: string | number) {
+        alert("Deleting project with id:" + projectId);
+        //TODO: need refresh table.
+    }
 }

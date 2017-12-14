@@ -13,8 +13,9 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { ProjectService } from "./project.service";
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatTableModule, MatSortModule } from '@angular/material';
-import { CustomCurrencyPipe } from '../pipes/custom-currency.pipe';
-import { CustomCurrencyFormatterDirective } from '../directives/custom-currency-formatter.directive';
+import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
+import { CustomCurrencyFormatterDirective } from '../shared/directives/custom-currency-formatter.directive';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { CustomCurrencyFormatterDirective } from '../directives/custom-currency-
     MatNativeDateModule,
     MatTableModule,
     MatSortModule,
+    MatMenuModule,
     ProjectsRoutingModule
   ],
   declarations: [
