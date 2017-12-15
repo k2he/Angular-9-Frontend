@@ -25,7 +25,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="projects", catalog= "my_database")
@@ -53,6 +53,7 @@ public class ProjectInfo {
 	
 	@NotNull
 	@Column(name = "due_date")
+//	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dueDate;
 	
 	@Digits(integer=11, fraction=2) 
@@ -64,7 +65,7 @@ public class ProjectInfo {
 	@Column(name = "status_id")
 	private int statusId = 1;//Default status is Pending
 	
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne
 	@JoinColumn(name="status_id", insertable=false, updatable=false)
 	private ProjectStatus projectStatus;
 	

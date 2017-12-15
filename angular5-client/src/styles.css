@@ -95,3 +95,9 @@ body {
 	font-weight: bold;
 	text-align: center;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.3;
+}

@@ -4,32 +4,33 @@
 
 .mat-toolbar.mat-primary {
 	background: #353639;
+	color: #E1E1E1;
+	min-height: 80px;
 	border: none;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
 .nav-bar {
+	min-height: 80px;
 	border-radius: 0;
-	position: relative;
-	height: 80px;
 }
 
-.mat-button:hover {
-    background-color: #7c7c80fa;
-    color: white;
+.mat-button: hover, .mat-button: focus{
+	background: white;
 }
 
 .nav-title {
-    padding: 5px 10px;
-	color: #ace09f;
-	font-size: 26px;
-    line-height: 31px;
-    font-family: georgia,garamond,serif;
+	padding: 5px 5px;
+	color: #efefef;
+	font-size: 25px;
+    line-height: 50px;
+    /*
+    border-style: solid;
+    border-width: 3px;
+    */
     border-radius:5px;
+    border-color: #3f024ee0;
     margin-left: 20px;
-    -webkit-box-shadow: 1px 2px 11px 5px #aaff078c;  /* Safari*/
-	-moz-box-shadow:    1px 2px 11px 5px #aaff078c;  /* Firefox */
-	box-shadow:         1px 2px 11px 5px #aaff078c;  /* Other */
 }
 
 .nav-bar a {
@@ -39,8 +40,6 @@
 .nav-links {
 	position: absolute;
 	right: 170px;
-	color: #dadada;
-	bottom: 13px;
 }
 
 .login {
