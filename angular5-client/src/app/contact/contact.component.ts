@@ -3,7 +3,7 @@ import { ContactInfo } from './contactInfo'
 import { FormControl, Validators} from '@angular/forms';
 import { ErrorStateMatcher} from '@angular/material';
 import {ContactusService} from './contactus.service';
-import { UtilService } from '../util.service';
+import { UtilService } from '../shared/services/util.service';
 import { MatListModule} from '@angular/material/list';
 
 @Component({

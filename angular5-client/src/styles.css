@@ -5,6 +5,15 @@ body {
 	margin:0px;
 	display: block;
 	background: #e3e4e9;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.page-not-found {
+	width: 100%;
+	margin-top:100px;
+	color: red;
+	font-size: 30px;
+	text-align: center;
 }
 
 .page-main-container {

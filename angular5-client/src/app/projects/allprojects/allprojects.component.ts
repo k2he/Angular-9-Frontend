@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { ProjectService } from '../project.service';
 import { ProjectInfo } from "../projectInfo";
-//import { DataSource} from '@angular/cdk/collections';
 import { Observable } from 'rxjs/Observable';
 import { ProjectStatus } from "../projectStatus";
 import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';

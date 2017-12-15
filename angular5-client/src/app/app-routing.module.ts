@@ -3,33 +3,35 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { CoursesComponent } from './courses/courses.component';
+//import { CoursesComponent } from './courses/courses.component';
 import { ContactComponent } from './contact/contact.component';
-import { PageNotFoundComponent } from './notfound.component';
+import { PageNotFoundComponent } from './shared/notfound.component';
 
 const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
-//        outlet: 'popup'
     },
     {
         path: 'about',
         component: AboutComponent
-//        loadChildren: 'app/admin/admin.module#AdminModule',
-//        canLoad: [AuthGuard]
+//        loadChildren: 'app/admin/admin.module#AboutComponentModule',
     },
     {
         path: 'projects',
-        component: ProjectsComponent
+        component: ProjectsComponent,
+//        loadChildren: 'app/projects/projects.module#ProjectsModule',
+//        canLoad: [AuthGuard]
     },
     {
         path: 'courses',
-        component: CoursesComponent
+        loadChildren: 'app/courses/courses.module#CoursesModule',
+//        canLoad: [AuthGuard]
     },
     {
         path: 'contact',
         component: ContactComponent
+//        loadChildren: 'app/contact/admin.module#AboutModule',
     },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  

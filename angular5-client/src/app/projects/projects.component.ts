@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSidenavModule} from '@angular/material/sidenav';
-import { MatListModule} from '@angular/material/list';
-import { sideNavItem } from '../side-navi/sideNavItem'
+import { sideNavItem } from '../shared/side-navi/sideNavItem'
 
 @Component({
   selector: 'app-projects',
@@ -21,9 +19,5 @@ export class ProjectsComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-    }
-
-    onSubmit() {
-        alert("on submit");
     }
 }

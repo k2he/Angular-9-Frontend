@@ -5,7 +5,7 @@ import { Http, Response } from '@angular/http';
 import { ContactInfo } from './contactInfo';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { UtilService } from '../util.service';
+import { UtilService } from '../shared/services/util.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
