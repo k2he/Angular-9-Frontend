@@ -49,7 +49,6 @@ export class NewprojectComponent implements OnInit {
             this.projectInfo = info;
             this.title = "Edit Project Detail";
         }
-        console.log("setProjectInfo:" + this.projectInfo);
     }
     
     onSubmit() {

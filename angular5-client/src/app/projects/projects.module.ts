@@ -31,13 +31,14 @@ import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
         MatMenuModule,
         
         ProjectsRoutingModule,
+        
   ],
   declarations: [
         ProjectsComponent,
         AllprojectsComponent,
         NewprojectComponent, 
         InprogressprojectsComponent, 
-        EditprojectComponent
+        EditprojectComponent,
    ],
   providers: [
         ProjectService,

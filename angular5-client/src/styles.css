@@ -16,6 +16,11 @@ body {
 	text-align: center;
 }
 
+.page-not-found .material-icons {
+    font-size: 100px;
+    vertical-align: middle;
+}
+
 .page-main-container {
 	background-color: white;
 	margin:15px 50px 10px 50px;
@@ -79,6 +84,43 @@ body {
     pointer-events: none;
     cursor: default;
     opacity: 0.3;
+}
+/* Material customized CSS */
+.mat-dialog-container {
+    border-radius: 5px !important;
+    max-width: 400px;
+}
+
+.mat-dialog-container .title {
+	font-size:15px;
+}
+
+.mat-dialog-container .dialog-content {
+    font-size: 13px;
+    color: #2558d4;
+}
+
+.mat-dialog-container .mat-button {
+	border-radius: 5px;
+}
+
+/*
+.mat-dialog-container .dialog-button .yes:focus, .mat-dialog-container .dialog-button .no:focus {
+	border-width:1px;  
+    border-style:dotted;
+}
+*/
+.mat-dialog-container .dialog-button .yes {
+    float: left;
+}
+
+.mat-dialog-container .dialog-button .yes:focus, .mat-dialog-container .dialog-button .yes:hover,
+.mat-dialog-container .dialog-button .no:focus,  .mat-dialog-container .dialog-button .no:hover {
+    background-color: #989898eb;
+}
+
+.mat-dialog-container .dialog-button .no {
+	float: right;
 }
 
 /* Table CSS start*/

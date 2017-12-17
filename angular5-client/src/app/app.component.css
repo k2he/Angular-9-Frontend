@@ -51,9 +51,15 @@
 	position: absolute;
 	right: 35px;
 	top: 10px;
-	font-size: 14px;
-	color: #d2f9ff;
-	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #8ad021ed;
+}
+
+.login .material-icons {
+	font-size: 30px;
+}
+
+.main-content {
+	min-height:435px;
 }
 
 .footer {

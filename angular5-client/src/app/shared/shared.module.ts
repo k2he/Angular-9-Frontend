@@ -20,7 +20,7 @@ import { SideNaviComponent } from '../side-navi/side-navi.component';
   declarations: [
         CustomCurrencyPipe,
         CustomCurrencyFormatterDirective,
-        SideNaviComponent
+        SideNaviComponent,
   ],
   exports: [
         CommonModule,

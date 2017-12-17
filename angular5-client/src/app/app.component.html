@@ -14,13 +14,19 @@
 		</div>
 		
 		<div>
-			<a routerLink="" class="login display-inline " disabled>Login</a>
+			<a routerLink="" class="login display-inline " matTooltip="User Login">
+				<i class="material-icons">account_box</i>
+				<!--<i class="material-icons">face</i>-->
+				<!--<i class="material-icons">account_circle</i>-->
+			</a>
 		</div>
 		<div>
 		</div>
 	  </mat-toolbar-row>
 	</mat-toolbar>
-	<router-outlet></router-outlet>
+	<div class="main-content">
+		<router-outlet></router-outlet>
+	</div>
 	<div class="footer">
 		<div class="copy-right"> Copyright © 2017 Kai He</div>
 		<div class="footer-content">
