@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
 
 import { ContactRoutingModule } from './contact-routing.module';
 import { SharedModule } from '../shared/shared.module';
@@ -9,7 +10,10 @@ import { ContactusService } from './contactus.service';
 @NgModule({
   imports: [
     SharedModule,
-    CommonModule,
+    
+    MatInputModule,
+    MatFormFieldModule,
+    
     ContactRoutingModule
   ],
   declarations: [

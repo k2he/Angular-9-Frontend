@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatListModule} from '@angular/material/list';
+import { MatTableModule, MatSortModule } from '@angular/material';
+import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { AllprojectsComponent } from './allprojects/allprojects.component';
@@ -8,17 +13,24 @@ import { InprogressprojectsComponent } from './inprogressprojects/inprogressproj
 import { EditprojectComponent } from './editproject/editproject.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectsComponent } from "./projects.component";
-import { SideNaviModule} from '../side-navi/side-navi.module';
 
 import { ProjectService } from "./project.service";
 import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
 
 @NgModule({
   imports: [
-        CommonModule,
         SharedModule,
+        
+        MatInputModule,
+        MatFormFieldModule,
+        MatListModule,
+        MatTableModule,
+        MatSortModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatMenuModule,
+        
         ProjectsRoutingModule,
-//        SideNaviModule,
   ],
   declarations: [
         ProjectsComponent,
