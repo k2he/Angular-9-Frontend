@@ -51,3 +51,21 @@
 	color: #d2f9ff;
 	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
+
+.footer {
+	background-color: #353639;
+    color: white;
+    text-align: center;
+    padding: 25px 35px;
+    font-family: 'proxima-nova', 'Open Sans', Helvetica, Arial, sans-serif;
+    min-height: 34px;
+}
+
+.footer .copy-right {
+	float:left;
+}
+
+.footer .footer-content {
+	float: right;
+	text-align: right;
+}

@@ -6,6 +6,5 @@
 export const environment = {
   production: false,
   
-  apiUrl: "http://localhost:8080",
-  project_deleted_status: 6
+  apiUrl: "http://localhost:8080"
 };

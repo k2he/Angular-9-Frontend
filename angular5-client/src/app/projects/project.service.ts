@@ -43,15 +43,18 @@ export class ProjectService {
         .catch((error:any) => this.handleError(error));
     }
 
+    public deleteProjectInfoById(id: number): Observable<String> {
+        return this.http.delete<String>(`${this.url}/${id}`)
+        .catch((error:any) => this.handleError(error));
+    }
+    
     public updateProjectInfo(info: ProjectInfo) {
       // will use this.http.put()
     }
 
-    public deleteProjectInfo(info: ProjectInfo) {
-        const userID = 'testUser1';//This should get from session
-        info.statusId = environment.project_deleted_status;
-        info.lastupdatedBy = userID;
-        this.updateProjectInfo(info);
+    public deleteProjectInfo(id: number) {
+        return this.http.delete<String>(`${this.url}/${id}`)
+        .catch((error:any) => this.handleError(error));
     }
     
     handleError (error: Response | any) {

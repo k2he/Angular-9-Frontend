@@ -1,24 +1,31 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row class="nav-bar">
-    <a routerLink="/home" [@showUp] class="nav-title">My Angular Site</a>
-
-    <span class="spacer"></span>
-    
-    <div class="nav-links">
-	    <button mat-button routerLink="/home">Home</button>
-	    <!-- <button mat-button routerLink="/about">About</button>-->
-	    <button mat-button routerLink="/projects">Projects</button>
-	    <button mat-button routerLink="/courses">Course Provides</button>
-	    <button mat-button routerLink="/contact">Contact</button>
-	</div>
+<div>
+	<mat-toolbar color="primary">
+	  <mat-toolbar-row class="nav-bar">
+	    <a routerLink="/home" [@showUp] class="nav-title">My Angular Site</a>
 	
-	<div>
-		<a routerLink="" class="login display-inline " disabled>Login</a>
+	    <span class="spacer"></span>
+	    
+	    <div class="nav-links">
+		    <button mat-button routerLink="/home">Home</button>
+		    <!-- <button mat-button routerLink="/about">About</button>-->
+		    <button mat-button routerLink="/projects">Projects</button>
+		    <button mat-button routerLink="/courses">Course Provides</button>
+		    <button mat-button routerLink="/contact">Contact</button>
+		</div>
+		
+		<div>
+			<a routerLink="" class="login display-inline " disabled>Login</a>
+		</div>
+		<div>
+		</div>
+	  </mat-toolbar-row>
+	</mat-toolbar>
+	<router-outlet></router-outlet>
+	<div class="footer">
+		<div class="copy-right"> Copyright © 2017 Kai He</div>
+		<div class="footer-content">
+			<div>Contact: 416-836-6798</div>
+			<div>Email: he_kai517@hotmail.com</div>
+		</div>
 	</div>
-	<div>
-	</div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<router-outlet></router-outlet>
-
-
+</div>

@@ -50,5 +50,6 @@ export class AllprojectsComponent implements OnInit, AfterViewChecked {
     onDelete(projectId: string | number) {
         alert("Deleting project with id:" + projectId);
         //TODO: need refresh table.
+        this.fetchData();
     }
 }
