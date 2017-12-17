@@ -8,6 +8,10 @@
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
+.mat-button {
+	text-transform: uppercase;
+}
+
 .nav-bar {
 	border-radius: 0;
 	position: relative;
@@ -45,9 +49,9 @@
 
 .login {
 	position: absolute;
-	right: 20px;
+	right: 35px;
 	top: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	color: #d2f9ff;
 	font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
@@ -57,8 +61,10 @@
     color: white;
     text-align: center;
     padding: 25px 35px;
-    font-family: 'proxima-nova', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    font-size: 15px;
     min-height: 34px;
+    line-height: 20px;
 }
 
 .footer .copy-right {

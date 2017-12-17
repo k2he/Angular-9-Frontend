@@ -3,17 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
-//import { CoursesComponent } from './courses/courses.component';
-//import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './notfound.component';
 
 const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
-//        loadChildren: 'app/home/home.module#AboutComponentModule',
     },
-    /* Haven't figure out if I need this section
+    /* Haven't figure out if I need this section, but leave it here for now
     {
         path: 'about',
         loadChildren: 'app/about/about.module#AboutModule',

@@ -43,8 +43,8 @@ export class ProjectService {
         .catch((error:any) => this.handleError(error));
     }
 
-    public deleteProjectInfoById(id: number): Observable<String> {
-        return this.http.delete<String>(`${this.url}/${id}`)
+    public deleteProjectInfoById(id: string | number): Observable<ProjectInfo> {
+        return this.http.delete(`${this.url}/${id}`)
         .catch((error:any) => this.handleError(error));
     }
     
@@ -52,11 +52,11 @@ export class ProjectService {
       // will use this.http.put()
     }
 
-    public deleteProjectInfo(id: number) {
-        return this.http.delete<String>(`${this.url}/${id}`)
-        .catch((error:any) => this.handleError(error));
-    }
-    
+//    public deleteProjectInfo(id: number) {
+//        return this.http.delete<String>(`${this.url}/${id}`)
+//        .catch((error:any) => this.handleError(error));
+//    }
+//    
     handleError (error: Response | any) {
         // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;

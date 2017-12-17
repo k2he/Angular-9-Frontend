@@ -13,7 +13,7 @@ import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 })
 export class AllprojectsComponent implements OnInit, AfterViewChecked {
 
-    displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status',  'actions'];
+    displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status', 'actions'];
     dataSource;
     
     @ViewChild(MatSort) sort: MatSort;
@@ -48,8 +48,12 @@ export class AllprojectsComponent implements OnInit, AfterViewChecked {
     }
     
     onDelete(projectId: string | number) {
-        alert("Deleting project with id:" + projectId);
-        //TODO: need refresh table.
-        this.fetchData();
+        //TODO: Add a popup to confirm
+        this.projectService.deleteProjectInfoById(projectId).subscribe(
+                result => {
+                    console.log(result);
+                    this.fetchData();
+                }
+        );
     }
 }
