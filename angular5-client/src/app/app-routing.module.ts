@@ -13,14 +13,14 @@ const routes: Routes = [
         component: HomeComponent
 //        loadChildren: 'app/home/home.module#AboutComponentModule',
     },
+    /* Haven't figure out if I need this section
     {
         path: 'about',
-//        component: AboutComponent
         loadChildren: 'app/about/about.module#AboutModule',
     },
+    */
     {
         path: 'projects',
-//        component: ProjectsComponent,
         loadChildren: 'app/projects/projects.module#ProjectsModule',
 //        canLoad: [AuthGuard]
     },
@@ -31,11 +31,9 @@ const routes: Routes = [
     },
     {
         path: 'contact',
-//        component: ContactComponent
         loadChildren: 'app/contact/contact.module#ContactModule',
     },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
-    
     { path: '**', component: PageNotFoundComponent }  
 ];
 

@@ -62,28 +62,6 @@ body {
   	flex-direction: column;
 }
 
-.width-500px {
-	width: 500px;
-}
-
-.width-600px { 
-	width: 600px;
-}
-
-.margin-top-50px {
-	margin-top: 50px;
-}
-
-.display-inline { 
-	display: inline-block;
-}
-
-.mat-form-field {
-	margin-top:10px;
-}
-
-
-
 .restful_call_status_ok {
 	color: #2424a5;
 	font-weight: bold;
@@ -100,4 +78,36 @@ body {
     pointer-events: none;
     cursor: default;
     opacity: 0.3;
+}
+
+/* Table CSS start*/
+.mat-table .mat-button{
+    color: #545454;
+    background-color: #b3b3b34f;
+    border-radius: 8px;
+}
+
+.mat-form-field {
+	margin-top:10px;
+}
+
+.mat-form-field-infix {
+	width: 250px !important;
+}
+
+/* Single style CSS start */
+.width-500px {
+	width: 500px;
+}
+
+.width-600px { 
+	width: 600px;
+}
+
+.margin-top-50px {
+	margin-top: 50px;
+}
+
+.display-inline { 
+	display: inline-block;
 }
