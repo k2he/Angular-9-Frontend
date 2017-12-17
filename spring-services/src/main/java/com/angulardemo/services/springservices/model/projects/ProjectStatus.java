@@ -1,4 +1,4 @@
-package com.angulardemo.services.springservices.model;
+package com.angulardemo.services.springservices.model.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity

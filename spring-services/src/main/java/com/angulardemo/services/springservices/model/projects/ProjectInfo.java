@@ -1,4 +1,4 @@
-package com.angulardemo.services.springservices.model;
+package com.angulardemo.services.springservices.model.projects;
 
 import java.math.BigDecimal;
 import java.util.Date;

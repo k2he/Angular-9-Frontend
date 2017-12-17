@@ -16,22 +16,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.angulardemo.services.springservices.model.ContactUsInfo;
-import com.angulardemo.services.springservices.model.ProjectInfo;
+import com.angulardemo.services.springservices.model.projects.ProjectInfo;
 import com.angulardemo.services.springservices.repository.ProjectRepository;
+
+enum PStatus {
+    PENDING(1),
+    ACCEPTED(2),
+    STARTED(3),
+    COMPLETED(4),
+    RETURNED(5),
+    DELETED(6);
+	
+	private int id;
+    private PStatus(int id) {
+        this.id = id;
+    }
+    public int getValue() {
+        return id;
+    }
+}
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/projects")
 public class ProjectResource {
 
+	String userID = "testUser1";//This should get from session
+	
 	@Autowired
 	ProjectRepository repository;
 	
 	//Get All projects
 	@GetMapping("/project")
 	public List<ProjectInfo> getAllProjects() {
-		return repository.findAll();
+		List<ProjectInfo> result = repository.findAllByStatusIdNotOrderByDueDateAsc(PStatus.DELETED.getValue());
+		return result;
 	}
 	
 	//Create a new project
@@ -70,5 +89,19 @@ public class ProjectResource {
 
 		ProjectInfo result = repository.save(project);
 		return ResponseEntity.ok().body(result);
+	}
+	
+	//Delete (set isActive to be false and leave in database)
+	@DeleteMapping("/project/{id}")
+	public ResponseEntity<Void> deleteProject(@PathVariable(value = "id") Integer id) {
+		ProjectInfo project = repository.findOne(id);
+		if (project == null) {
+			return ResponseEntity.notFound().build();
+		}
+		project.setLastUpdatedBy(userID);
+		project.setStatusId(PStatus.DELETED.getValue());
+		
+		repository.save(project);
+		return ResponseEntity.ok().build();
 	}
 }
