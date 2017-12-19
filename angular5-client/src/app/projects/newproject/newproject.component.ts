@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 import { ProjectInfo } from "../projectInfo";
 import { ProjectService } from '../project.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilService } from '../../shared/services/util.service';
-import { ActivatedRoute } from '@angular/router';
+import { NewProjectCountService } from '../../services/newprojectcount.service';
 
 const NAME_FIELD_MIN: number = 3;
 
@@ -18,11 +20,13 @@ export class NewprojectComponent implements OnInit {
     title = "Create New Project";
     statusMessage: string;
     statusClass: string;
+    isOnEdit: boolean = false;
     
     
     constructor(private fb: FormBuilder, 
                 private utilService: UtilService, 
                 private projectService: ProjectService,
+                private service: NewProjectCountService,
                 private route: ActivatedRoute) { 
         this.projectForm = fb.group({ 
             'name': ['', Validators.compose([Validators.required, Validators.minLength(NAME_FIELD_MIN), Validators.maxLength(100)])], 
@@ -41,7 +45,9 @@ export class NewprojectComponent implements OnInit {
             .subscribe(
                 result => this.setProjectInfo(result)
             );
+            this.isOnEdit = true;
         }
+        this.isOnEdit = false;
     }
     
     setProjectInfo(info: ProjectInfo) {
@@ -70,8 +76,14 @@ export class NewprojectComponent implements OnInit {
             this.statusMessage = "Submission Failed !!!";
             this.statusClass = "restful_call_status_failed";
         } else {
-            this.statusMessage = "Submission Successful. Message inserted into database";
-            this.statusClass = "restful_call_status_ok ";
+            if (this.isOnEdit) { //Editing existing project
+                this.statusMessage = "Update Successful!";
+                this.statusClass = "restful_call_status_ok ";
+            } else {//Add new project
+                this.statusMessage = "Submission Successful!";
+                this.statusClass = "restful_call_status_ok ";
+                this.service.newEvent('add');
+            }
         }
     }
 }

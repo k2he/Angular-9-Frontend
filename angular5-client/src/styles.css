@@ -116,7 +116,7 @@ body {
 
 .mat-dialog-container .dialog-button .yes:focus, .mat-dialog-container .dialog-button .yes:hover,
 .mat-dialog-container .dialog-button .no:focus,  .mat-dialog-container .dialog-button .no:hover {
-    background-color: #989898eb;
+    background-color: #dad7d7;
 }
 
 .mat-dialog-container .dialog-button .no {

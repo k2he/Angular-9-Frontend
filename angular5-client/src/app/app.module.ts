@@ -14,6 +14,7 @@ import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { NewProjectCountService } from './services/newprojectcount.service';
 
 @NgModule({
   imports: [
@@ -32,11 +33,14 @@ import { SpinnerComponent } from './spinner/spinner.component';
      PageNotFoundComponent,
      SpinnerComponent
   ],
-  providers: [{
-     provide: HTTP_INTERCEPTORS,
-     useClass: HttpSpinnerInterceptor,
-     multi: true,
-  }],
+  providers: [
+     {
+         provide: HTTP_INTERCEPTORS,
+         useClass: HttpSpinnerInterceptor,
+         multi: true,
+     },
+     NewProjectCountService
+  ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })

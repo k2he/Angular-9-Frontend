@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+
+import { NewProjectCountService } from './services/newprojectcount.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +18,15 @@ import { trigger, style, animate, transition } from '@angular/animations';
        ])
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   newProjectNum = 0;
   
+  constructor(private projectService: NewProjectCountService) { }
   
+  ngOnInit() {
+      this.projectService.events$.forEach(result => {
+          this.newProjectNum++
+      });
+  }
 }
