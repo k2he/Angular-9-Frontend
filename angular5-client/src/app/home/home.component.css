@@ -1,7 +1,8 @@
 .home-main {
 	background-image: url("/assets/home_background.jpg"); 
 	background-repeat: no-repeat;
-	min-height: 534px;
+	min-height: 565px;
+	background-size: 1280px 565px;
 }
 
 .main-content {

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './notfound.component';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
+import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
@@ -30,6 +32,11 @@ import { SpinnerComponent } from './spinner/spinner.component';
      PageNotFoundComponent,
      SpinnerComponent
   ],
+  providers: [{
+     provide: HTTP_INTERCEPTORS,
+     useClass: HttpSpinnerInterceptor,
+     multi: true,
+  }],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })

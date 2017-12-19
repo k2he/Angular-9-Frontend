@@ -18,4 +18,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class AppComponent {
   title = 'app';
+  newProjectNum = 0;
+  
+  
 }

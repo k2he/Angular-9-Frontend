@@ -47,15 +47,16 @@
 	bottom: 13px;
 }
 
-.login {
+.tools {
 	position: absolute;
 	right: 35px;
 	top: 10px;
 	color: #8ad021ed;
 }
 
-.login .material-icons {
-	font-size: 30px;
+.tools .material-icons {
+	font-size: 28px;
+    color: #8ad021ed;
 }
 
 .main-content {
@@ -80,4 +81,19 @@
 .footer .footer-content {
 	float: right;
 	text-align: right;
+}
+
+.new-project-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.52em;
+    color: #ffffff;
+    line-height: 18px;
+    text-align: center;
+    background-color: #da2929;
+    position: absolute;
+    top: -2px;
+    left: 186px;
+    z-index: 10;
 }

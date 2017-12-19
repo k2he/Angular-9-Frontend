@@ -6,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +24,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.angulardemo.services.springservices.util.JsonDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
 @Table(name="projects", catalog= "my_database")
@@ -53,7 +53,7 @@ public class ProjectInfo {
 	
 	@NotNull
 	@Column(name = "due_date")
-//	@JsonFormat(pattern="dd/MM/yyyy")
+//	@JsonSerialize(using=JsonDateSerializer.class)
 	private Date dueDate;
 	
 	@Digits(integer=11, fraction=2) 
@@ -72,6 +72,7 @@ public class ProjectInfo {
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
 	@Column(name = "created_on")
+	@JsonSerialize(using=JsonDateSerializer.class)
 	private Date createdOn;
 	
 	@Column(name = "created_by")
@@ -79,6 +80,7 @@ public class ProjectInfo {
 	
 	@LastModifiedDate
 	@Column(name = "updated_on")
+	@JsonSerialize(using=JsonDateSerializer.class)
 	private Date updatedOn;
 	
 	@Column(name = "lastupdated_by")
