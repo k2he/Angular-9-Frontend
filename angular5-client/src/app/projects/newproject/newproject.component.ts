@@ -62,7 +62,7 @@ export class NewprojectComponent implements OnInit {
         this.utilService.deepTrim(this.projectInfo);
         this.projectService.createProjectInfo(this.projectInfo)
           .subscribe(
-              hero => {
+              () => {
                   this.displaySubmitMessage(false);
               },
               error => {
