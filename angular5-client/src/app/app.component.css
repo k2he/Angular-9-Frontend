@@ -61,6 +61,7 @@
 
 .main-content {
 	min-height:435px;
+    position: relative;
 }
 
 .footer {

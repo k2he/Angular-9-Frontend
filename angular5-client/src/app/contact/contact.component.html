@@ -26,7 +26,7 @@
 					<mat-error *ngIf="phoneNumber.errors?.required">This field is required</mat-error>
 					<mat-error *ngIf="phoneNumber.errors?.pattern">Please enter a valid phone number</mat-error>
 				</mat-form-field>
-				{{SUBJECT_MAX}}
+
 				<mat-form-field>
 					<input matInput placeholder="Subject" required maxlength="50" [(ngModel)]="contectInfo.subject" name="subject">
 					<mat-error>This field is required</mat-error>

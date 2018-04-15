@@ -70,6 +70,6 @@ export class ProjectService {
     
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-      console.log('HeroService: ' + message);
+      console.log(message);
     }
 }

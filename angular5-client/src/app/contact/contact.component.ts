@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactInfo } from './contactInfo'
 import { FormControl, Validators} from '@angular/forms';
 import { ErrorStateMatcher} from '@angular/material';
@@ -17,6 +17,8 @@ export class ContactComponent {
     statusMessage: string;
     statusClass: string;
     
+    @ViewChild('contactUsForm') form;
+    
     constructor(private contactService: ContactusService, private utilService: UtilService) { }
     
     onSubmit(): void {
@@ -26,6 +28,7 @@ export class ContactComponent {
           .subscribe(
               hero => {
                   this.displaySubmitMessage(false);
+//                  this.form.reset();
               },
               error => {
                   this.displaySubmitMessage(true);

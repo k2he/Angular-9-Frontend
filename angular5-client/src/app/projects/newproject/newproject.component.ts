@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -15,6 +15,9 @@ const NAME_FIELD_MIN: number = 3;
   styleUrls: ['./newproject.component.css']
 })
 export class NewprojectComponent implements OnInit {
+    
+//    @Output() actionPerformed = new EventEmitter<string>();
+    
     projectInfo: ProjectInfo = new ProjectInfo();
     projectForm: FormGroup;
     title = "Create New Project";
@@ -22,20 +25,18 @@ export class NewprojectComponent implements OnInit {
     statusClass: string;
     isOnEdit: boolean = false;
     
-    
     constructor(private fb: FormBuilder, 
                 private utilService: UtilService, 
                 private projectService: ProjectService,
                 private service: NewProjectCountService,
                 private route: ActivatedRoute) { 
         this.projectForm = fb.group({ 
-            'name': ['', Validators.compose([Validators.required, Validators.minLength(NAME_FIELD_MIN), Validators.maxLength(100)])], 
+            'name': ['', [Validators.required, Validators.minLength(NAME_FIELD_MIN), Validators.maxLength(100)]], 
             'skills': ['', null],
             'dueDate' : ['', Validators.required],
-            'cost': ['', Validators.compose([Validators.required, Validators.max(99999999999)])],
-            'description': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(500)])]
+            'cost': ['', [Validators.required, Validators.max(99999999999)]],
+            'description': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(500)]]
         });
-    
     }
 
     ngOnInit() {
@@ -79,10 +80,12 @@ export class NewprojectComponent implements OnInit {
             if (this.isOnEdit) { //Editing existing project
                 this.statusMessage = "Update Successful!";
                 this.statusClass = "restful_call_status_ok ";
+//                this.actionPerformed.emit("Edited");
             } else {//Add new project
                 this.statusMessage = "Submission Successful!";
                 this.statusClass = "restful_call_status_ok ";
                 this.service.newEvent('add');
+//                this.actionPerformed.emit("Created");
             }
         }
     }

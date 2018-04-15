@@ -8,7 +8,7 @@ import { sideNavItem } from './sideNavItem'
 })
 export class SideNaviComponent implements OnInit {
 
-    @Input() naviItemList: sideNavItem[];
+    @Input('naviItemList') naviItemList: sideNavItem[];
 
     constructor() { }
 

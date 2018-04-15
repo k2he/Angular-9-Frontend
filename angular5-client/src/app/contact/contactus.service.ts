@@ -63,6 +63,6 @@ export class ContactusService {
     
     /** Log a HeroService message with the MessageService */
     private log(message: string) {
-      console.error('ContactusService: ' + message);
+      console.log('ContactusService: ' + message);
     }
 }
