@@ -1,4 +1,4 @@
-package com.angulardemo.services.springservices.resource;
+package com.angulardemo.services.springservices.controller;
 
 import java.sql.Date;
 

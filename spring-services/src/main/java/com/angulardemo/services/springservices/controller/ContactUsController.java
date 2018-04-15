@@ -1,4 +1,4 @@
-package com.angulardemo.services.springservices.resource;
+package com.angulardemo.services.springservices.controller;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import com.angulardemo.services.springservices.service.ContactService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/contactus")
-public class ContactUsResource {
+public class ContactUsController {
 
 	@Autowired
 	ContactService contactService;
