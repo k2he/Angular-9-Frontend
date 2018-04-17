@@ -20,10 +20,10 @@ export class NewprojectComponent implements OnInit {
     
     projectInfo: ProjectInfo = new ProjectInfo();
     projectForm: FormGroup;
-    title = "Create New Project";
+    title: string;
     statusMessage: string;
     statusClass: string;
-    isOnEdit: boolean = false;
+    isOnEditMode: boolean = false;
     
     constructor(private fb: FormBuilder, 
                 private utilService: UtilService, 
@@ -42,50 +42,63 @@ export class NewprojectComponent implements OnInit {
     ngOnInit() {
         const productID = this.route.snapshot.params['id'];
         if (productID) {
-            this.projectService.getProjectInfoById(productID)
-            .subscribe(
-                result => this.setProjectInfo(result)
-            );
-            this.isOnEdit = true;
-        }
-        this.isOnEdit = false;
+            this.loadProjectInfo(productID);
+        } 
+        this.isOnEditMode = productID ? true : false; 
+        this.title = productID ? "Edit Project Detail" : "Create New Project";
     }
     
-    setProjectInfo(info: ProjectInfo) {
-        if(info) {
-            this.projectInfo = info;
-            this.title = "Edit Project Detail";
-        }
+    private loadProjectInfo(productID: number) {
+        this.projectService.getProjectInfoById(productID)
+        .subscribe( info => this.projectInfo = info);
     }
     
-    onSubmit() {
+    private onSubmit() {
         this.statusMessage = '';
         this.utilService.deepTrim(this.projectInfo);
-        this.projectService.createProjectInfo(this.projectInfo)
-          .subscribe(
-              () => {
-                  this.displaySubmitMessage(false);
-              },
-              error => {
-                  this.displaySubmitMessage(true);
-              }
-          );
+        if (this.isOnEditMode) {
+            this.updateProject();
+        } else {
+            this.createProject();
+        }
     }
 
-    displaySubmitMessage(hasError: boolean) {
+    private createProject() {
+        this.projectService.createProjectInfo(this.projectInfo)
+        .subscribe(
+            () => {
+                this.displaySubmitMessage(false);
+            },
+            error => {
+                this.displaySubmitMessage(true);
+            }
+        );
+    }
+    
+    private updateProject() {
+        this.projectService.updateProjectInfo(this.projectInfo)
+        .subscribe(
+            () => {
+                this.displaySubmitMessage(false);
+            },
+            error => {
+                this.displaySubmitMessage(true);
+            }
+        );
+    }
+    
+    private displaySubmitMessage(hasError: boolean) {
         if (hasError) {
             this.statusMessage = "Submission Failed !!!";
             this.statusClass = "restful_call_status_failed";
         } else {
-            if (this.isOnEdit) { //Editing existing project
+            if (this.isOnEditMode) { //Editing existing project
                 this.statusMessage = "Update Successful!";
                 this.statusClass = "restful_call_status_ok ";
-//                this.actionPerformed.emit("Edited");
             } else {//Add new project
                 this.statusMessage = "Submission Successful!";
                 this.statusClass = "restful_call_status_ok ";
                 this.service.newEvent('add');
-//                this.actionPerformed.emit("Created");
             }
         }
     }

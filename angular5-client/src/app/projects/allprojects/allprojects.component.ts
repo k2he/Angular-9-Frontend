@@ -30,7 +30,7 @@ export class AllprojectsComponent implements OnInit, AfterViewChecked {
     }
 
     fetchData() {
-        this.projectService.getAllProjectList().subscribe(
+        this.projectService.getAllProjects().subscribe(
                 result => this.dataSource = new MatTableDataSource(result)
          );
     }

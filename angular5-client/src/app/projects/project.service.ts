@@ -14,7 +14,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ProjectService {
-    url =  `${environment.apiUrl}/projects/project`;
+    url =  `${environment.apiUrl}/project`;
     
     constructor(private http: HttpClient, private util: UtilService) { }
     
@@ -24,11 +24,6 @@ export class ProjectService {
             tap(_ => this.log("ProjectService.getAllProjects() called")),
             catchError(this.handleError)
         );
-    }
-
-    public getAllProjectList(): Observable<ProjectInfo[]> {
-        return this.http.get<ProjectInfo[]>(this.url)
-                .catch((error:any) => this.handleError(error));
     }
     
     public createProjectInfo(info: ProjectInfo): Observable<ProjectInfo> {
@@ -50,11 +45,11 @@ export class ProjectService {
     }
     
     public updateProjectInfo(info: ProjectInfo) {
-      // will use this.http.put()
+        return this.http.post(`${this.url}`, info)
+        .catch((error:any) => this.handleError(error));
     }
 
-
-    handleError (error: Response | any) {
+    private handleError (error: Response | any) {
         // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;
         if (error instanceof Response) {

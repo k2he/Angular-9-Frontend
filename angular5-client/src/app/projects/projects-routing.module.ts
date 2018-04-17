@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AllprojectsComponent } from './allprojects/allprojects.component';
 import { NewprojectComponent } from "./newproject/newproject.component";
-import { EditprojectComponent } from "./editproject/editproject.component";
 import { InprogressprojectsComponent } from "./inprogressprojects/inprogressprojects.component";
 import { ProjectsComponent } from "./projects.component";
 
