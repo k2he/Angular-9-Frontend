@@ -85,6 +85,22 @@ body {
     cursor: default;
     opacity: 0.3;
 }
+
+.float-content-shadow {
+	-webkit-box-shadow: 0px 0px 6px 2px #969696d9 !important;  /* Safari*/
+	-moz-box-shadow:    0px 0px 6px 2px #969696d9 !important;  /* Firefox */
+	box-shadow:         0px 0px 6px 2px #969696d9 !important;  /* Other */
+}
+/*
+CSS for both login and home page
+*/
+.home-background {
+	background-image: url("/assets/home_background.jpg"); 
+	background-repeat: no-repeat;
+	min-height: 565px;
+	background-size: 1280px 565px;
+}
+
 /* Material customized CSS */
 .mat-dialog-container {
     border-radius: 5px !important;
@@ -102,6 +118,10 @@ body {
 
 .mat-dialog-container .mat-button {
 	border-radius: 5px;
+}
+
+.mat-card {
+    border-radius: 5px !important;
 }
 
 /*
@@ -139,6 +159,10 @@ body {
 }
 
 /* Single style CSS start */
+.width-400px {
+	width: 400px;
+}
+
 .width-500px {
 	width: 500px;
 }
@@ -153,4 +177,12 @@ body {
 
 .display-inline { 
 	display: inline-block;
+}
+
+.top-100px {
+	top: 100px;
+}
+
+.center {
+    margin: auto;
 }
