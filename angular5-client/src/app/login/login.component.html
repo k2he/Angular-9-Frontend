@@ -1,20 +1,21 @@
-<div class="home-background">
+<div class="login home-background">
 
-  <mat-card class="center width-400px top-100px float-content-shadow">
+  <mat-card [@showUp] class="center width-400px top-100px float-content-shadow">
     <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title class="popup-title">Please Login</mat-card-title>
     </mat-card-header>
-    <mat-card-content class="">
-      <form class="">
-          <mat-form-field class="">
+    <mat-card-content>
+      <div *ngIf="loginFailErrorMessage" class="error">{{loginFailErrorMessage}}</div>
+      <form>
+          <mat-form-field>
               <input matInput placeholder="Username" name="username" required [(ngModel)]="username">
               <mat-error>This field is required</mat-error>
           </mat-form-field>
-          <mat-form-field class="">
+          <mat-form-field>
               <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
           </mat-form-field>
       </form>
-      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="login()" color="primary">Login</button>

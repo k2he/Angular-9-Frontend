@@ -8,10 +8,13 @@ body {
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
+.error {
+	color:#f70d0d;
+}
 .page-not-found {
 	width: 100%;
-	margin-top:100px;
-	color: red;
+	margin-top: 100px;
+	color: #f70d0d;
 	font-size: 30px;
 	text-align: center;
 }
@@ -52,7 +55,7 @@ body {
 
 .content-title {
 	font-size: 23px;
-	margin-button:70px;
+	margin-bottom:70px;
 	color: #635f5f;
 	font-family: Roboto,"Helvetica Neue",sans-serif;
 }
@@ -75,7 +78,7 @@ body {
 }
 
 .restful_call_status_failed {
-	color: red;
+	color: #f70d0d;
 	font-weight: bold;
 	text-align: center;
 }
@@ -90,6 +93,12 @@ body {
 	-webkit-box-shadow: 0px 0px 6px 2px #969696d9 !important;  /* Safari*/
 	-moz-box-shadow:    0px 0px 6px 2px #969696d9 !important;  /* Firefox */
 	box-shadow:         0px 0px 6px 2px #969696d9 !important;  /* Other */
+}
+
+.popup-title {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color: #454846;
 }
 /*
 CSS for both login and home page
@@ -124,6 +133,30 @@ CSS for both login and home page
     border-radius: 5px !important;
 }
 
+.mat-card-actions {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.mat-card>.mat-card-actions:last-child {
+	margin-bottom: -5px !important;
+}
+/*
+Customized CSS for header page
+*/
+.login .mat-card-header-text {
+	margin: 5px 0px 0px 0px!important;
+}
+
+.mat-card-header .mat-card-title {
+	font-size: 16px !important;
+}
+
+.login .mat-card-actions {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	margin-bottom: 10px; 
+}
 /*
 .mat-dialog-container .dialog-button .yes:focus, .mat-dialog-container .dialog-button .no:focus {
 	border-width:1px;  
@@ -185,4 +218,8 @@ CSS for both login and home page
 
 .center {
     margin: auto;
+}
+
+.margin-0 {
+	margin: 0px !important;
 }
