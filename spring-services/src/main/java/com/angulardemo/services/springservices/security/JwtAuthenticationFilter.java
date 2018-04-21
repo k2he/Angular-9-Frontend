@@ -23,7 +23,6 @@ import io.jsonwebtoken.JwtException;
 @Component // one per request
 public class JwtAuthenticationFilter extends GenericFilterBean {
 
-//	private AuthenticationManager authenticationManager;
 	@Autowired
 	private TokenAuthenticationService tokenAuthenticationService;
 

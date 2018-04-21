@@ -7,14 +7,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.angulardemo.services.springservices.model.auth.JwtUserAuthentication;
-import com.angulardemo.services.springservices.security.JWTTokenHandler;
+import com.angulardemo.services.springservices.security.JwtTokenHandler;
 import com.angulardemo.services.springservices.service.TokenAuthenticationService;
 
 @Service
 public class TokenAuthenticationServiceImpl implements TokenAuthenticationService{
 
 	@Autowired
-	private JWTTokenHandler tokenHandler;
+	private JwtTokenHandler tokenHandler;
 	
 	@Override
 	public Authentication getAuthentication(HttpServletRequest request) {

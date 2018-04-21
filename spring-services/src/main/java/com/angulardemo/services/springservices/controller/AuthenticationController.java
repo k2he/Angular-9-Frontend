@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.angulardemo.services.springservices.model.auth.JwtAuthenticationToken;
 import com.angulardemo.services.springservices.model.auth.LoginInfo;
-import com.angulardemo.services.springservices.security.JWTTokenHandler;
+import com.angulardemo.services.springservices.security.JwtTokenHandler;
 import com.angulardemo.services.springservices.service.SecurityContextService;
 
 @RestController
@@ -25,7 +25,7 @@ public class AuthenticationController {
 	@Autowired
 	private SecurityContextService securityContextService;
 	@Autowired
-	private JWTTokenHandler tokenHandler;
+	private JwtTokenHandler tokenHandler;
 	
 	@RequestMapping(method = RequestMethod.POST)
     public JwtAuthenticationToken login(@RequestBody LoginInfo info) {

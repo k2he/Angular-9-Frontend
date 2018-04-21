@@ -22,7 +22,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
-public class JWTTokenHandler {
+public class JwtTokenHandler {
 	
 	@Autowired
     private UserRepository userRepository;
@@ -31,7 +31,7 @@ public class JWTTokenHandler {
 	private String secret;
 	
     public String createTokenForUser(UserInfo user) {
-        final ZonedDateTime expiration = ZonedDateTime.now().plusDays(1);//Valid for one day
+        final ZonedDateTime expiration = ZonedDateTime.now().plusHours(1);//Valid for one hour
 
         return Jwts.builder()
                 .setSubject(user.getId().toString())
@@ -48,7 +48,6 @@ public class JWTTokenHandler {
                 .getSubject();
         UserInfo user = userRepository.findOne(Long.valueOf(subject));
         
-        System.out.println("!!!!!!!! username: " + user.getUsername() + " Password:" + user.getPassword());
         JwtUserDetails userDetail = null;
         if (user!=null) {
         	userDetail = new JwtUserDetails();
