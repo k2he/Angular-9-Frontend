@@ -1,13 +1,13 @@
-package com.angulardemo.services.springservices.service;
+package com.angulardemo.services.springservices.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.angulardemo.services.springservices.model.ContactUsInfo;
 import com.angulardemo.services.springservices.repository.ContactUsRepository;
+import com.angulardemo.services.springservices.service.ContactService;
 
 @Service("cotactService")
 public class ContactServiceImpl implements ContactService {

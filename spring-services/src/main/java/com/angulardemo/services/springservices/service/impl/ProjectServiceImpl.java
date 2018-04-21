@@ -1,4 +1,4 @@
-package com.angulardemo.services.springservices.service;
+package com.angulardemo.services.springservices.service.impl;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import com.angulardemo.services.springservices.model.projects.Enums;
 import com.angulardemo.services.springservices.model.projects.ProjectInfo;
 import com.angulardemo.services.springservices.model.projects.Enums.PStatus;
 import com.angulardemo.services.springservices.repository.ProjectRepository;
+import com.angulardemo.services.springservices.service.ProjectService;
 
 @Service("projectService")
 public class ProjectServiceImpl implements ProjectService{
