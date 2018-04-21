@@ -19,12 +19,6 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [PublicPageGuard] 
     },
-    /* Haven't figure out if I need this section, but leave it here for now
-    {
-        path: 'about',
-        loadChildren: 'app/about/about.module#AboutModule',
-    },
-    */
     {
         path: 'projects',
         loadChildren: 'app/projects/projects.module#ProjectsModule',
