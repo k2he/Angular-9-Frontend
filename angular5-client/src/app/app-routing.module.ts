@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './notfound.component';
 import { AuthGuard } from './core/guard/auth-guard';
 import { PublicPageGuard } from './core/guard/public-guard';
+import { AuthGuardCanActive } from './core/guard/canActive-auth-guard';
 
 const routes: Routes = [
     {   
@@ -27,17 +28,20 @@ const routes: Routes = [
     {
         path: 'projects',
         loadChildren: 'app/projects/projects.module#ProjectsModule',
-        canLoad: [AuthGuard]
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuardCanActive]
     },
     {
         path: 'courses',
         loadChildren: 'app/courses/courses.module#CoursesModule',
-        canLoad: [AuthGuard]
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuardCanActive]
     },
     {
         path: 'contact',
         loadChildren: 'app/contact/contact.module#ContactModule',
-        canLoad: [AuthGuard]
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuardCanActive]
     },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  

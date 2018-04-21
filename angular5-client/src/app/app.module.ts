@@ -14,10 +14,11 @@ import { MaterialModuleModule } from './material-module/material-module.module'
 import { HomeModule } from './home/home.module';
 import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { NewProjectCountService } from './services/newprojectcount.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -37,15 +38,16 @@ import { UserComponent } from './user/user.component';
      PageNotFoundComponent,
      SpinnerComponent,
      LoginComponent,
-     UserComponent
+     UserComponent,
+     HeaderComponent,
+     FooterComponent,
   ],
   providers: [
      {
          provide: HTTP_INTERCEPTORS,
          useClass: HttpSpinnerInterceptor,
          multi: true,
-     },
-     NewProjectCountService
+     }
   ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]

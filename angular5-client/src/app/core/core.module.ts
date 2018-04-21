@@ -9,6 +9,9 @@ import { AuthenticationService } from "./service/authentication.service";
 import { AuthGuard } from "./guard/auth-guard";
 import { PublicPageGuard } from "./guard/public-guard";
 import { JsonHttp } from "./service/custom-json-http";
+import { AuthGuardCanActive } from "./guard/canActive-auth-guard";
+import { NewProjectCountService } from '../services/newprojectcount.service';
+
 
 export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
       console.log("createJsonHttp");
@@ -38,7 +41,9 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
       },
       AuthenticationService,
       AuthGuard,
-      PublicPageGuard
+      PublicPageGuard,
+      AuthGuardCanActive,
+      NewProjectCountService
   ],
 })
 

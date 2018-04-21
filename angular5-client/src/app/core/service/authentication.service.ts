@@ -46,4 +46,8 @@ export class AuthenticationService {
         console.log("isAuthenticated() called with value:" + localStorage.getItem('jwtToken') );
         return localStorage.getItem('jwtToken') != null;
     }
+
+    get events(): Observable<AuthenticationEvent> {
+        return this.authEvents;
+    }
 }
