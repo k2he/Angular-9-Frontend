@@ -20,7 +20,6 @@ import com.angulardemo.services.springservices.model.ContactUsInfo;
 import com.angulardemo.services.springservices.service.ContactService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/contactus")
 public class ContactUsController {
 

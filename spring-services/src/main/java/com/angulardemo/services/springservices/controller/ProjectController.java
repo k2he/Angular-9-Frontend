@@ -19,7 +19,6 @@ import com.angulardemo.services.springservices.model.projects.ProjectInfo;
 import com.angulardemo.services.springservices.service.ProjectService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 public class ProjectController {
 
 	String userID = "testUser1";//This should get from session

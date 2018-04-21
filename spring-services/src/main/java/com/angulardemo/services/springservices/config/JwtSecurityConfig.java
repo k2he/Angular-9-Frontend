@@ -41,7 +41,7 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
         ;
 
         http.authorizeRequests()
-//                .antMatchers("/project").hasRole(AUTHORIZED_ROLE)
+//                .antMatchers("/project, /contactus").hasRole(AUTHORIZED_ROLE)
 //                .antMatchers("/contactus").hasRole(AUTHORIZED_ROLE)
                 .anyRequest().permitAll()
                 .and()
@@ -62,43 +62,14 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
         return registration;
     }
     
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.userDetailsService(userDetailsService)
-//		        .passwordEncoder(encoder());
-//	}
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService)
+		        .passwordEncoder(encoder());
+	}
 	
 	@Bean
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
-	
-//	private JWTAuthenticationEntryPoint entryPoint;
-//	@Bean
-//	@Override
-//	public AuthenticationManager authenticationManager() {
-//		return new ProviderManager(Collections.singletonList(authenticationProvider));
-//	}
-	
-	
-//	@Bean
-//	public JWTAuthenticationFilter authenticationFilter() {
-//		AuthenticationManager manager = authenticationManager();
-//		JWTAuthenticationFilter filter = new JWTAuthenticationFilter(manager);
-//		filter.setAuthenticationSuccessHandler(new JwtSuccessHandler());
-//		return filter;
-//	}
-//	
-//	@Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//		http.cors().and().csrf().disable();
-//		http.authorizeRequests().antMatchers("**/project").authenticated()
-//				.and()
-//				.exceptionHandling().authenticationEntryPoint(entryPoint)
-//				.and()
-//				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//		http.addFilterBefore(authenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-//		
-//		http.headers().cacheControl();
-//	}
 }

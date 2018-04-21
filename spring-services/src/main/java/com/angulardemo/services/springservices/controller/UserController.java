@@ -14,7 +14,6 @@ import com.angulardemo.services.springservices.model.user.UserInfo;
 import com.angulardemo.services.springservices.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
 	@Autowired

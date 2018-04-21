@@ -1,13 +1,11 @@
 package com.angulardemo.services.springservices.controller;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,13 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.angulardemo.services.springservices.model.auth.JwtAuthenticationToken;
 import com.angulardemo.services.springservices.model.auth.LoginInfo;
-import com.angulardemo.services.springservices.model.user.UserInfo;
 import com.angulardemo.services.springservices.security.JWTTokenHandler;
 import com.angulardemo.services.springservices.service.SecurityContextService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
 public class AuthenticationController {
 	
 	@Autowired
@@ -37,7 +33,7 @@ public class AuthenticationController {
 		UsernamePasswordAuthenticationToken loginToken = info.toAuthenticationToken();
 		Authentication authentication = authenticationManager.authenticate(loginToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        
+
 //        Optional<UserInfo> u = securityContextService.getUser(authentication.getName());
 //        UserInfo userInfo = u.get();
 //        String testToken = tokenHandler.createTokenForUser(userInfo);
