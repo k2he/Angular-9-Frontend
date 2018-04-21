@@ -17,6 +17,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NewProjectCountService } from './services/newprojectcount.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { FormsModule } from '@angular/forms';
      DialogComponent,
      PageNotFoundComponent,
      SpinnerComponent,
-     LoginComponent
+     LoginComponent,
+     UserComponent
   ],
   providers: [
      {

@@ -25,6 +25,7 @@ import { MatButtonModule, MatCardModule, MatDialogModule, MatToolbarModule } fro
     MatNativeDateModule,
     MatDatepickerModule,
     MatMenuModule,
+
     MatProgressSpinnerModule
   ],
   exports: [

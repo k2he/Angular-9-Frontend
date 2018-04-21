@@ -7,8 +7,5 @@
     min-width: 290;
     max-width: 450px;
     padding: 0px 20px;
-    -webkit-box-shadow: 0px 0px 6px 2px #969696d9;  /* Safari*/
-	-moz-box-shadow:    0px 0px 6px 2px #969696d9;  /* Firefox */
-	box-shadow:         0px 0px 6px 2px #969696d9;  /* Other */
 	border-radius: 3px;
 }
