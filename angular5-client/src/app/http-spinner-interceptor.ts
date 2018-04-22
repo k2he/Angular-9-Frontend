@@ -8,10 +8,11 @@ import 'rxjs/add/operator/catch';
 export class HttpSpinnerInterceptor implements HttpInterceptor{
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//        alert("HttpSpinnerInterceptor request called");
+    //    Console.log("HttpSpinnerInterceptor request called");
+        //TODO: Trying to figure out to show spinner for every http request call and then hide it when complete
         return next.handle(req).do((event: HttpEvent<any>) => {
             if (event instanceof HttpResponse) {
-//                alert("HttpSpinnerInterceptor response called");
+                // Console.log("HttpSpinnerInterceptor response called");
             }
         });
     }

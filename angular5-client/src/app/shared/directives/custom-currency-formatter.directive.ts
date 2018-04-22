@@ -14,7 +14,7 @@ export class CustomCurrencyFormatterDirective implements AfterContentInit {
     
     @HostListener("focus", ["$event.target.value"])
     onFocus(value) {
-        this.elementRef.nativeElement.value = this.currencyPipe.parse(value); // opposite of transform
+        this.elementRef.nativeElement.value = this.currencyPipe.parse(value);
     }
 
     @HostListener("blur", ["$event.target.value"])
