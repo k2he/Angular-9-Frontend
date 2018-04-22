@@ -18,4 +18,10 @@ export class UserService {
   public getUsers(): Observable<UserInfo[]> {
     return this.http.get<UserInfo[]>(this.url);
   }
+
+  /*
+  * TODO: 
+  * 1) create user
+  * 2) get single user
+  */
 }

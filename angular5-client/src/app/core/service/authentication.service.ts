@@ -23,7 +23,6 @@ export class AuthenticationService {
 
     constructor(private http: JsonHttp) {
         this.authEvents = new Subject<AuthenticationEvent>();
-        localStorage.removeItem('jwtToken');
     }
 
     login(username: string, password: string) {
