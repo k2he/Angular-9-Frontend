@@ -18,7 +18,7 @@ public class ProjectServiceImpl implements ProjectService{
 	@Autowired
 	ProjectRepository repository;
 	
-	String userID = "testUser1";//This should get from session
+	String userID = "1";//This should get from JWT token
 	
 	@Override
 	public List<ProjectInfo> getAllProjects() {
@@ -56,16 +56,13 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public ProjectInfo deleteProject(Integer id) {
+	public void deleteProject(Integer id) {
 		ProjectInfo project = repository.findOne(id);
-		if (project == null) {
-			return null;
+		if (project != null) {
+			project.setLastUpdatedBy(userID);
+			project.setStatusId(Enums.PStatus.DELETED.getValue());
+			repository.save(project);
 		}
-		project.setLastUpdatedBy(userID);
-		project.setStatusId(Enums.PStatus.DELETED.getValue());
-		
-		repository.save(project);
-		return project;
 	}
 
 }

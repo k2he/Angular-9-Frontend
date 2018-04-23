@@ -53,7 +53,7 @@ public class JwtTokenHandler {
         	userDetail = new JwtUserDetails();
             userDetail.setUserName(user.getUsername());
             userDetail.setPassword(user.getPassword());
-            userDetail.setEnabled(user.getEnabled());
+            userDetail.setEnabled(user.getActive());
             List<SimpleGrantedAuthority> authoritieList = user.getRoles().stream()
             		.map(authoritie -> new SimpleGrantedAuthority(authoritie.getRoleName()))
             		.collect(Collectors.toList());

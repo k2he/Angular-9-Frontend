@@ -9,5 +9,5 @@ public interface ProjectService {
 	ProjectInfo createProject(ProjectInfo info);
 	ProjectInfo getProjectById(Integer id);
 	ProjectInfo updateProject(ProjectInfo info);
-	ProjectInfo deleteProject(Integer id);
+	void deleteProject(Integer id);
 }

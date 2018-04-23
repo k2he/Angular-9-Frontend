@@ -1,5 +1,6 @@
 package com.angulardemo.services.springservices.model.user;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,7 +42,21 @@ public class UserInfo {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	private Boolean enabled;
+	private Boolean active;
+	
+//	@Temporal(TemporalType.TIMESTAMP)
+//	@CreatedDate
+//	@Column(name = "created_on")
+//	private Date createdOn;
+//	
+//	@LastModifiedDate
+//	@Column(name = "updated_on")
+//	private Date updatedOn;
+	
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinTable(name = "app_user", 
+//			joinColumns=@JoinColumn(name = "updatedBy", referencedColumnName = "id"))
+//	private UserInfo updatedBy;
 	
 	/**
      * Roles are being eagerly loaded here because they are a fairly small collection of items for this example.
@@ -94,11 +115,11 @@ public class UserInfo {
         this.roles = roles;
     }
 
-	public Boolean getEnabled() {
-		return enabled;
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setEnabled(Boolean enabled) {
-		this.enabled = enabled;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

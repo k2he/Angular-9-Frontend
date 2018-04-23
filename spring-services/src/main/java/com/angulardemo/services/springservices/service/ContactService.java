@@ -9,5 +9,5 @@ public interface ContactService {
 	ContactUsInfo createMessage(ContactUsInfo info);
 	ContactUsInfo getMessageById(Integer id);
 	ContactUsInfo updateMessage(ContactUsInfo info);
-	ContactUsInfo deleteMessage(Integer id);
+	void deleteMessage(Integer id);
 }

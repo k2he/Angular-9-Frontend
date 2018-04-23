@@ -46,12 +46,10 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
-	public ContactUsInfo deleteMessage(Integer id) {
+	public void deleteMessage(Integer id) {
 		ContactUsInfo message = contactRepository.findOne(id);
-		if (message == null) {
-			return null;
+		if (message != null) {
+			contactRepository.delete(message);
 		}
-		contactRepository.delete(message);
-		return message;
 	}
 }

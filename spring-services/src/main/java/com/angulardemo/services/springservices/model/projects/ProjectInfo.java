@@ -53,7 +53,6 @@ public class ProjectInfo {
 	
 	@NotNull
 	@Column(name = "due_date")
-//	@JsonSerialize(using=JsonDateSerializer.class)
 	private Date dueDate;
 	
 	@Digits(integer=11, fraction=2) 
