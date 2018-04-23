@@ -3,21 +3,24 @@
   <mat-card [@showUp] class="center width-400px top-100px float-content-shadow">
     <mat-card-header>
       <mat-card-title class="popup-title">Please Login</mat-card-title>
+      <a class="display-inline tools" matTooltip="Username: test Password: 12345">
+          <i class="material-icons">subject</i>
+      </a>
     </mat-card-header>
     <mat-card-content>
       <div *ngIf="loginFailErrorMessage" class="error">{{loginFailErrorMessage}}</div>
-      <form>
+      <form (ngSubmit)="login()" (keydown.enter)="login()" #loginForm='ngForm'>
           <mat-form-field>
-              <input matInput placeholder="Username" name="username" required [(ngModel)]="username">
+              <input matInput placeholder="Username" name="username" required [(ngModel)]="username" (change)="clearError()">
               <mat-error>This field is required</mat-error>
           </mat-form-field>
           <mat-form-field>
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required (change)="clearError()">
           </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="primary">Login</button>
     </mat-card-actions>
   </mat-card>
 </div>

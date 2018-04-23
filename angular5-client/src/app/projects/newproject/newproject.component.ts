@@ -2,10 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProjectInfo } from "../projectInfo";
+import { ProjectInfo } from "../project.types";
 import { ProjectService } from '../project.service';
 import { UtilService } from '../../shared/services/util.service';
-import { NewProjectCountService } from '../../services/newprojectcount.service';
+import { NewProjectCountService } from '../../core/service/newprojectcount.service';
 
 const NAME_FIELD_MIN: number = 3;
 
@@ -16,9 +16,7 @@ const NAME_FIELD_MIN: number = 3;
 })
 export class NewprojectComponent implements OnInit {
     
-//    @Output() actionPerformed = new EventEmitter<string>();
-    
-    projectInfo: ProjectInfo = new ProjectInfo();
+    projectInfo: ProjectInfo = <ProjectInfo>{};
     projectForm: FormGroup;
     title: string;
     statusMessage: string;

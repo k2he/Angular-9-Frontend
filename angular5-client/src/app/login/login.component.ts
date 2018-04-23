@@ -19,26 +19,24 @@ import { AuthenticationService } from "../core/service/authentication.service";
     ])
   ]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   username : string;
   password : string;
-  showSpinner: boolean;
   loginFailErrorMessage: string;
 
   constructor(private router : Router,
               private authService: AuthenticationService) { }
 
-  ngOnInit() {
+  private clearError() {
+    this.loginFailErrorMessage = "";
   }
 
   private login() : void {
-    this.showSpinner = true;
-    this.loginFailErrorMessage = "";
-    
+    this.clearError();
+
     this.authService.login(this.username, this.password)
             .subscribe(() => {
-              this.showSpinner = false;
                 this.router.navigate(['/home']);
             }, e => this.handleError(e));
   }

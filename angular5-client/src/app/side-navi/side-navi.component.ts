@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { sideNavItem } from './sideNavItem'
+import { sideNavItem } from './side-navi.types';
 
 @Component({
   selector: 'app-side-navi',

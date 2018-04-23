@@ -6,8 +6,6 @@ import { JsonHttp } from "./custom-json-http";
 import { environment } from '../../../environments/environment';
 import 'rxjs/Rx';
 
-// const jwtDecode = require('jwt-decode');
-
 export class LoginAction {
 }
 export class LogoutAction {

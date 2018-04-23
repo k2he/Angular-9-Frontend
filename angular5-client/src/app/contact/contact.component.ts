@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ContactInfo } from './contactInfo'
+import { ContactInfo } from './contact.types'
 import { FormControl, Validators} from '@angular/forms';
-import { ErrorStateMatcher} from '@angular/material';
-import {ContactusService} from './contactus.service';
+import { ContactusService } from './contactus.service';
 import { UtilService } from '../shared/services/util.service';
-import { MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +10,7 @@ import { MatListModule} from '@angular/material/list';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-    contectInfo: ContactInfo = new ContactInfo();
+    contectInfo: ContactInfo = <ContactInfo>{};
     PHONE_NUMBER_REGEX  = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
     statusMessage: string;
     statusClass: string;
@@ -28,6 +26,7 @@ export class ContactComponent {
           .subscribe(
               hero => {
                   this.displaySubmitMessage(false);
+                //TODO: Need to figure out how to reset form without showing validation error message
 //                  this.form.reset();
               },
               error => {

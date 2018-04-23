@@ -3,14 +3,17 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { XHRBackend, Http, RequestOptions, HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
+import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { UtilService } from '../shared/services/util.service';
+import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { AuthenticationService } from "./service/authentication.service";
-import { AuthGuard } from "./guard/auth-guard";
+import { LoadAuthGuard } from "./guard/load-auth-guard";
 import { PublicPageGuard } from "./guard/public-guard";
 import { JsonHttp } from "./service/custom-json-http";
-import { AuthGuardCanActive } from "./guard/canActive-auth-guard";
-import { NewProjectCountService } from '../services/newprojectcount.service';
+import { ActiveAuthGuard } from "./guard/active-auth-guard";
+import { NewProjectCountService } from './service/newprojectcount.service';
 
 
 export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
@@ -23,27 +26,30 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
   imports: [
       CommonModule,
       HttpModule,
-      MatToolbarModule,
-      MatButtonModule,
+      RouterModule,
+      HttpModule,
   ],
   declarations: [
   ],
   exports: [
-      MatToolbarModule,
-      MatButtonModule,
   ],
   providers: [
-      UtilService,
-      {
-            provide: JsonHttp,
-            useFactory: createJsonHttp,
-            deps: [XHRBackend, RequestOptions]
-      },
-      AuthenticationService,
-      AuthGuard,
-      PublicPageGuard,
-      AuthGuardCanActive,
-      NewProjectCountService
+    UtilService,
+    {
+        provide: JsonHttp,
+        useFactory: createJsonHttp,
+        deps: [XHRBackend, RequestOptions]
+    },
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: HttpSpinnerInterceptor,
+        multi: true,
+    },
+    AuthenticationService,
+    LoadAuthGuard,
+    PublicPageGuard,
+    ActiveAuthGuard,
+    NewProjectCountService
   ],
 })
 

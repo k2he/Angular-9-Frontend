@@ -3,7 +3,8 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 import { HttpResponse } from '@angular/common/http';
-import { ProjectInfo } from './projectInfo';
+import { ProjectInfo } from './project.types';
+
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { UtilService } from '../shared/services/util.service';

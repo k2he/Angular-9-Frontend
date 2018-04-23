@@ -47,10 +47,12 @@
 	position: absolute;
 	right: 35px;
 	top: 10px;
+	color: #8ad021ed;
 }
 
 .tools .material-icons {
 	font-size: 28px;
+    color: #8ad021ed;
 }
 
 .new-project-circle {

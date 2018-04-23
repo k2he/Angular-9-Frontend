@@ -4,9 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './notfound.component';
-import { AuthGuard } from './core/guard/auth-guard';
+import { LoadAuthGuard } from './core/guard/load-auth-guard';
 import { PublicPageGuard } from './core/guard/public-guard';
-import { AuthGuardCanActive } from './core/guard/canActive-auth-guard';
+import { ActiveAuthGuard } from './core/guard/active-auth-guard';
 
 const routes: Routes = [
     {   
@@ -17,25 +17,24 @@ const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent,
-        canActivate: [PublicPageGuard] 
     },
     {
         path: 'projects',
         loadChildren: 'app/projects/projects.module#ProjectsModule',
-        canLoad: [AuthGuard],
-        canActivate: [AuthGuardCanActive]
+        canLoad: [LoadAuthGuard],
+        canActivate: [ActiveAuthGuard]
     },
     {
         path: 'courses',
         loadChildren: 'app/courses/courses.module#CoursesModule',
-        canLoad: [AuthGuard],
-        canActivate: [AuthGuardCanActive]
+        canLoad: [LoadAuthGuard],
+        canActivate: [ActiveAuthGuard]
     },
     {
         path: 'contact',
         loadChildren: 'app/contact/contact.module#ContactModule',
-        canLoad: [AuthGuard],
-        canActivate: [AuthGuardCanActive]
+        canLoad: [LoadAuthGuard],
+        canActivate: [ActiveAuthGuard]
     },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  
