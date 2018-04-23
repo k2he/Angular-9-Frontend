@@ -1,0 +1,32 @@
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="nav-bar">
+      <a routerLink="/home" [@showUp] class="nav-title">My Angular Site</a>
+
+      <span class="spacer"></span>
+      
+      <div class="nav-links">
+        <div class="new-project-circle" *ngIf="newProjectNum">{{newProjectNum}}</div>
+        <button mat-button routerLink="/home" [routerLinkActive]="['active']">Home</button>
+        <!-- <button mat-button routerLink="/about">About</button>-->
+        <button mat-button routerLink="/projects" [routerLinkActive]="['active']">Projects</button>
+        <button mat-button routerLink="/courses" [routerLinkActive]="['active']">Course Provides</button>
+        <button mat-button routerLink="/contact" [routerLinkActive]="['active']">Contact</button>
+    </div>
+    
+    <div class="tools">
+      <a *ngIf="!isLoggedIn" routerLink="/login" class="display-inline " matTooltip="Log in">
+        <i class="material-icons">account_box</i>
+        <!--<i class="material-icons">face</i>-->
+        <!--<i class="material-icons">account_circle</i>-->
+      </a>
+      <a *ngIf="isLoggedIn" (click)='logout()' class="display-inline " matTooltip="Log out">
+        <i class="material-icons">directions_run</i>
+      </a>
+      <a routerLink="" class="display-inline" matTooltip="Change Language" disabled="true">
+        <i class="material-icons">language</i>
+      </a>
+    </div>
+    <div>
+    </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
