@@ -1,16 +1,16 @@
-package com.angulardemo.services.springservices.model.auth;
+package com.angulardemo.services.springservices.dto;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
-public class LoginInfo {
+public class LoginDTO {
 	private String username;
     private String password;
     
     
-	public LoginInfo() {
+	public LoginDTO() {
 	}
 
-	public LoginInfo(String username, String password) {
+	public LoginDTO(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}

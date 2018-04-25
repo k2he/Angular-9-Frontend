@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.angulardemo.services.springservices.dto.UserDataDTO;
 import com.angulardemo.services.springservices.model.user.UserInfo;
 import com.angulardemo.services.springservices.service.UserService;
 
@@ -21,6 +22,17 @@ public class UserController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	
+//	@Autowired
+//	private ModelMapper modelMapper;
+	
+	@PostMapping("/signup")
+	public String signup(@RequestBody UserDataDTO user) {
+		return null;
+		//TODO: need figure how the modelMapper works.
+//	    return userService.signup(modelMapper.map(user, UserInfo.class));
+	}
 	
 	@GetMapping("/user")
 	public List<UserInfo> getAllUsers() {

@@ -1,23 +1,26 @@
 package com.angulardemo.services.springservices.security;
 
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.angulardemo.services.springservices.model.user.JwtUserDetails;
+import com.angulardemo.services.springservices.exception.CustomException;
 import com.angulardemo.services.springservices.model.user.Role;
-import com.angulardemo.services.springservices.model.user.UserInfo;
-import com.angulardemo.services.springservices.repository.UserRepository;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -25,41 +28,58 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtTokenHandler {
 	
 	@Autowired
-    private UserRepository userRepository;
+	private JwtUserDetails jwtUserDetails;
 	
+	/**
+	 * THIS IS NOT A SECURE PRACTICE! For simplicity, we are storing a static key here. Ideally, in a
+	 * microservices environment, this key would be kept on a config-server.
+	*/
 	@Value("${app.jwt.secret}")
-	private String secret;
+	private String secretKey;
 	
-    public String createTokenForUser(UserInfo user) {
-        final ZonedDateTime expiration = ZonedDateTime.now().plusHours(1);//Valid for one hour
+	@Value("${app.jwt.expire-length.milliseconds}")
+	private long validityInMilliseconds;
+	
+	public String createToken(String username, List<Role> roles) {
 
-        return Jwts.builder()
-                .setSubject(user.getId().toString())
-                .signWith(SignatureAlgorithm.HS512, secret)
-                .setExpiration(Date.from(expiration.toInstant()))
-                .compact();
-    }
-    
-    public Optional<UserDetails> parseUserFromToken(String token) {
-        final String subject = Jwts.parser()
-                .setSigningKey(secret)
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
-        UserInfo user = userRepository.findOne(Long.valueOf(subject));
-        
-        JwtUserDetails userDetail = null;
-        if (user!=null) {
-        	userDetail = new JwtUserDetails();
-            userDetail.setUserName(user.getUsername());
-            userDetail.setPassword(user.getPassword());
-            userDetail.setEnabled(user.getActive());
-            List<SimpleGrantedAuthority> authoritieList = user.getRoles().stream()
-            		.map(authoritie -> new SimpleGrantedAuthority(authoritie.getRoleName()))
-            		.collect(Collectors.toList());
-            userDetail.setAuthorities(authoritieList);
-        }
-        
-        return Optional.ofNullable(userDetail);
-    }
+	    Claims claims = Jwts.claims().setSubject(username);
+	    claims.put("auth", roles.stream().map(s -> new SimpleGrantedAuthority(s.getAuthority())).filter(Objects::nonNull).collect(Collectors.toList()));
+
+	    Date now = new Date();
+	    Date validity = new Date(now.getTime() + validityInMilliseconds);
+
+	    return Jwts.builder()
+	        .setClaims(claims)
+	        .setIssuedAt(now)
+	        .setExpiration(validity)
+	        .signWith(SignatureAlgorithm.HS256, secretKey)
+	        .compact();
+	}
+	
+	public String resolveToken(HttpServletRequest req) {
+	    String bearerToken = req.getHeader("Authorization");
+	    if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+	      return bearerToken.substring(7, bearerToken.length());
+	    }
+	    return null;
+	}
+	
+	public boolean validateToken(String token) {
+	    try {
+	      Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+	      return true;
+	    } catch (JwtException | IllegalArgumentException e) {
+	      throw new CustomException("Expired or invalid JWT token", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
+	
+	public Authentication getAuthentication(String token) {
+	    UserDetails userDetails = jwtUserDetails.loadUserByUsername(getUsername(token));
+	    return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+	}
+	
+	public String getUsername(String token) {
+	    return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
+	}
+	
 }

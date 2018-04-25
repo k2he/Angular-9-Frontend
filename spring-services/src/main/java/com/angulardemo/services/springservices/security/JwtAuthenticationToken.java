@@ -1,7 +1,6 @@
-package com.angulardemo.services.springservices.model.auth;
+package com.angulardemo.services.springservices.security;
 
 public class JwtAuthenticationToken {
-
 	private String token;
 	
 	public JwtAuthenticationToken(String token) {
