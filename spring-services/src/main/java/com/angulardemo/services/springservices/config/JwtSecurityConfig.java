@@ -29,6 +29,9 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtAuthenticationFilter authenticationFilter;
 	
+	@Autowired
+	private BCryptPasswordEncoder encoder; 
+	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         // we use jwt so that we can disable csrf protection
@@ -42,13 +45,23 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
 //                .antMatchers("/project, /contactus").hasRole(AUTHORIZED_ROLE)
-//                .antMatchers("/contactus").hasRole(AUTHORIZED_ROLE)
                 .anyRequest().permitAll()
                 .and()
                 .exceptionHandling()
                 .authenticationEntryPoint(new Http401AuthenticationEntryPoint("'Bearer token_type=\"JWT\"'"));
 
         http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+	
+    
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
+	}
+	
+	@Bean
+    public BCryptPasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
     }
 	
 	/**
@@ -60,16 +73,5 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
         FilterRegistrationBean registration = new FilterRegistrationBean(filter);
         registration.setEnabled(false);
         return registration;
-    }
-    
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService)
-		        .passwordEncoder(encoder());
-	}
-	
-	@Bean
-    public BCryptPasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
     }
 }

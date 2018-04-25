@@ -26,9 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Optional<UserInfo> user = userRepository.findByUsername(username);
 		
-		user.orElseThrow(()-> new UsernameNotFoundException(
-					String.format("Username: "+ username + " doesn't exist."))
-		);
+		user.orElseThrow(()-> new UsernameNotFoundException("Username: "+ username + " doesn't exist."));
         
 		UserInfo userInfo = user.get();
 		List<GrantedAuthority> authorities = new ArrayList<>();
@@ -36,8 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
 		});
 		
-		UserDetails userDetails = new User(userInfo.getUsername(), userInfo.getPassword(), authorities);
-		return userDetails;
+		return new User(userInfo.getUsername(), userInfo.getPassword(), authorities);
 	}
 
 }
