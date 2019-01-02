@@ -17,5 +17,5 @@ public class SpringServicesApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringServicesApplication.class, args);
-	}
+	} 
 }
