@@ -29,8 +29,6 @@ export class AuthenticationService {
             password: password,
         }
         return this.http.post(this.url, body).do((response : Response) => {
-            var jwtToken = response.json().token;
-
             localStorage.setItem('jwtToken', response.json().token);
             this.authEvents.next(new LoginAction());
         });
@@ -42,8 +40,12 @@ export class AuthenticationService {
     }
 
     isAuthenticated(): boolean {
-        console.log("isAuthenticated() called with value:" + localStorage.getItem('jwtToken') );
+        // console.log("isAuthenticated() called with value:" + localStorage.getItem('jwtToken') );
         return localStorage.getItem('jwtToken') != null;
+    }
+
+    getAuthToken(): String {
+        return localStorage.getItem('jwtToken');
     }
 
     get events(): Observable<AuthenticationEvent> {

@@ -8,6 +8,8 @@ import { ProjectInfo } from './project.types';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import { UtilService } from '../shared/services/util.service';
+import { JsonHttp } from '../core/service/custom-json-http';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -15,9 +17,10 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ProjectService {
-    url =  `${environment.apiUrl}/project`;
+    url =  `${environment.apiUrl}/projects`;
     
-    constructor(private http: HttpClient, private util: UtilService) { }
+    constructor(private http: HttpClient, 
+                private util: UtilService) { }
     
     public getAllProjects(): Observable<ProjectInfo[]>{
         return this.http.get<ProjectInfo[]>(this.url)
@@ -28,7 +31,7 @@ export class ProjectService {
     }
     
     public createProjectInfo(info: ProjectInfo): Observable<ProjectInfo> {
-        return this.http.post<ProjectInfo>(this.url, info, this.util.httpOptions)
+        return this.http.post<ProjectInfo>(this.url, info)
                 .pipe(
                     tap(_ => this.log("ProjectService.createProjectInfo() called")),
                     catchError(this.handleError)
@@ -41,17 +44,16 @@ export class ProjectService {
     }
 
     public deleteProjectInfoById(id: string | number): Observable<ProjectInfo> {
-        return this.http.delete(`${this.url}/${id}`)
+        return this.http.delete<ProjectInfo>(`${this.url}/${id}`)
         .catch((error:any) => this.handleError(error));
     }
     
     public updateProjectInfo(info: ProjectInfo) {
-        return this.http.post(`${this.url}`, info)
+        return this.http.post<ProjectInfo>(`${this.url}`, info)
         .catch((error:any) => this.handleError(error));
     }
 
     private handleError (error: Response | any) {
-        // In a real world app, you might use a remote logging infrastructure
         let errMsg: string;
         if (error instanceof Response) {
           const body = error.json() || '';

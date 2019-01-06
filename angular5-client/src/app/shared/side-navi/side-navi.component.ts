@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { sideNavItem } from './side-navi.types';
+import { SideNavItem } from './side-navi.types';
 
 @Component({
   selector: 'app-side-navi',
@@ -8,7 +8,7 @@ import { sideNavItem } from './side-navi.types';
 })
 export class SideNaviComponent implements OnInit {
 
-    @Input('naviItemList') naviItemList: sideNavItem[];
+    @Input('naviItemList') naviItemList: SideNavItem[];
 
     constructor() { }
 

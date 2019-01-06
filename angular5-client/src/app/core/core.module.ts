@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UtilService } from '../shared/services/util.service';
 import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { AuthenticationService } from "./service/authentication.service";
+import { JwtInterceptor } from './service/jwt.interceptor';
 import { LoadAuthGuard } from "./guard/load-auth-guard";
 import { PublicPageGuard } from "./guard/public-guard";
 import { JsonHttp } from "./service/custom-json-http";
@@ -46,6 +47,11 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
         provide: HTTP_INTERCEPTORS,
         useClass: HttpSpinnerInterceptor,
         multi: true,
+    },
+    { 
+        provide: HTTP_INTERCEPTORS, 
+        useClass: JwtInterceptor, 
+        multi: true 
     },
     AuthenticationService,
     LoadAuthGuard,
