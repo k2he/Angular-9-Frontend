@@ -17,7 +17,7 @@ export type AuthenticationEvent = LoginAction | LogoutAction;
 export class AuthenticationService {
 
     private authEvents: Subject<AuthenticationEvent>;
-    url =  `${environment.apiUrl}/auth`;
+    url =  `${environment.apiUrl}/login`;
 
     constructor(private http: JsonHttp) {
         this.authEvents = new Subject<AuthenticationEvent>();
@@ -29,6 +29,8 @@ export class AuthenticationService {
             password: password,
         }
         return this.http.post(this.url, body).do((response : Response) => {
+            var jwtToken = response.json().token;
+
             localStorage.setItem('jwtToken', response.json().token);
             this.authEvents.next(new LoginAction());
         });

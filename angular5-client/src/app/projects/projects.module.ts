@@ -21,7 +21,7 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
         AllprojectsComponent,
         NewprojectComponent, 
         InprogressprojectsComponent, 
-   ],
+  ],
   providers: [
         ProjectService,
         CustomCurrencyPipe

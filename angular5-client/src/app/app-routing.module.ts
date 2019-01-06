@@ -36,12 +36,18 @@ const routes: Routes = [
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
+    {
+        path: 'admin',
+        loadChildren: 'app/admin/admin.module#AdminModule',
+        canLoad: [LoadAuthGuard],
+        canActivate: [ActiveAuthGuard]
+    },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

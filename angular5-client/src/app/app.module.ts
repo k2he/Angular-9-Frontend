@@ -11,7 +11,6 @@ import { PageNotFoundComponent } from './notfound.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModuleModule } from './material-module/material-module.module'
 import { HomeModule } from './home/home.module';
-import { SpinnerComponent } from './spinner/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
@@ -34,9 +33,7 @@ import { FooterComponent } from './core/footer/footer.component';
      AppComponent,
      DialogComponent,
      PageNotFoundComponent,
-     SpinnerComponent,
      LoginComponent,
-     UserComponent,
      HeaderComponent,
      FooterComponent,
   ],

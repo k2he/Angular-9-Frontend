@@ -2,7 +2,6 @@ import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 import {Http, RequestOptionsArgs, RequestOptions, Response, Headers} from "@angular/http";
 
-// const jwtTokenName = 'jwtToken';
 const getAuthToken = (options: RequestOptionsArgs = {}) => {
     let newOptions = new RequestOptions({}).merge(options);
     let newHeaders = new Headers(newOptions.headers);

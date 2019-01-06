@@ -14,7 +14,7 @@ import { PublicPageGuard } from "./guard/public-guard";
 import { JsonHttp } from "./service/custom-json-http";
 import { ActiveAuthGuard } from "./guard/active-auth-guard";
 import { NewProjectCountService } from './service/newprojectcount.service';
-
+import { SpinnerComponent } from './spinner/spinner.component';
 
 export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
       console.log("createJsonHttp");
@@ -30,8 +30,10 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
       HttpModule,
   ],
   declarations: [
+    SpinnerComponent
   ],
   exports: [
+    SpinnerComponent
   ],
   providers: [
     UtilService,

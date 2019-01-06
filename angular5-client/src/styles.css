@@ -111,7 +111,7 @@ CSS for both login and home page
 	background-image: url("/assets/home_background.jpg"); 
 	background-repeat: no-repeat;
 	min-height: 565px;
-	background-size: 1280px 565px;
+	background-size: 100% 100%;
 }
 
 /* Material customized CSS */
