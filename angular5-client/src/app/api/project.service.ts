@@ -3,24 +3,21 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 import { HttpResponse } from '@angular/common/http';
-import { ProjectInfo } from './project.types';
 
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
-import { UtilService } from '../shared/services/util.service';
-import { JsonHttp } from '../core/service/custom-json-http';
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/Rx';
 
+import { ProjectInfo } from '../resources/project';
+
 @Injectable()
 export class ProjectService {
     url =  `${environment.apiUrl}/projects`;
     
-    constructor(private http: HttpClient, 
-                private util: UtilService) { }
+    constructor(private http: HttpClient) { }
     
     public getAllProjects(): Observable<ProjectInfo[]>{
         return this.http.get<ProjectInfo[]>(this.url)

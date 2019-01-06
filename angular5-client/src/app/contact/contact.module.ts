@@ -4,7 +4,8 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
 import { ContactRoutingModule } from './contact-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from "./contact.component";
-import { ContactusService } from './contactus.service';
+import { ContactusService } from '../api/contactus.service';
+import { UtilService } from '../api/util.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { ContactusService } from './contactus.service';
   declarations: [
     ContactComponent
   ],
-  providers: [ContactusService]
+  providers: [
+    ContactusService, 
+    UtilService
+  ]
 })
 export class ContactModule { }

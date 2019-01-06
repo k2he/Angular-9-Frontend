@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Router } from "@angular/router";
 
-import { NewProjectCountService } from '../service/newprojectcount.service';
-import { AuthenticationService } from "../service/authentication.service";
+import { NewProjectCountService } from '../../api/newprojectcount.service';
+import { AuthenticationService } from '../../api/authentication.service';
 
 @Component({
   selector: 'app-header',

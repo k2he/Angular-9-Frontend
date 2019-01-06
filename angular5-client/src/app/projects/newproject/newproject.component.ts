@@ -2,10 +2,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { ProjectInfo } from "../project.types";
-import { ProjectService } from '../project.service';
-import { UtilService } from '../../shared/services/util.service';
-import { NewProjectCountService } from '../../core/service/newprojectcount.service';
+import { ProjectInfo } from "../../resources/project";
+import { ProjectService } from '../../api/project.service';
+import { UtilService } from '../../api/util.service';
+import { NewProjectCountService } from '../../api/newprojectcount.service';
 
 const NAME_FIELD_MIN: number = 3;
 

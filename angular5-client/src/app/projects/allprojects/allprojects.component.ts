@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
-import { ProjectService } from '../project.service';
-import { ProjectInfo } from "../project.types";
+import { ProjectService } from '../../api/project.service';
+import { ProjectInfo } from "../../resources/project";
 import { Observable } from 'rxjs/Observable';
-import { ProjectStatus } from "../project.types";
 import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
 

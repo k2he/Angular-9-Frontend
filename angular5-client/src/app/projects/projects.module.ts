@@ -6,7 +6,8 @@ import { InprogressprojectsComponent } from './inprogressprojects/inprogressproj
 import { SharedModule } from '../shared/shared.module';
 import { ProjectsComponent } from "./projects.component";
 
-import { ProjectService } from "./project.service";
+import { UtilService } from '../api/util.service';
+import { ProjectService } from "../api/project.service";
 import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
 import { MaterialModuleModule } from '../material-module/material-module.module'
 
@@ -24,6 +25,7 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
   ],
   providers: [
         ProjectService,
+        UtilService,
         CustomCurrencyPipe
   ]
 })

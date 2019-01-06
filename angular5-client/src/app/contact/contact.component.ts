@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ContactInfo } from './contact.types'
 import { FormControl, Validators} from '@angular/forms';
-import { ContactusService } from './contactus.service';
-import { UtilService } from '../shared/services/util.service';
+
+import { ContactInfo } from '../resources/contact';
+import { ContactusService } from '../api/contactus.service';
+import { UtilService } from '../api/util.service';
 
 @Component({
   selector: 'app-contact',

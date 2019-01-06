@@ -6,15 +6,14 @@ import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { UtilService } from '../shared/services/util.service';
 import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
-import { AuthenticationService } from "./service/authentication.service";
-import { JwtInterceptor } from './service/jwt.interceptor';
+import { AuthenticationService } from '../api/authentication.service';
+import { JwtInterceptor } from './jwt.interceptor';
 import { LoadAuthGuard } from "./guard/load-auth-guard";
 import { PublicPageGuard } from "./guard/public-guard";
-import { JsonHttp } from "./service/custom-json-http";
+import { JsonHttp } from "../api/custom-json-http";
 import { ActiveAuthGuard } from "./guard/active-auth-guard";
-import { NewProjectCountService } from './service/newprojectcount.service';
+import { NewProjectCountService } from '../api/newprojectcount.service';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
@@ -37,7 +36,6 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
     SpinnerComponent
   ],
   providers: [
-    UtilService,
     {
         provide: JsonHttp,
         useFactory: createJsonHttp,

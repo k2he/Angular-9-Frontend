@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
 
-import { AuthenticationService } from "../core/service/authentication.service";
+import { AuthenticationService } from '../api/authentication.service';
 
 @Component({
   selector: 'app-login',

@@ -1,9 +1,9 @@
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 import { Injectable } from "@angular/core";
-import { Response } from "@angular/http";
-import { JsonHttp } from "./custom-json-http";
-import { environment } from '../../../environments/environment';
+import { Http, Response } from "@angular/http";
+
+import { environment } from '../../environments/environment';
 import 'rxjs/Rx';
 
 export class LoginAction {
@@ -19,7 +19,7 @@ export class AuthenticationService {
     private authEvents: Subject<AuthenticationEvent>;
     url =  `${environment.apiUrl}/login`;
 
-    constructor(private http: JsonHttp) {
+    constructor(private http: Http) {
         this.authEvents = new Subject<AuthenticationEvent>();
     }
 
@@ -48,6 +48,10 @@ export class AuthenticationService {
         return localStorage.getItem('jwtToken');
     }
 
+    getCurrentUser() {
+
+    }
+    
     get events(): Observable<AuthenticationEvent> {
         return this.authEvents;
     }
