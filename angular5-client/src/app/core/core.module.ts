@@ -10,6 +10,7 @@ import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { AuthenticationService } from '../api/authentication.service';
 import { JwtInterceptor } from './jwt.interceptor';
 import { LoadAuthGuard } from "./guard/load-auth-guard";
+import { AdminGuard } from './guard/admin-guard';
 import { PublicPageGuard } from "./guard/public-guard";
 import { JsonHttp } from "../api/custom-json-http";
 import { ActiveAuthGuard } from "./guard/active-auth-guard";
@@ -26,8 +27,7 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
   imports: [
       CommonModule,
       HttpModule,
-      RouterModule,
-      HttpModule,
+      RouterModule
   ],
   declarations: [
     SpinnerComponent
@@ -41,11 +41,11 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
         useFactory: createJsonHttp,
         deps: [XHRBackend, RequestOptions]
     },
-    {
-        provide: HTTP_INTERCEPTORS,
-        useClass: HttpSpinnerInterceptor,
-        multi: true,
-    },
+    // {
+    //     provide: HTTP_INTERCEPTORS,
+    //     useClass: HttpSpinnerInterceptor,
+    //     multi: true,
+    // },
     { 
         provide: HTTP_INTERCEPTORS, 
         useClass: JwtInterceptor, 
@@ -55,6 +55,7 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
     LoadAuthGuard,
     PublicPageGuard,
     ActiveAuthGuard,
+    AdminGuard,
     NewProjectCountService
   ],
 })

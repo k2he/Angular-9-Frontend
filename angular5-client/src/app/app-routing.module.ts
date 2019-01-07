@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './notfound.component';
 import { LoadAuthGuard } from './core/guard/load-auth-guard';
 import { PublicPageGuard } from './core/guard/public-guard';
 import { ActiveAuthGuard } from './core/guard/active-auth-guard';
+import { AdminGuard } from './core/guard/admin-guard';
 
 const routes: Routes = [
     {   
@@ -40,7 +41,7 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule',
         canLoad: [LoadAuthGuard],
-        canActivate: [ActiveAuthGuard]
+        canActivate: [ActiveAuthGuard, AdminGuard]
     },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  

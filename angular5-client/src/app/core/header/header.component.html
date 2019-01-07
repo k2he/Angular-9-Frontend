@@ -11,7 +11,9 @@
         <button mat-button routerLink="/projects" [routerLinkActive]="['active']">Projects</button>
         <button mat-button routerLink="/courses" [routerLinkActive]="['active']">Course Provides</button>
         <button mat-button routerLink="/contact" [routerLinkActive]="['active']">Contact</button>
-        <button mat-button routerLink="/admin" [routerLinkActive]="['active']">Admin</button>
+        <ng-template [ngIf]="adminGuard.canActivate()">
+          <button mat-button routerLink="/admin" [routerLinkActive]="['active']">Admin</button>
+        </ng-template>
       </div>
     
     <div class="tools">

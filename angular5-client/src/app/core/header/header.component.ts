@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 
 import { NewProjectCountService } from '../../api/newprojectcount.service';
 import { AuthenticationService } from '../../api/authentication.service';
+import { AdminGuard } from '../guard/admin-guard';
 
 @Component({
   selector: 'app-header',
@@ -27,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,
               private router: Router,
+              private adminGuard: AdminGuard,
               private projectService: NewProjectCountService) { }
   
   ngOnInit() {
