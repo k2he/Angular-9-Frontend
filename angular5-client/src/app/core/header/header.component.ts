@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { NewProjectCountService } from '../../api/newprojectcount.service';
 import { AuthenticationService } from '../../api/authentication.service';
 import { AdminGuard } from '../guard/admin-guard';
+import { AppUser } from '../../resources/app-user';
 
 @Component({
   selector: 'app-header',
@@ -23,8 +24,9 @@ import { AdminGuard } from '../guard/admin-guard';
 })
 export class HeaderComponent implements OnInit {
 
-  newProjectNum = 0;
-  isLoggedIn: boolean;
+  private newProjectNum = 0;
+  private isLoggedIn: boolean;
+  private user: AppUser;
 
   constructor(private authService: AuthenticationService,
               private router: Router,
@@ -35,11 +37,16 @@ export class HeaderComponent implements OnInit {
       this.projectService.events$.forEach(result => {
           this.newProjectNum++
       });
-
-      this.isLoggedIn = this.authService.isAuthenticated();
+      this.loadData();
+      
       this.authService.events.subscribe(() => {
-        this.isLoggedIn = this.authService.isAuthenticated();
+        this.loadData();
       });
+  }
+
+  loadData() {
+    this.isLoggedIn = this.authService.isAuthenticated();
+    this.user = this.authService.getCurrentUser();
   }
 
   logout() {

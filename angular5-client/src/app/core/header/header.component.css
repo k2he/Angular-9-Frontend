@@ -42,12 +42,19 @@
 	color: #dadada;
 	bottom: 13px;
 }
+.toolBar {
+    position: absolute;
+    right: 25px;
+}
 
 .tools {
-	position: absolute;
-	right: 35px;
-	top: 10px;
-	color: #8ad021ed;
+    color: #8ad021ed;
+    float: right;
+}
+
+.welcome {
+    font-size: 12px;
+    color: #8ad021ed;
 }
 
 .tools .material-icons {

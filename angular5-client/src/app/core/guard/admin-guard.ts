@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
     // return true;
     if (this.authService.isAuthenticated()) {
       var user = this.authService.getCurrentUser();
-      if (user.authorities) {
+      if (user && user.authorities) {
         var result = user.authorities.find(auth => auth.authority.trim() === 'ROLE_ADMIN');
         return result != null;
       }

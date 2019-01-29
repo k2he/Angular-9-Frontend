@@ -41,12 +41,16 @@ export class LoginComponent {
             }, e => this.handleError(e));
   }
 
+  private socialLogin(loginType: string) {
+    this.authService.socialLogin(loginType);
+  }
+
   //Need figure out how to get correct error so we can highlight corrsponding input box.
   private handleError(error) {
     switch (error.status) {
         case 401:
           this.loginFailErrorMessage = "Login failed. Please make sure username and password is correct.";
     }
-}
+  }
 
 }

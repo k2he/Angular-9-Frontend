@@ -17,14 +17,31 @@ export class LogoutAction {
 export type AuthenticationEvent = LoginAction | LogoutAction;
 
 
+//Authentication related constants
+export const OAuth2_RESPONSE: string = 'OAuth2Response';
+export const JWT_TOKEN: string = 'jwtToken';
+export const CURRENT_USER: string = 'currentUser';
+
 @Injectable()
 export class AuthenticationService {
-
+    
     private authEvents: Subject<AuthenticationEvent>;
     url =  `${environment.apiUrl}/login`;
 
     constructor(private http: HttpClient) {
         this.authEvents = new Subject<AuthenticationEvent>();
+    }
+
+    socialLogin(loginType: string) {
+        let ssoUrl = `${environment.DEFAULT_AUTH_URL}`;
+        if (loginType === "google") {
+            ssoUrl = `${environment.GOOGLE_AUTH_URL}`;
+        } else if (loginType === "facebook") {
+            ssoUrl = `${environment.FACEBOOK_AUTH_URL}`;
+        } else if (loginType === "github") {
+            ssoUrl = `${environment.GITHUB_AUTH_URL}`;
+        }
+        window.location.href = ssoUrl;
     }
 
     login(username: string, password: string) {
@@ -33,28 +50,40 @@ export class AuthenticationService {
             password: password,
         }
         return this.http.post<AuthResponse>(this.url, body).do(response => {
-            localStorage.setItem('jwtToken', response.token);
-            localStorage.setItem('currentUser', JSON.stringify(response.user));
+            this.setAuthInfo(response.token, response.user);
             this.authEvents.next(new LoginAction());
         });
     }
 
     logout(): void {
-        localStorage.removeItem('jwtToken');
+        localStorage.removeItem(JWT_TOKEN);
+        localStorage.removeItem(CURRENT_USER);
         this.authEvents.next(new LogoutAction());
     }
 
     isAuthenticated(): boolean {
         // console.log("isAuthenticated() called with value:" + localStorage.getItem('jwtToken') );
-        return localStorage.getItem('jwtToken') != null;
+        return localStorage.getItem(JWT_TOKEN) != null;
+    }
+
+    saveOauth2Repsonse(responseString: string) {
+        let response: AuthResponse = JSON.parse(responseString);
+        if (response) {
+            this.setAuthInfo(response.token, response.user);
+        }
+    }
+
+    setAuthInfo(token: string, user: AppUser) {
+        localStorage.setItem(JWT_TOKEN, token);
+        localStorage.setItem(CURRENT_USER, JSON.stringify(user));
     }
 
     getAuthToken(): String {
-        return localStorage.getItem('jwtToken');
+        return localStorage.getItem(JWT_TOKEN);
     }
 
     getCurrentUser(): AppUser {
-        return JSON.parse(localStorage.getItem('currentUser'));
+        return JSON.parse(localStorage.getItem(CURRENT_USER));
     }
     
     get events(): Observable<AuthenticationEvent> {

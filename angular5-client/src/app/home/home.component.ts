@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { OAuth2_RESPONSE, AuthenticationService } from '../api/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +23,16 @@ import { trigger, style, animate, transition } from '@angular/animations';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeRoute: ActivatedRoute,
+              private location: Location,
+              private authService: AuthenticationService) { 
+    let response = this.activeRoute.snapshot.queryParamMap.get(OAuth2_RESPONSE);
+    if (response) {//If contains token then save it
+      authService.saveOauth2Repsonse(response);
+      //Then remove token from url
+      this.location.replaceState(this.location.path().split('?')[0], '');
+    }
+  }
 
   ngOnInit() {
   }

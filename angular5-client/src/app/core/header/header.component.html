@@ -16,18 +16,23 @@
         </ng-template>
       </div>
     
-    <div class="tools">
-      <a *ngIf="!isLoggedIn" routerLink="/login" class="display-inline " matTooltip="Log in">
-        <i class="material-icons">account_box</i>
-        <!--<i class="material-icons">face</i>-->
-        <!--<i class="material-icons">account_circle</i>-->
-      </a>
-      <a *ngIf="isLoggedIn" (click)='logout()' class="display-inline " matTooltip="Log out">
-        <i class="material-icons">directions_run</i>
-      </a>
-      <a routerLink="" class="display-inline" matTooltip="Change Language" disabled="true">
-        <i class="material-icons">language</i>
-      </a>
+    <div class="toolBar">
+        <div class="welcome">
+            <div *ngIf="user">Welcome back: {{user.name}}</div>
+        </div>
+        <div class="tools">
+          <a *ngIf="!isLoggedIn" routerLink="/login" class="display-inline " matTooltip="Log in">
+            <i class="material-icons">account_box</i>
+            <!--<i class="material-icons">face</i>-->
+            <!--<i class="material-icons">account_circle</i>-->
+          </a>
+          <a *ngIf="isLoggedIn" (click)='logout()' class="display-inline " matTooltip="Log out">
+            <i class="material-icons">directions_run</i>
+          </a>
+          <a routerLink="" class="display-inline" matTooltip="Change Language" disabled="true">
+            <i class="material-icons">language</i>
+          </a>
+        </div>
     </div>
     <div>
     </div>
