@@ -51,8 +51,12 @@ export class AuthenticationService {
         }
         return this.http.post<AuthResponse>(this.url, body).do(response => {
             this.setAuthInfo(response.token, response.user);
-            this.authEvents.next(new LoginAction());
+            this.triggerLogedinAction();
         });
+    }
+
+    triggerLogedinAction() {
+        this.authEvents.next(new LoginAction());
     }
 
     logout(): void {
@@ -71,6 +75,7 @@ export class AuthenticationService {
         if (response) {
             this.setAuthInfo(response.token, response.user);
         }
+        this.triggerLogedinAction();
     }
 
     setAuthInfo(token: string, user: AppUser) {
