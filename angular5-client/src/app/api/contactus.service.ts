@@ -17,7 +17,7 @@ const httpOptions = {
 
 @Injectable()
 export class ContactusService {
-    url =  `${environment.apiUrl}/contactus/messages`;
+    url =  `${environment.apiUrl}/contactus`;
     
     constructor(private http: HttpClient, private utilService: UtilService) { }
     
