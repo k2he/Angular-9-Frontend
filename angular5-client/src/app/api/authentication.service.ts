@@ -26,7 +26,7 @@ export const CURRENT_USER: string = 'currentUser';
 export class AuthenticationService {
     
     private authEvents: Subject<AuthenticationEvent>;
-    url =  `${environment.apiUrl}/login`;
+    url =  `${environment.apiUrl}/auth/login`;
 
     constructor(private http: HttpClient) {
         this.authEvents = new Subject<AuthenticationEvent>();

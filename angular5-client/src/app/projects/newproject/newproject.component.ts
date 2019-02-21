@@ -6,6 +6,7 @@ import { ProjectInfo } from "../../resources/project";
 import { ProjectService } from '../../api/project.service';
 import { UtilService } from '../../api/util.service';
 import { NewProjectCountService } from '../../api/newprojectcount.service';
+import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 
 const NAME_FIELD_MIN: number = 3;
 
@@ -53,6 +54,7 @@ export class NewprojectComponent implements OnInit {
     
     private onSubmit() {
         this.statusMessage = '';
+        this.projectInfo.estimatedCost = this.convertToDecimal(this.projectInfo.estimatedCost);
         this.utilService.deepTrim(this.projectInfo);
         if (this.isOnEditMode) {
             this.updateProject();
@@ -99,5 +101,10 @@ export class NewprojectComponent implements OnInit {
                 this.service.newEvent('add');
             }
         }
+    }
+
+    private convertToDecimal(input: string) {
+        const currencyPipe = new CustomCurrencyPipe();
+        return currencyPipe.parse(input);
     }
 }
