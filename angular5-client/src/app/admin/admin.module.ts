@@ -11,6 +11,10 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
     SharedModule,
     AdminRoutingModule
   ],
-  declarations: [AdminComponent, RegisterUserComponent, ManageUserComponent]
+  declarations: [
+    AdminComponent, 
+    RegisterUserComponent,
+    ManageUserComponent
+  ]
 })
 export class AdminModule { }

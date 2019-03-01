@@ -1,0 +1,19 @@
+.card-title {
+    margin: 0px !important;
+}
+
+.title{
+    font-weight: bold;
+}
+
+.row{ 
+    margin: 5px 0px;
+}
+
+.mat-button{ 
+    color:blue;
+}
+
+.mat-card {
+    margin: 0 0 30px 0;
+}

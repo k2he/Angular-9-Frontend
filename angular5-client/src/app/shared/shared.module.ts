@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 import { MaterialModuleModule } from '../material-module/material-module.module'
 import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
 import { CustomCurrencyFormatterDirective } from '../shared/directives/custom-currency-formatter.directive';
@@ -18,6 +19,7 @@ import { SideNaviComponent } from './side-navi/side-navi.component';
         MaterialModuleModule,
         MatButtonModule,
         MatSidenavModule,
+        MatCardModule,
   ],
   declarations: [
         CustomCurrencyPipe,
@@ -29,6 +31,7 @@ import { SideNaviComponent } from './side-navi/side-navi.component';
         ReactiveFormsModule,
         MatButtonModule,
         MatSidenavModule,
+        MatCardModule,
         
         CustomCurrencyPipe,
         CustomCurrencyFormatterDirective,

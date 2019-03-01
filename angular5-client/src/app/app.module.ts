@@ -35,7 +35,7 @@ import { FooterComponent } from './core/footer/footer.component';
      PageNotFoundComponent,
      LoginComponent,
      HeaderComponent,
-     FooterComponent,
+     FooterComponent
   ],
   providers: [
   ],

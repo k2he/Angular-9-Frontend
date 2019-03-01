@@ -1,0 +1,47 @@
+<div>
+  <div class="content-title">Microservice Resiliency Tests</div>
+  <div class= "content-main">
+      <mat-card>
+          <div class="row title">Test 1: Retry Fail</div>
+          <div class="row">Expected Behaviour: Trigger API function (maxAttempts = 4), the function will fail on purpose, and will retry 4 times and then trigger 
+            recovery function.
+          </div>
+          <mat-card-actions>
+              <button mat-button (click)="testRetryFail()">Trigger Test</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <span >Result:</span>
+            <div class="row" *ngIf="retryFailResult">{{retryFailResult}}</div> 
+          </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+          <div class="row title">Test 2: Retry Success</div>
+          <div class="row">Expected Behaviour: Trigger API function (maxAttempts = 4), the function will fail 3 times on purpose, and 4th time successfully calls 
+            Project service and get back result.
+          </div>
+          <mat-card-actions>
+              <button mat-button (click)="testRetrySuccess()">Trigger Test</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <span >Result:</span>
+            <div class="row" *ngIf="retrySuccessResult">{{retrySuccessResult}}</div> 
+          </mat-card-content>
+      </mat-card>
+
+      <mat-card>
+          <div class="row title">Test 3: Circuit Breaker</div>
+          <div class="row">Expected Behaviour: Trigger API function (fallbackMethod="circuitBreakerDefault") applied Circut Breaker, we make the method to fail on purpose,
+            and fall back method should get called.
+          </div>
+          <mat-card-actions>
+              <button mat-button (click)="testCircuitBreaker()">Trigger Test</button>
+          </mat-card-actions>
+          <mat-card-content>
+            <span >Result:</span>
+            <div class="row" *ngIf="circuitBreakerResult">{{circuitBreakerResult}}</div> 
+          </mat-card-content>
+      </mat-card>
+  </div>
+
+</div>

@@ -43,6 +43,12 @@ const routes: Routes = [
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard, AdminGuard]
     },
+    {
+        path: 'test-apis',
+        loadChildren: 'app/test-apis/test-apis.module#TestApisModule',
+        canLoad: [LoadAuthGuard],
+        canActivate: [ActiveAuthGuard]
+    },
     { path: '',   redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }  
 ];
