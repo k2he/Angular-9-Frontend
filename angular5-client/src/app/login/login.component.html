@@ -33,7 +33,7 @@
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="primary">Login</button>
+      <button mat-raised-button type="submit" (click)="login()" [disabled]="!loginForm.valid" color="primary">Login</button>
     </mat-card-actions>
   </mat-card>
 </div>
