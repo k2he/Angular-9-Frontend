@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { ProjectService } from '../../api/project.service';
 import { ProjectInfo } from "../../resources/project";
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
 
