@@ -1,10 +1,9 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf  } from '@angular/core';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { XHRBackend, Http, RequestOptions, HttpModule } from "@angular/http";
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpSpinnerInterceptor } from './http-spinner-interceptor';
 import { AuthenticationService } from '../api/authentication.service';
@@ -12,21 +11,13 @@ import { JwtInterceptor } from './jwt.interceptor';
 import { LoadAuthGuard } from "./guard/load-auth-guard";
 import { AdminGuard } from './guard/admin-guard';
 import { PublicPageGuard } from "./guard/public-guard";
-import { JsonHttp } from "../api/custom-json-http";
 import { ActiveAuthGuard } from "./guard/active-auth-guard";
 import { NewProjectCountService } from '../api/newprojectcount.service';
 import { SpinnerComponent } from './spinner/spinner.component';
 
-export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
-      console.log("createJsonHttp");
-      const ngHttp = new Http(xhrBackend, requestOptions);
-      return new JsonHttp(ngHttp);
-}
-
 @NgModule({
   imports: [
       CommonModule,
-      HttpModule,
       RouterModule
   ],
   declarations: [
@@ -36,11 +27,6 @@ export function createJsonHttp(xhrBackend: XHRBackend, requestOptions: RequestOp
     SpinnerComponent
   ],
   providers: [
-    {
-        provide: JsonHttp,
-        useFactory: createJsonHttp,
-        deps: [XHRBackend, RequestOptions]
-    },
     // {
     //     provide: HTTP_INTERCEPTORS,
     //     useClass: HttpSpinnerInterceptor,
