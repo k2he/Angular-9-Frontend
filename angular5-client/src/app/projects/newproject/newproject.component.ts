@@ -51,7 +51,7 @@ export class NewprojectComponent implements OnInit {
         .subscribe( info => this.projectInfo = info);
     }
     
-    private onSubmit() {
+    onSubmit() {
         this.statusMessage = '';
         this.utilService.deepTrim(this.projectInfo);
         if (this.isOnEditMode) {
