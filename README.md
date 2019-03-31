@@ -1,7 +1,7 @@
 # Angular-7-Frontend
 This contains 2 version. 1) Monolithic APIs.  2) Microservices APIs (Microservices have more UI which show retry and other resilience logics.
 
-# Angualar5Clients
+# Angualar5Clients  -- Cloud Version (Hosting on AWS EC2 and connecting to Cloud REST endpoint)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5. 
 Currently Updated to 1.7
