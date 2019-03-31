@@ -14,3 +14,7 @@ In addition, it added logic to build multiple environment Docker Image.
 
 ## microservice-v1.0-docker
 This branch is for Microservice APIs Frontend, it is able to build into Docker Image.
+
+## Domain name 
+Since it's just for personal test, it's good to use 
+https://www.duckdns.org/domains
