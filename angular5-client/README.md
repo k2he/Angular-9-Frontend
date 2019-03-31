@@ -10,3 +10,32 @@ docker build -t victoryssmile/angular-app:monolithic-cloud .
 ## Push to DockerHub
 
 docker push victoryssmile/angular-app:monolithic-cloud
+
+## To build Docker Image for different Environment, open Dockerfile and pass environment into "--configuration="
+RUN npm run build -- --configuration=cloud
+
+## To add more environment, need add below code one for "ng build" and one for "ng serve"
+"build": {
+  ...,
+  "configurations": {
+    ...,
+    "cloud": {
+      "fileReplacements": [
+        {
+          "replace": "src/environments/environment.ts",
+          "with": "src/environments/environment.cloud.ts"
+        }
+      ]
+    }
+  },
+  "serve": {
+    ...,
+    "configurations": {
+      ...,
+      "cloud": {
+        "browserTarget": "angualar5-clients:build:cloud"
+      }
+    }
+  } 
+}
+
