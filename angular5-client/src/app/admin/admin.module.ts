@@ -5,11 +5,13 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ManageUserComponent } from './manage-user/manage-user.component';
+import { MaterialModuleModule } from '../material-module/material-module.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MaterialModuleModule
   ],
   declarations: [AdminComponent, RegisterUserComponent, ManageUserComponent]
 })

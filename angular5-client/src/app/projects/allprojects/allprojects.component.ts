@@ -11,7 +11,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
 @Component({
   selector: 'app-allprojects',
   templateUrl: './allprojects.component.html',
-  styleUrls: ['./allprojects.component.css']
+  styleUrls: ['./allprojects.component.scss']
 })
 export class AllprojectsComponent implements OnInit, AfterViewChecked {
 

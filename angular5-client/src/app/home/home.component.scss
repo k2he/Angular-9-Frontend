@@ -1,0 +1,30 @@
+.main-content {
+	background-color: #f1f3f9;
+    position: absolute;
+    right: 230px;
+    top: 100px;
+    min-height: 300px;
+    min-width: 290;
+    max-width: 480px;
+    padding: 13px 20px;
+    border-radius: 3px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0e0e10de;
+}
+
+.section-body {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    height: 22px;
+}
+
+.link {
+    margin-left: 6px;
+}
