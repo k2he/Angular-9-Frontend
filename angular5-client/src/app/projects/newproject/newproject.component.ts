@@ -12,7 +12,7 @@ const NAME_FIELD_MIN: number = 3;
 @Component({
   selector: 'app-newproject',
   templateUrl: './newproject.component.html',
-  styleUrls: ['./newproject.component.css']
+  styleUrls: ['./newproject.component.scss']
 })
 export class NewprojectComponent implements OnInit {
     

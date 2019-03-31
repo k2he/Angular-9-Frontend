@@ -7,7 +7,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './notfound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModuleModule } from './material-module/material-module.module'
 import { HomeModule } from './home/home.module';

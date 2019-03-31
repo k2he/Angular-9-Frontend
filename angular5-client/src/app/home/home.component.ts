@@ -8,7 +8,7 @@ import { OAuth2_RESPONSE, AuthenticationService } from '../api/authentication.se
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   animations: [
        trigger('flyIn', [
          transition('void => *', [

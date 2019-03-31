@@ -10,19 +10,19 @@ const routes: Routes = [
                             path: '',
                             component: AdminComponent,
                             children: [
-                              {
-                                  path: '',
-                                  redirectTo: 'register',
-                                  pathMatch: 'full',
-                              },
-                              {
-                                  path: 'register',
-                                  component: RegisterUserComponent,  
-                              },
-                              {
-                                  path: 'manage',
-                                  component: ManageUserComponent,  
-                              }
+                                {
+                                    path: '',
+                                    redirectTo: 'manage',
+                                    pathMatch: 'full',
+                                },
+                                {
+                                    path: 'manage',
+                                    component: ManageUserComponent,  
+                                },
+                                {
+                                    path: 'register',
+                                    component: RegisterUserComponent,  
+                                }
                             ]
                           }
                         ];

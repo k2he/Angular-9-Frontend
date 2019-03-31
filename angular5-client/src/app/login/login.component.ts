@@ -7,7 +7,7 @@ import { AuthenticationService } from '../api/authentication.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
   animations: [
     trigger('showUp', [
       transition('void => *', [
