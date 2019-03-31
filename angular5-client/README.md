@@ -15,6 +15,7 @@ docker push victoryssmile/angular-app:monolithic-cloud
 RUN npm run build -- --configuration=cloud
 
 ## To add more environment, need add below code one for "ng build" and one for "ng serve"
+<div>
 "build": {
   ...,
   "configurations": {
@@ -38,4 +39,5 @@ RUN npm run build -- --configuration=cloud
     }
   } 
 }
+<div>
 
