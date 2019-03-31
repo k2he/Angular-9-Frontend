@@ -12,5 +12,5 @@ This branch is for Monolithic APIs Frontend, also able to build into Docker Imag
 This branch is for Monolithic APIs Frontend, including everything on branch monolithic-v1.0-migrateToAngular7.
 In addition, it added logic to build multiple environment Docker Image.
 
-## monolithic-v1.0-migrateToAngular7
+## microservice-v1.0-docker
 This branch is for Microservice APIs Frontend, it is able to build into Docker Image.
