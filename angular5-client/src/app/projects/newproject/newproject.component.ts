@@ -46,12 +46,12 @@ export class NewprojectComponent implements OnInit {
         this.title = productID ? "Edit Project Detail" : "Create New Project";
     }
     
-    private loadProjectInfo(productID: number) {
+    loadProjectInfo(productID: number) {
         this.projectService.getProjectInfoById(productID)
         .subscribe( info => this.projectInfo = info);
     }
     
-    private onSubmit() {
+    onSubmit() {
         this.statusMessage = '';
         this.utilService.deepTrim(this.projectInfo);
         if (this.isOnEditMode) {

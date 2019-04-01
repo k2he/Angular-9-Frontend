@@ -28,11 +28,11 @@ export class LoginComponent {
   constructor(private router : Router,
               private authService: AuthenticationService) { }
 
-  private clearError() {
+  clearError() {
     this.loginFailErrorMessage = "";
   }
 
-  private login() : void {
+  login() : void {
     this.clearError();
 
     this.authService.login(this.username, this.password)
@@ -41,7 +41,7 @@ export class LoginComponent {
             }, e => this.handleError(e));
   }
 
-  private socialLogin(loginType: string) {
+  socialLogin(loginType: string) {
     this.authService.socialLogin(loginType);
   }
 
