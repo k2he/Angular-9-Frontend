@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
               private router: Router,
               private guard: AdminGuard,
               private projectService: NewProjectCountService) { 
-    this.adminGuard = guard;
+      this.adminGuard = guard;
   }
   
   ngOnInit() {
