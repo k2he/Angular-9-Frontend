@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AllprojectsComponent } from './allprojects/allprojects.component';
-import { NewprojectComponent } from "./newproject/newproject.component";
-import { InprogressprojectsComponent } from "./inprogressprojects/inprogressprojects.component";
+import { AllProjectsComponent } from './all-projects/all-projects.component';
+import { NewProjectComponent } from "./new-project/new-project.component";
+import { InProgressProjectsComponent } from "./in-progress-projects/in-progress-projects.component";
 import { ProjectsComponent } from "./projects.component";
 
 const routes: Routes = [
@@ -17,19 +17,19 @@ const routes: Routes = [
                               },
                               {
                                   path: 'all',
-                                  component: AllprojectsComponent,  
+                                  component: AllProjectsComponent,  
                               },
                               {
                                   path: 'edit/:id',
-                                  component: NewprojectComponent,  
+                                  component: NewProjectComponent,  
                               },
                               {
                                   path: 'new',
-                                  component: NewprojectComponent,  
+                                  component: NewProjectComponent,  
                               },
                               {
                                   path: 'inprogress',
-                                  component: InprogressprojectsComponent,
+                                  component: InProgressProjectsComponent,
                               }
                                 
                             ]

@@ -10,12 +10,12 @@ export class ProjectsComponent implements OnInit {
 
     //TODO: later can load the list from database
     naviListItems: SideNavItem[] = [
-                                    { name: 'All Projects', url: "/projects/all", active: true },
-                                    { name: 'Create New', url: "/projects/new", active: true },
-                                    { name: 'In progress Projects', url: "/projects/inprogress", active: false },
-                                    { name: 'Projects Schedule', url: "", active: false },
-                                    { name: 'Completed Projects', url: "", active: false }
-                                  ];
+        { name: 'All Projects', url: "/projects/all", active: true },
+        { name: 'Create New', url: "/projects/new", active: true },
+        { name: 'In progress Projects', url: "/projects/inprogress", active: false },
+        { name: 'Projects Schedule', url: "", active: false },
+        { name: 'Completed Projects', url: "", active: false }
+    ];
     
     constructor() { }
 

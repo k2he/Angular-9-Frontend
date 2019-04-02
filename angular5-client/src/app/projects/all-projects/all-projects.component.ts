@@ -9,11 +9,11 @@ import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
-  selector: 'app-allprojects',
-  templateUrl: './allprojects.component.html',
-  styleUrls: ['./allprojects.component.scss']
+  selector: 'app-all-projects',
+  templateUrl: './all-projects.component.html',
+  styleUrls: ['./all-projects.component.scss']
 })
-export class AllprojectsComponent implements OnInit, AfterViewChecked {
+export class AllProjectsComponent implements OnInit, AfterViewChecked {
 
     displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status', 'actions'];
     dataSource;

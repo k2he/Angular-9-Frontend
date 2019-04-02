@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
 
 import { ContactInfo } from '../resources/contact';
-import { ContactusService } from '../api/contactus.service';
+import { ContactUsService } from '../api/contactus.service';
 import { UtilService } from '../api/util.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class ContactComponent {
     
     @ViewChild('contactUsForm') form;
     
-    constructor(private contactService: ContactusService, private utilService: UtilService) { }
+    constructor(private contactService: ContactUsService, private utilService: UtilService) { }
     
     onSubmit(): void {
         this.statusMessage = '';

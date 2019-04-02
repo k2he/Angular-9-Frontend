@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ContactusService } from './contactus.service';
+import { ContactUsService } from './contactus.service';
 
 describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ContactusService]
+      providers: [ContactUsService]
     });
   });
 
-  it('should be created', inject([ContactusService], (service: ContactusService) => {
+  it('should be created', inject([ContactUsService], (service: ContactUsService) => {
     expect(service).toBeTruthy();
   }));
 });
