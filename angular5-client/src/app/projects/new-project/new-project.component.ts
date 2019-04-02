@@ -10,11 +10,11 @@ import { NewProjectCountService } from '../../api/newprojectcount.service';
 const NAME_FIELD_MIN: number = 3;
 
 @Component({
-  selector: 'app-newproject',
-  templateUrl: './newproject.component.html',
-  styleUrls: ['./newproject.component.scss']
+  selector: 'app-new-project',
+  templateUrl: './new-project.component.html',
+  styleUrls: ['./new-project.component.scss']
 })
-export class NewprojectComponent implements OnInit {
+export class NewProjectComponent implements OnInit {
     
     projectInfo: ProjectInfo = <ProjectInfo>{};
     projectForm: FormGroup;

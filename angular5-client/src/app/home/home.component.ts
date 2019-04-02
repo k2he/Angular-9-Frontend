@@ -3,7 +3,9 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { OAuth2_RESPONSE, AuthenticationService } from '../api/authentication.service';
+import { AuthenticationService } from '../api/authentication.service';
+
+export const OAuth2_RESPONSE: string = 'OAuth2Response';
 
 @Component({
   selector: 'app-home',

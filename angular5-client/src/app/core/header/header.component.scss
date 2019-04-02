@@ -5,18 +5,22 @@
 }
 
 .mat-button {
-	text-transform: uppercase;
+    text-transform: uppercase;
+    
+    :hover {
+        background-color: #7c7c80fa;
+        color: white;
+    }
 }
 
 .nav-bar {
 	border-radius: 0;
 	position: relative;
-	height: 80px;
-}
-
-.mat-button:hover {
-    background-color: #7c7c80fa;
-    color: white;
+    height: 80px;
+    
+    a {
+        text-decoration: none;
+    }
 }
 
 .nav-title {
@@ -32,9 +36,6 @@
 	box-shadow:         1px 2px 11px 5px #aaff078c;  /* Other */
 }
 
-.nav-bar a {
-	text-decoration: none;
-}
 
 .nav-links {
 	position: absolute;
@@ -47,19 +48,20 @@
     right: 25px;
 }
 
-.tools {
-    color: #8ad021ed;
-    float: right;
-}
-
 .welcome {
     font-size: 12px;
     color: #8ad021ed;
 }
 
-.tools .material-icons {
-	font-size: 28px;
+.tools {
     color: #8ad021ed;
+    float: right;
+    margin-top: 8px;
+    
+    .material-icons {
+        font-size: 28px;
+        color: #8ad021ed;
+    }
 }
 
 .new-project-circle {
@@ -75,4 +77,18 @@
     top: -2px;
     left: 186px;
     z-index: 10;
+}
+.welcome {
+    .message {
+        display: inline-block;
+    }
+
+    .user-image-circular {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        margin-left: 10px;
+        -webkit-border-radius: 100%;
+        /* border-radius: 100%; */
+    }
 }
