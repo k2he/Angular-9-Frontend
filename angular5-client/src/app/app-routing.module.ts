@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
-import { PageNotFoundComponent } from './notfound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoadAuthGuard } from './core/guard/load-auth-guard';
 import { PublicPageGuard } from './core/guard/public-guard';
 import { ActiveAuthGuard } from './core/guard/active-auth-guard';

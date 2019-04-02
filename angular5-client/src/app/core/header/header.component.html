@@ -1,6 +1,6 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row class="nav-bar">
-      <a routerLink="/home" [@showUp] class="nav-title">My Angular Site</a>
+      <a routerLink="/home" [@showUp] class="nav-title">My Demo App</a>
 
       <span class="spacer"></span>
       
@@ -19,8 +19,9 @@
       </div>
     
     <div class="toolBar">
-        <div class="welcome">
-            <div *ngIf="user">Welcome back: {{user.name}}</div>
+        <div *ngIf="user" class="welcome">
+            <div class="message">Welcome back: {{user.name}}</div>
+            <img class="user-image-circular" [src]="user.imageUrl">
         </div>
         <div class="tools">
           <a *ngIf="!isLoggedIn" routerLink="/login" class="display-inline " matTooltip="Log in">

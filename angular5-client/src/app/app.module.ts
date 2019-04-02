@@ -7,14 +7,13 @@ import { DialogComponent } from './dialog/dialog.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './notfound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModuleModule } from './material-module/material-module.module'
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { UserComponent } from './user/user.component';
-import { HeaderComponent } from './core/header/header.component';
+import { HeaderModule } from './core/header/header.module';
 import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
@@ -27,6 +26,7 @@ import { FooterComponent } from './core/footer/footer.component';
     MaterialModuleModule,
     FormsModule,
     HomeModule,
+    HeaderModule,
     AppRoutingModule,//all other child route must go before app routing
   ],
   declarations: [
@@ -34,7 +34,6 @@ import { FooterComponent } from './core/footer/footer.component';
      DialogComponent,
      PageNotFoundComponent,
      LoginComponent,
-     HeaderComponent,
      FooterComponent,
   ],
   providers: [

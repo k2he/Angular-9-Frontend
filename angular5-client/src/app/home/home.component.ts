@@ -3,12 +3,14 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { OAuth2_RESPONSE, AuthenticationService } from '../api/authentication.service';
+import { AuthenticationService } from '../api/authentication.service';
+
+export const OAuth2_RESPONSE: string = 'OAuth2Response';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   animations: [
        trigger('flyIn', [
          transition('void => *', [

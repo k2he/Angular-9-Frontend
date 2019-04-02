@@ -7,23 +7,24 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { UtilService } from './util.service';
 
 import { ContactInfo } from '../resources/contact';
-
-const httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-      };
+import APIROUTES from '../config/api-routes';
 
 @Injectable()
-export class ContactusService {
-    url =  `${environment.apiUrl}/contacts`;
+export class ContactUsService {
+  
+    public static ROUTES = {
+        contactus: `${environment.apiPath}${APIROUTES.contactus}`
+    };
     
-    constructor(private http: HttpClient, private utilService: UtilService) { }
+    constructor(private http: HttpClient, 
+                private utilService: UtilService) { }
     
     public getAllContactInfos(): Observable<ContactInfo[]>{
-        return this.http.get<ContactInfo[]>(this.url);
+        return this.http.get<ContactInfo[]>(ContactUsService.ROUTES.contactus);
     }
 
     public createContactInfo(info: ContactInfo): Observable<ContactInfo> {
-        return this.http.post<ContactInfo>(this.url, info, this.utilService.httpOptions);
+        return this.http.post<ContactInfo>(ContactUsService.ROUTES.contactus, info, this.utilService.httpOptions);
     }
 
     public getContactInfoById(todoId: number) {

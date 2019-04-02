@@ -10,7 +10,7 @@ import { AppUser } from '../../resources/app-user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   animations: [
     trigger('showUp', [
       transition('void => *', [
@@ -24,14 +24,18 @@ import { AppUser } from '../../resources/app-user';
 })
 export class HeaderComponent implements OnInit {
 
-  private newProjectNum = 0;
-  private isLoggedIn: boolean;
-  private user: AppUser;
+  newProjectNum = 0;
+  isLoggedIn: boolean;
+  user: AppUser;
+  adminGuard: AdminGuard;
 
   constructor(private authService: AuthenticationService,
               private router: Router,
-              private adminGuard: AdminGuard,
-              private projectService: NewProjectCountService) { }
+              private guard: AdminGuard,
+              private projectService: NewProjectCountService) { 
+      this.adminGuard = guard;
+      
+  }
   
   ngOnInit() {
       this.projectService.events$.forEach(result => {

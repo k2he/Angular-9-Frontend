@@ -6,6 +6,8 @@ import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { AppUser } from '../resources/app-user';
 import { AuthResponse } from '../resources/auth-response';
+import STORAGEKEYS from '../config/storage-keys';
+import APIROUTES from '../config/api-routes';
 
 export class LoginAction {
 }
@@ -14,17 +16,14 @@ export class LogoutAction {
 export type AuthenticationEvent = LoginAction | LogoutAction;
 
 
-//Authentication related constants
-export const OAuth2_RESPONSE: string = 'OAuth2Response';
-export const JWT_TOKEN: string = 'jwtToken';
-export const CURRENT_USER: string = 'currentUser';
-
 @Injectable()
 export class AuthenticationService {
     
     private authEvents: Subject<AuthenticationEvent>;
-    url =  `${environment.apiUrl}/auth/login`;
-
+    public static ROUTES = {
+        login: `${environment.apiPath}${APIROUTES.login}`
+    };
+    
     constructor(private http: HttpClient) {
         this.authEvents = new Subject<AuthenticationEvent>();
     }
@@ -57,14 +56,14 @@ export class AuthenticationService {
     }
 
     logout(): void {
-        localStorage.removeItem(JWT_TOKEN);
-        localStorage.removeItem(CURRENT_USER);
+        localStorage.removeItem(STORAGEKEYS.JWT_TOKEN);
+        localStorage.removeItem(STORAGEKEYS.CURRENT_USER);
         this.authEvents.next(new LogoutAction());
     }
 
     isAuthenticated(): boolean {
         // console.log("isAuthenticated() called with value:" + localStorage.getItem('jwtToken') );
-        return localStorage.getItem(JWT_TOKEN) != null;
+        return localStorage.getItem(STORAGEKEYS.JWT_TOKEN) != null;
     }
 
     saveOauth2Repsonse(responseString: string) {
@@ -76,16 +75,16 @@ export class AuthenticationService {
     }
 
     setAuthInfo(token: string, user: AppUser) {
-        localStorage.setItem(JWT_TOKEN, token);
-        localStorage.setItem(CURRENT_USER, JSON.stringify(user));
+        localStorage.setItem(STORAGEKEYS.JWT_TOKEN, token);
+        localStorage.setItem(STORAGEKEYS.CURRENT_USER, JSON.stringify(user));
     }
 
     getAuthToken(): String {
-        return localStorage.getItem(JWT_TOKEN);
+        return localStorage.getItem(STORAGEKEYS.JWT_TOKEN);
     }
 
     getCurrentUser(): AppUser {
-        return JSON.parse(localStorage.getItem(CURRENT_USER));
+        return JSON.parse(localStorage.getItem(STORAGEKEYS.CURRENT_USER));
     }
     
     get events(): Observable<AuthenticationEvent> {
