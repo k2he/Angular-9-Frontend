@@ -45,7 +45,7 @@ export class AuthenticationService {
             username: username,
             password: password,
         }
-        return this.http.post<AuthResponse>(this.url, body).pipe(tap(response => {
+        return this.http.post<AuthResponse>(AuthenticationService.ROUTES.login, body).pipe(tap(response => {
             this.setAuthInfo(response.token, response.user);
             this.triggerLogedinAction();
         }));
