@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 import { SideNavItem } from '../shared/side-navi/side-navi.types'
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
 
-    //TODO: later can load the list from database
-    naviListItems: SideNavItem[] = [
-        { name: 'All Projects', url: "/projects/all", active: true },
-        { name: 'Create New', url: "/projects/new", active: true },
-        { name: 'In progress Projects', url: "/projects/inprogress", active: false },
-        { name: 'Projects Schedule', url: "", active: false },
-        { name: 'Completed Projects', url: "", active: false }
-    ];
-    
-    constructor() { }
+    naviListItems: SideNavItem[];
+
+    constructor(private translate: TranslateService) {
+        //TODO: later can load the list from database
+        this.naviListItems = [
+            { name: this.translate.instant('projects-page.naviItems.all'), url: "/projects/all", active: true },
+            { name: this.translate.instant('projects-page.naviItems.create'), url: "/projects/new", active: true },
+            { name: this.translate.instant('projects-page.naviItems.in-progress'), url: "/projects/inprogress", active: false },
+            { name: this.translate.instant('projects-page.naviItems.schedule'), url: "", active: false },
+            { name: this.translate.instant('projects-page.naviItems.completed'), url: "", active: false }
+        ];
+    }
 
     ngOnInit() {
     }

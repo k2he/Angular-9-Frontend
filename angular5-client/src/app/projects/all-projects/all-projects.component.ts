@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 import { ProjectService } from '../../api/project.service';
 import { ProjectInfo } from "../../resources/project";
@@ -21,6 +22,7 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
     @ViewChild(MatSort) sort: MatSort;
     
     constructor(private projectService: ProjectService,
+                private translate: TranslateService,
                 public dialog: MatDialog) { 
     }
 
@@ -56,7 +58,7 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
     
     openDialog(projectId: string): void {
         let dialogRef = this.dialog.open(DialogComponent, {
-          data: { title: 'Are you sure you want to delete selected project?', content: 'Please click Yes to continue.' }
+          data: { title: this.translate.instant('projects-page.all-projects-page.delete-title'), content: this.translate.instant('projects-page.all-projects-page.delete-content') }
         });
 
         dialogRef.afterClosed().subscribe(result => {

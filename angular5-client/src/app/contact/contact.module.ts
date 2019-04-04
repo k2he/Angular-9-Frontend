@@ -5,7 +5,6 @@ import { ContactRoutingModule } from './contact-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from "./contact.component";
 import { ContactUsService } from '../api/contactus.service';
-import { UtilService } from '../api/util.service';
 
 @NgModule({
   imports: [
@@ -17,8 +16,7 @@ import { UtilService } from '../api/util.service';
     ContactComponent
   ],
   providers: [
-    ContactUsService, 
-    UtilService
+    ContactUsService
   ]
 })
 export class ContactModule { }

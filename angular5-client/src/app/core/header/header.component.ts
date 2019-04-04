@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Router } from "@angular/router";
 
+import { TranslateService } from '@ngx-translate/core';
 import { NewProjectCountService } from '../../api/newprojectcount.service';
 import { AuthenticationService } from '../../api/authentication.service';
 import { AdminGuard } from '../guard/admin-guard';
 import { AppUser } from '../../resources/app-user';
+import STORAGEKEYS from '../../config/storage-keys';
+import { UtilService } from '../../util/util.service';
 
 @Component({
   selector: 'app-header',
@@ -28,13 +31,16 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
   user: AppUser;
   adminGuard: AdminGuard;
+  currentLanguage: string;
 
   constructor(private authService: AuthenticationService,
               private router: Router,
               private guard: AdminGuard,
+              private translate: TranslateService,
+              private utilService: UtilService,
               private projectService: NewProjectCountService) { 
       this.adminGuard = guard;
-      
+      this.currentLanguage = localStorage.getItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
   }
   
   ngOnInit() {
@@ -58,4 +64,18 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  changeLanguage() {
+    if (this.isCurrentLanEnglish()) {
+      this.currentLanguage = 'fr';
+    } else {
+      this.currentLanguage = 'en';
+    }
+    //Set Choosen Language
+    localStorage.setItem(STORAGEKEYS.LANGUAGE_CHOOSEN, this.currentLanguage);
+    this.translate.use(this.currentLanguage);
+  }
+
+  isCurrentLanEnglish(): boolean {
+    return this.utilService.isCurrentLocalEnglish();
+  }
 }
