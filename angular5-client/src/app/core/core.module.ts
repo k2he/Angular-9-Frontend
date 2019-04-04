@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -10,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModuleModule } from '../material-module/material-module.module'
 import { AuthenticationService } from '../api/authentication.service';
-import { JwtInterceptor } from './jwt.interceptor';
 import { NewProjectCountService } from '../api/newprojectcount.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -37,14 +35,7 @@ import { LoginComponent } from './login/login.component';
   exports: [
     HeaderComponent,
     FooterComponent
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true
-    }
-  ],
+  ]
 })
 
 export class CoreModule {

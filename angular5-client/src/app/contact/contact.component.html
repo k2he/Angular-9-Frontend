@@ -39,10 +39,6 @@
 						<mat-error>{{ 'field_validation.error.required' | translate }}</mat-error>
 					</mat-form-field>
 					<button mat-button [disabled]="!contactUsForm.valid">{{ 'button.submit' | translate }}</button>
-
-					<div *ngIf="statusMessage" [class]="statusClass">
-						{{statusMessage}}
-					</div>
 				</form>
 			</div>
 

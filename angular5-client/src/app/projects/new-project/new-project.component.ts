@@ -1,11 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { ProjectInfo } from "../../resources/project";
 import { ProjectService } from '../../api/project.service';
-import { UtilService } from '../../util/util.service';
+import { UtilService } from '../../services/util.service';
 import { NewProjectCountService } from '../../api/newprojectcount.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
     selector: 'app-new-project',
@@ -18,14 +20,14 @@ export class NewProjectComponent implements OnInit {
     projectInfo: ProjectInfo = <ProjectInfo>{};
     projectForm: FormGroup;
     title: string;
-    statusMessage: string;
-    statusClass: string;
     isOnEditMode: boolean = false;
 
     constructor(private fb: FormBuilder,
         private utilService: UtilService,
         private projectService: ProjectService,
         private service: NewProjectCountService,
+        private notifyService: NotificationService,
+        private translate: TranslateService,
         private route: ActivatedRoute) {
         this.projectForm = fb.group({
             'name': ['', [Validators.required, Validators.minLength(this.FIELD_MIN), Validators.maxLength(100)]],
@@ -50,7 +52,6 @@ export class NewProjectComponent implements OnInit {
     }
 
     onSubmit() {
-        this.statusMessage = '';
         this.utilService.deepTrim(this.projectInfo);
         if (this.isOnEditMode) {
             this.updateProject();
@@ -58,44 +59,31 @@ export class NewProjectComponent implements OnInit {
             this.createProject();
         }
     }
-
+    
     private createProject() {
         this.projectService.createProjectInfo(this.projectInfo)
-            .subscribe(
-                () => {
-                    this.displaySubmitMessage(false);
-                },
-                error => {
-                    this.displaySubmitMessage(true);
-                }
-            );
+            .subscribe(() => {
+                this.service.newEvent('add');
+                const message = this.translate.instant('projects-page.create-success-message')
+                this.notifyService.showSuccess(message);
+            });
     }
 
     private updateProject() {
         this.projectService.updateProjectInfo(this.projectInfo)
-            .subscribe(
-                () => {
-                    this.displaySubmitMessage(false);
-                },
-                error => {
-                    this.displaySubmitMessage(true);
-                }
-            );
+            .subscribe(() => {
+                const message = this.translate.instant('projects-page.update-success-message')
+                this.notifyService.showSuccess(message);
+            });
     }
 
-    private displaySubmitMessage(hasError: boolean) {
-        if (hasError) {
-            this.statusMessage = "Submission Failed !!!";
-            this.statusClass = "restful_call_status_failed";
-        } else {
-            if (this.isOnEditMode) { //Editing existing project
-                this.statusMessage = "Update Successful!";
-                this.statusClass = "restful_call_status_ok ";
-            } else {//Add new project
-                this.statusMessage = "Submission Successful!";
-                this.statusClass = "restful_call_status_ok ";
-                this.service.newEvent('add');
-            }
-        }
+
+    throwError() {
+        throw new Error('My Pretty Error');
+    }
+
+    showSuccess() {
+        this.notifyService.showSuccess("Project Updated Succesfully!");
+
     }
 }

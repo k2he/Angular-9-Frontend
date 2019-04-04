@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../api/authentication.service';
 import { AdminGuard } from '../../guard/admin-guard';
 import { AppUser } from '../../resources/app-user';
 import STORAGEKEYS from '../../config/storage-keys';
-import { UtilService } from '../../util/util.service';
+import { UtilService } from '../../services/util.service';
 
 @Component({
   selector: 'app-header',

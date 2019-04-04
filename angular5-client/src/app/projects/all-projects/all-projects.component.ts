@@ -8,6 +8,7 @@ import { ProjectInfo } from "../../resources/project";
 import { Observable } from 'rxjs';
 import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
     selector: 'app-all-projects',
@@ -23,6 +24,7 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
 
     constructor(private projectService: ProjectService,
         private translate: TranslateService,
+        private notifyService: NotificationService,
         public dialog: MatDialog) {
     }
 
@@ -72,7 +74,8 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
     processDelete(projectId: string) {
         this.projectService.deleteProjectInfoById(projectId).subscribe(
             result => {
-                console.log(result);
+                const message = this.translate.instant('projects-page.delete-success-message');
+                this.notifyService.showSuccess(message);
                 this.fetchData();
             });
     }
