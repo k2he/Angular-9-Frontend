@@ -13,6 +13,10 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
     AdminRoutingModule,
     MaterialModuleModule
   ],
-  declarations: [AdminComponent, RegisterUserComponent, ManageUserComponent]
+  declarations: [
+    AdminComponent,
+    RegisterUserComponent,
+    ManageUserComponent
+  ]
 })
 export class AdminModule { }

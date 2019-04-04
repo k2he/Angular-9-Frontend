@@ -15,7 +15,7 @@
             "phone": "Please enter a valid phone number"
         }
     },
-    "page-under-construction-message" : "This Feature is still under Construction~!",
+    "page-under-construction-message": "This Feature is still under Construction~!",
     
     "header-page": {
         "title": "My Demo App",
@@ -39,14 +39,12 @@
     "home-page": {
         "title": "Angular and APIs Demo App",
         "subtitle": "This is my personal testing purpose website. It's for practicing new frontend and backend technologies. (For now, fully test under Chrome only)",
-        
         "frontend-desc-title": "Front-end Technologies:",
         "frontend-desc-item1": "Angular 5 (Migrated to 7)",
         "frontend-desc-item2": "Angular Material",
         "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
         "frontend-desc-notes-link1-desc": "My GitHub (Frontend)",
         "frontend-desc-notes-link2-desc": "My DockerHub",
-
         "backend-desc-title": "REST APIs Technologies:",
         "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
         "backend-desc-item2": "JPA (Hibernate), mySQL",
@@ -54,7 +52,6 @@
         "backend-desc-item4": "Swagger, Log4j, Lambok, Sleuth, Zipkin",
         "backend-desc-item5": "Docker, Docker Compose, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "My GitHub (Backend)",
-
         "desc-notes-title": "For details:"
     },
     "login-page": {
@@ -88,7 +85,7 @@
             },
             "delete-title": "Are you sure you want to delete selected project?",
             "delete-content": "Please click Yes to continue."
-        }, 
+        },
         "in-progress-page": {
             "title": "In Progress Projects"
         },

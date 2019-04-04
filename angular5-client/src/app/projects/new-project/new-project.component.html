@@ -1,5 +1,6 @@
 <div>
-	<div class="content-title">{{isOnEditMode ? ('projects-page.new-project-page.edit-project-title' | translate) : ('projects-page.new-project-page.create-project-title' | translate)}}</div>
+	<div class="content-title">{{isOnEditMode ? ('projects-page.new-project-page.edit-project-title' | translate) : ('projects-page.new-project-page.create-project-title'
+		| translate)}}</div>
 	<div class="content-main">
 		<div>
 			<form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="form-container width-600px  margin-top-50px">

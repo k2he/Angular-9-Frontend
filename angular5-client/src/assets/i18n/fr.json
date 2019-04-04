@@ -15,7 +15,7 @@
             "phone": "s'il vous plaît entrer un numéro de téléphone valide"
         }
     },
-    "page-under-construction-message" : "Cette fonctionnalité est encore en construction ~!",
+    "page-under-construction-message": "Cette fonctionnalité est encore en construction ~!",
     
     "header-page": {
         "title": "Ma demande de démo",
@@ -39,14 +39,12 @@
     "home-page": {
         "title": "Application de démonstration angulaire et API",
         "subtitle": "Ceci est mon site de test personnel. C'est pour pratiquer de nouvelles technologies frontend et backend. (Pour l'instant, testez uniquement sous Chrome)",
-        
         "frontend-desc-title": "Technologies frontales:",
         "frontend-desc-item1": "Angular 5 (Migrer vers 7)",
         "frontend-desc-item2": "Angular Material",
         "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
         "frontend-desc-notes-link1-desc": "Ma GitHub (L'extrémité avant)",
         "frontend-desc-notes-link2-desc": "Ma DockerHub",
-
         "backend-desc-title": "Technologies REST APIs:",
         "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
         "backend-desc-item2": "JPA (Hibernate), mySQL",
@@ -54,7 +52,6 @@
         "backend-desc-item4": "Swagger, Log4j, Lambok, Sleuth, Zipkin",
         "backend-desc-item5": "Docker, Docker Compose, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
-
         "desc-notes-title": "Pour plus de détails:"
     },
     "login-page": {

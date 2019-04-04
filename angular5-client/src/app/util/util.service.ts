@@ -11,7 +11,7 @@ export class UtilService {
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-  
+
     constructor() { }
 
     deepTrim(obj) {
@@ -26,8 +26,8 @@ export class UtilService {
             }
         }
     }
-  
-    isCurrentLocalEnglish(): boolean { 
+
+    isCurrentLocalEnglish(): boolean {
         const currentLanguage = localStorage.getItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
         return currentLanguage === 'en';
     }

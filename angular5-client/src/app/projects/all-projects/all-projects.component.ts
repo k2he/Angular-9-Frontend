@@ -10,20 +10,20 @@ import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
-  selector: 'app-all-projects',
-  templateUrl: './all-projects.component.html',
-  styleUrls: ['./all-projects.component.scss']
+    selector: 'app-all-projects',
+    templateUrl: './all-projects.component.html',
+    styleUrls: ['./all-projects.component.scss']
 })
 export class AllProjectsComponent implements OnInit, AfterViewChecked {
 
-    displayedColumns = ['name', 'description', 'due', 'skills',  'estimatedCost', 'status', 'actions'];
+    displayedColumns = ['name', 'description', 'due', 'skills', 'estimatedCost', 'status', 'actions'];
     dataSource;
-    
+
     @ViewChild(MatSort) sort: MatSort;
-    
+
     constructor(private projectService: ProjectService,
-                private translate: TranslateService,
-                public dialog: MatDialog) { 
+        private translate: TranslateService,
+        public dialog: MatDialog) {
     }
 
     ngOnInit() {
@@ -32,48 +32,48 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
 
     fetchData() {
         this.projectService.getAllProjects().subscribe(
-                result => this.dataSource = new MatTableDataSource(result)
-         );
+            result => this.dataSource = new MatTableDataSource(result)
+        );
     }
     /**
      * Set the sort after the view init since this component will
      * be able to query its view for the initialized sort.
      */
-    
+
     ngAfterViewChecked() {
         if (this.dataSource) {
             this.dataSource.sort = this.sort;
         }
     }
-    
+
     applyFilter(filterValue: string) {
         filterValue = filterValue.trim(); // Remove whitespace
         filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
         this.dataSource.filter = filterValue;
     }
-    
+
     onDelete(projectId: string) {
         this.openDialog(projectId);
     }
-    
+
     openDialog(projectId: string): void {
         let dialogRef = this.dialog.open(DialogComponent, {
-          data: { title: this.translate.instant('projects-page.all-projects-page.delete-title'), content: this.translate.instant('projects-page.all-projects-page.delete-content') }
+            data: { title: this.translate.instant('projects-page.all-projects-page.delete-title'), content: this.translate.instant('projects-page.all-projects-page.delete-content') }
         });
 
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed. Result is ' + result);
-          if(result=='yes') {
-              this.processDelete(projectId);
-          }
+            console.log('The dialog was closed. Result is ' + result);
+            if (result == 'yes') {
+                this.processDelete(projectId);
+            }
         });
     }
-    
+
     processDelete(projectId: string) {
         this.projectService.deleteProjectInfoById(projectId).subscribe(
             result => {
                 console.log(result);
                 this.fetchData();
-        });
+            });
     }
 }
