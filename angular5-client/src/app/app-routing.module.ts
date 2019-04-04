@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { AboutComponent } from './about/about.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoadAuthGuard } from './core/guard/load-auth-guard';
-import { PublicPageGuard } from './core/guard/public-guard';
-import { ActiveAuthGuard } from './core/guard/active-auth-guard';
-import { AdminGuard } from './core/guard/admin-guard';
+import { HomeComponent } from './core/home/home.component';
+import { LoginComponent } from './core/login/login.component';
+import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
+import { LoadAuthGuard } from './guard/load-auth-guard';
+import { PublicPageGuard } from './guard/public-guard';
+import { ActiveAuthGuard } from './guard/active-auth-guard';
+import { AdminGuard } from './guard/admin-guard';
 
 const routes: Routes = [
-    {   
-        path: 'login', 
+    {
+        path: 'login',
         component: LoginComponent,
         canActivate: [PublicPageGuard]
     },
@@ -43,12 +42,12 @@ const routes: Routes = [
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard, AdminGuard]
     },
-    { path: '',   redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', component: PageNotFoundComponent }  
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

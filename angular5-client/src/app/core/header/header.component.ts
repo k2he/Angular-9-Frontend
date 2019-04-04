@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { TranslateService } from '@ngx-translate/core';
 import { NewProjectCountService } from '../../api/newprojectcount.service';
 import { AuthenticationService } from '../../api/authentication.service';
-import { AdminGuard } from '../guard/admin-guard';
+import { AdminGuard } from '../../guard/admin-guard';
 import { AppUser } from '../../resources/app-user';
 import STORAGEKEYS from '../../config/storage-keys';
 import { UtilService } from '../../util/util.service';
@@ -34,24 +34,24 @@ export class HeaderComponent implements OnInit {
   currentLanguage: string;
 
   constructor(private authService: AuthenticationService,
-              private router: Router,
-              private guard: AdminGuard,
-              private translate: TranslateService,
-              private utilService: UtilService,
-              private projectService: NewProjectCountService) { 
-      this.adminGuard = guard;
-      this.currentLanguage = localStorage.getItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
+    private router: Router,
+    private guard: AdminGuard,
+    private translate: TranslateService,
+    private utilService: UtilService,
+    private projectService: NewProjectCountService) {
+    this.adminGuard = guard;
+    this.currentLanguage = localStorage.getItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
   }
-  
+
   ngOnInit() {
-      this.projectService.events$.forEach(result => {
-          this.newProjectNum++
-      });
+    this.projectService.events$.forEach(result => {
+      this.newProjectNum++
+    });
+    this.loadData();
+
+    this.authService.events.subscribe(() => {
       this.loadData();
-      
-      this.authService.events.subscribe(() => {
-        this.loadData();
-      });
+    });
   }
 
   loadData() {

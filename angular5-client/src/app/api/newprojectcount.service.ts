@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class NewProjectCountService {
 
-    private _count = new Subject<any>();
-    
-    newEvent(event) {
-      this._count.next(event);
-    }
+  private _count = new Subject<any>();
 
-    get events$ () {
-      return this._count.asObservable();
-    }
+  newEvent(event) {
+    this._count.next(event);
+  }
+
+  get events$() {
+    return this._count.asObservable();
+  }
 
 }

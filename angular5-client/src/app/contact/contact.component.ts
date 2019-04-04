@@ -1,41 +1,41 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 import { ContactInfo } from '../resources/contact';
 import { ContactUsService } from '../api/contactus.service';
 import { UtilService } from '../util/util.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
     contectInfo: ContactInfo = <ContactInfo>{};
-    PHONE_NUMBER_REGEX  = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
+    PHONE_NUMBER_REGEX = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
     statusMessage: string;
     statusClass: string;
-    
+
     @ViewChild('contactUsForm') form;
-    
+
     constructor(private contactService: ContactUsService, private utilService: UtilService) { }
-    
+
     onSubmit(): void {
         this.statusMessage = '';
         this.utilService.deepTrim(this.contectInfo);
         this.contactService.createContactInfo(this.contectInfo)
-          .subscribe(
-              hero => {
-                  this.displaySubmitMessage(false);
-                //TODO: Need to figure out how to reset form without showing validation error message
-//                  this.form.reset();
-              },
-              error => {
-                  this.displaySubmitMessage(true);
-              }
-          );
+            .subscribe(
+                hero => {
+                    this.displaySubmitMessage(false);
+                    //TODO: Need to figure out how to reset form without showing validation error message
+                    //                  this.form.reset();
+                },
+                error => {
+                    this.displaySubmitMessage(true);
+                }
+            );
     }
-    
+
     displaySubmitMessage(hasError: boolean) {
         if (hasError) {
             this.statusMessage = "Submission Failed !!!";
