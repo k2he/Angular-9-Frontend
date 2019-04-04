@@ -64,9 +64,9 @@
         "password": "Password"
     },
     "projects-page": {
-        "delete-success-message": "Project Deleted Succesfully!",
-        "update-success-message": "Project Updated Succesfully!",
-        "create-success-message": "Project Created Succesfully!",
+        "delete-success-message": "Project Deleted Succesfully! 😎",
+        "update-success-message": "Project Updated Succesfully! 😎",
+        "create-success-message": "Project Created Succesfully! 😎",
         "naviItems": {
             "all": "All Projects",
             "create": "Create New",
@@ -115,7 +115,7 @@
             "field-subject": "Subject",
             "field-message": "Message"
         },
-        "create-success-message": "We have received your feedbacks. Thank you!"
+        "create-success-message": "We have received your feedbacks. Thank you! 😎"
     },
     "admin-page": {
         "naviItems": {
