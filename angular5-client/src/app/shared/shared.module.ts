@@ -9,32 +9,35 @@ import { MaterialModuleModule } from '../material-module/material-module.module'
 import { CustomCurrencyPipe } from '../shared/pipes/custom-currency.pipe';
 import { CustomCurrencyFormatterDirective } from '../shared/directives/custom-currency-formatter.directive';
 import { SideNaviComponent } from './side-navi/side-navi.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-        CommonModule,
-        RouterModule,
-
-        MaterialModuleModule,
-        MatButtonModule,
-        MatSidenavModule,
+      CommonModule,
+      RouterModule,
+      
+      MaterialModuleModule,
+      MatButtonModule,
+      MatSidenavModule,
+      TranslateModule
   ],
   declarations: [
-        CustomCurrencyPipe,
-        CustomCurrencyFormatterDirective,
-        SideNaviComponent,
+      CustomCurrencyPipe,
+      CustomCurrencyFormatterDirective,
+      SideNaviComponent,
   ],
   exports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatSidenavModule,
-        
-        CustomCurrencyPipe,
-        CustomCurrencyFormatterDirective,
-        FormsModule,
-        RouterModule,
-        SideNaviComponent,
+      CommonModule,
+      ReactiveFormsModule,
+      MatButtonModule,
+      MatSidenavModule,
+      TranslateModule,
+
+      CustomCurrencyPipe,
+      CustomCurrencyFormatterDirective,
+      FormsModule,
+      RouterModule,
+      SideNaviComponent,
    ]
 
 })

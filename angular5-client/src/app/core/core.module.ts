@@ -14,11 +14,13 @@ import { PublicPageGuard } from "./guard/public-guard";
 import { ActiveAuthGuard } from "./guard/active-auth-guard";
 import { NewProjectCountService } from '../api/newprojectcount.service';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
       CommonModule,
-      RouterModule
+      RouterModule,
+      TranslateModule
   ],
   declarations: [
     SpinnerComponent

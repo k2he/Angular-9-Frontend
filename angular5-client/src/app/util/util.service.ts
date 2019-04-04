@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 
+import STORAGEKEYS from '../config/storage-keys';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class UtilService {
 
     httpOptions = {
@@ -24,4 +27,8 @@ export class UtilService {
         }
     }
   
+    isCurrentLocalEnglish(): boolean { 
+        const currentLanguage = localStorage.getItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
+        return currentLanguage === 'en';
+    }
 }

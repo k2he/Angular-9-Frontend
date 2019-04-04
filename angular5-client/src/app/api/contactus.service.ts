@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { UtilService } from './util.service';
+import { UtilService } from '../util/util.service';
 
 import { ContactInfo } from '../resources/contact';
 import APIROUTES from '../config/api-routes';

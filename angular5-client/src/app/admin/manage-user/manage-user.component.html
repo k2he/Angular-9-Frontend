@@ -1,15 +1,15 @@
 <div>
-    <div class="content-title">Manage User</div>
+    <div class="content-title">{{ 'admin-page.manage-page.title' | translate }}</div>
     <div class="content-main">
         <div>
-            <div>This Feature is still under Construction~!</div>
-            <div class="margin-top-15px">If you can see this page, you are logged in as Admin</div>
-            
+            <div>{{ 'page-under-construction-message' | translate }}</div>
+            <div class="margin-top-15px">{{ 'admin-page.manage-page.explaination' | translate }}</div>
+
             <div class="list-block">
-                <span class="description-title">You can log in use Normal User below, you shouldn't see this page.</span>
+                <span class="description-title">{{ 'admin-page.manage-page.detail-title' | translate }}</span>
                 <mat-list>
-                    <mat-list-item class="description-item">Username: test1</mat-list-item>
-                    <mat-list-item class="description-item">Password: 12345</mat-list-item>
+                    <mat-list-item class="description-item">{{ 'admin-page.manage-page.username-detail' | translate }}</mat-list-item>
+                    <mat-list-item class="description-item">{{ 'admin-page.manage-page.password-detail' | translate }}</mat-list-item>
                 </mat-list>
             </div>
         </div>

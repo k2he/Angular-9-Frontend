@@ -58,6 +58,7 @@ export class AuthenticationService {
     logout(): void {
         localStorage.removeItem(STORAGEKEYS.JWT_TOKEN);
         localStorage.removeItem(STORAGEKEYS.CURRENT_USER);
+        localStorage.removeItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
         this.authEvents.next(new LogoutAction());
     }
 

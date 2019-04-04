@@ -4,36 +4,35 @@ import { ActivatedRoute } from '@angular/router';
 
 import { ProjectInfo } from "../../resources/project";
 import { ProjectService } from '../../api/project.service';
-import { UtilService } from '../../api/util.service';
+import { UtilService } from '../../util/util.service';
 import { NewProjectCountService } from '../../api/newprojectcount.service';
 
-const NAME_FIELD_MIN: number = 3;
-
 @Component({
-  selector: 'app-new-project',
-  templateUrl: './new-project.component.html',
-  styleUrls: ['./new-project.component.scss']
+    selector: 'app-new-project',
+    templateUrl: './new-project.component.html',
+    styleUrls: ['./new-project.component.scss']
 })
 export class NewProjectComponent implements OnInit {
-    
+    FIELD_MIN: number = 3;
+
     projectInfo: ProjectInfo = <ProjectInfo>{};
     projectForm: FormGroup;
     title: string;
     statusMessage: string;
     statusClass: string;
     isOnEditMode: boolean = false;
-    
-    constructor(private fb: FormBuilder, 
-                private utilService: UtilService, 
-                private projectService: ProjectService,
-                private service: NewProjectCountService,
-                private route: ActivatedRoute) { 
-        this.projectForm = fb.group({ 
-            'name': ['', [Validators.required, Validators.minLength(NAME_FIELD_MIN), Validators.maxLength(100)]], 
+
+    constructor(private fb: FormBuilder,
+        private utilService: UtilService,
+        private projectService: ProjectService,
+        private service: NewProjectCountService,
+        private route: ActivatedRoute) {
+        this.projectForm = fb.group({
+            'name': ['', [Validators.required, Validators.minLength(this.FIELD_MIN), Validators.maxLength(100)]],
             'skills': ['', null],
-            'dueDate' : ['', Validators.required],
+            'dueDate': ['', Validators.required],
             'cost': ['', [Validators.required, Validators.max(99999999999)]],
-            'description': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(500)]]
+            'description': ['', [Validators.required, Validators.minLength(this.FIELD_MIN), Validators.maxLength(500)]]
         });
     }
 
@@ -41,16 +40,15 @@ export class NewProjectComponent implements OnInit {
         const productID = this.route.snapshot.params['id'];
         if (productID) {
             this.loadProjectInfo(productID);
-        } 
-        this.isOnEditMode = productID ? true : false; 
-        this.title = productID ? "Edit Project Detail" : "Create New Project";
+        }
+        this.isOnEditMode = productID ? true : false;
     }
-    
+
     loadProjectInfo(productID: number) {
         this.projectService.getProjectInfoById(productID)
-        .subscribe( info => this.projectInfo = info);
+            .subscribe(info => this.projectInfo = info);
     }
-    
+
     onSubmit() {
         this.statusMessage = '';
         this.utilService.deepTrim(this.projectInfo);
@@ -63,28 +61,28 @@ export class NewProjectComponent implements OnInit {
 
     private createProject() {
         this.projectService.createProjectInfo(this.projectInfo)
-        .subscribe(
-            () => {
-                this.displaySubmitMessage(false);
-            },
-            error => {
-                this.displaySubmitMessage(true);
-            }
-        );
+            .subscribe(
+                () => {
+                    this.displaySubmitMessage(false);
+                },
+                error => {
+                    this.displaySubmitMessage(true);
+                }
+            );
     }
-    
+
     private updateProject() {
         this.projectService.updateProjectInfo(this.projectInfo)
-        .subscribe(
-            () => {
-                this.displaySubmitMessage(false);
-            },
-            error => {
-                this.displaySubmitMessage(true);
-            }
-        );
+            .subscribe(
+                () => {
+                    this.displaySubmitMessage(false);
+                },
+                error => {
+                    this.displaySubmitMessage(true);
+                }
+            );
     }
-    
+
     private displaySubmitMessage(hasError: boolean) {
         if (hasError) {
             this.statusMessage = "Submission Failed !!!";

@@ -3,7 +3,7 @@ import { FormControl, Validators} from '@angular/forms';
 
 import { ContactInfo } from '../resources/contact';
 import { ContactUsService } from '../api/contactus.service';
-import { UtilService } from '../api/util.service';
+import { UtilService } from '../util/util.service';
 
 @Component({
   selector: 'app-contact',

@@ -4,11 +4,13 @@ import { MaterialModuleModule } from '../../material-module/material-module.modu
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from "./header.component";
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModuleModule,
+    TranslateModule,
     RouterModule
   ],
   declarations: [
