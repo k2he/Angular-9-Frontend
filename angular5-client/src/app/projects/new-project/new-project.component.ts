@@ -76,14 +76,4 @@ export class NewProjectComponent implements OnInit {
                 this.notifyService.showSuccess(message);
             });
     }
-
-
-    throwError() {
-        throw new Error('My Pretty Error');
-    }
-
-    showSuccess() {
-        this.notifyService.showSuccess("Project Updated Succesfully!");
-
-    }
 }

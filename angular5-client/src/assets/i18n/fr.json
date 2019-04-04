@@ -64,9 +64,9 @@
         "password": "Mot de passe"
     },
     "projects-page": {
-        "delete-success-message": "Projet supprimé avec succès!",
-        "update-success-message": "Projet mis à jour avec succès!",
-        "create-success-message": "Projet créé avec succès!",
+        "delete-success-message": "Projet supprimé avec succès! 😎",
+        "update-success-message": "Projet mis à jour avec succès! 😎",
+        "create-success-message": "Projet créé avec succès! 😎",
         "naviItems": {
             "all": "Tous les projets",
             "create": "Créer un nouveau projet",
@@ -115,7 +115,7 @@
             "field-subject": "Assujettir",
             "field-message": "Message"
         },
-        "create-success-message": "Nous avons reçu vos retours. Je vous remercie!"
+        "create-success-message": "Nous avons reçu vos retours. Je vous remercie! 😎"
     },
     "admin-page": {
         "naviItems": {
