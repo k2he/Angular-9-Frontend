@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 import { ContactInfo } from '../resources/contact';
 import { ContactUsService } from '../api/contactus.service';
-import { UtilService } from '../util/util.service';
+import { UtilService } from '../services/util.service';
+import { NotificationService } from '../services/notification.service';
 
 @Component({
     selector: 'app-contact',
@@ -13,36 +15,20 @@ import { UtilService } from '../util/util.service';
 export class ContactComponent {
     contectInfo: ContactInfo = <ContactInfo>{};
     PHONE_NUMBER_REGEX = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
-    statusMessage: string;
-    statusClass: string;
 
     @ViewChild('contactUsForm') form;
 
-    constructor(private contactService: ContactUsService, private utilService: UtilService) { }
+    constructor(private contactService: ContactUsService,
+        private translate: TranslateService,
+        private notifyService: NotificationService,
+        private utilService: UtilService) { }
 
     onSubmit(): void {
-        this.statusMessage = '';
         this.utilService.deepTrim(this.contectInfo);
         this.contactService.createContactInfo(this.contectInfo)
-            .subscribe(
-                hero => {
-                    this.displaySubmitMessage(false);
-                    //TODO: Need to figure out how to reset form without showing validation error message
-                    //                  this.form.reset();
-                },
-                error => {
-                    this.displaySubmitMessage(true);
-                }
-            );
-    }
-
-    displaySubmitMessage(hasError: boolean) {
-        if (hasError) {
-            this.statusMessage = "Submission Failed !!!";
-            this.statusClass = "restful_call_status_failed";
-        } else {
-            this.statusMessage = "Submission Successful. Message inserted into database";
-            this.statusClass = "restful_call_status_ok ";
-        }
+            .subscribe(() => {
+                const message = this.translate.instant('contact-us-page.create-success-message')
+                this.notifyService.showSuccess(message);
+            });
     }
 }

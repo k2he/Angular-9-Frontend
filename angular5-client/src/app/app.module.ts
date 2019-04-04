@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule, MatDialogModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { DialogComponent } from './dialog/dialog.component';
+import { GlobalErrorHandler } from './global-error-handler';
+import { ApiInterceptor } from './api.interceptor';
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -19,6 +23,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatSnackBarModule,
+    //Below 2 are used in Globel Popup
+    MatButtonModule,
+    MatDialogModule,
 
     // config for Ngx translate
     TranslateModule.forRoot({
@@ -36,6 +44,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     DialogComponent
   ],
   providers: [
+    { 
+      provide: ErrorHandler, useClass: GlobalErrorHandler 
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
   ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]

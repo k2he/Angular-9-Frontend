@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
         MatTooltipModule,
         MatToolbarModule,
         MatButtonModule,
+        MatDialogModule,
         MatCardModule,
         MatInputModule,
         MatDialogModule,
