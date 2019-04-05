@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { ProjectInfo } from "../../resources/project";
 import { ProjectService } from '../../api/project.service';
 import { UtilService } from '../../services/util.service';
-import { NewProjectCountService } from '../../services/newprojectcount.service';
+import { NewProjectCountService } from '../../services/new-project-count.service';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
@@ -17,6 +18,7 @@ import { NotificationService } from '../../services/notification.service';
 export class NewProjectComponent implements OnInit {
     FIELD_MIN: number = 3;
 
+    currencyPipe: CustomCurrencyPipe;
     projectInfo: ProjectInfo = <ProjectInfo>{};
     projectForm: FormGroup;
     title: string;
@@ -39,6 +41,7 @@ export class NewProjectComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.currencyPipe = new CustomCurrencyPipe();
         const productID = this.route.snapshot.params['id'];
         if (productID) {
             this.loadProjectInfo(productID);
@@ -60,7 +63,8 @@ export class NewProjectComponent implements OnInit {
         }
     }
     
-    private createProject() {
+    createProject() {
+        this.parseProjectInfo(this.projectInfo);
         this.projectService.createProjectInfo(this.projectInfo)
             .subscribe(() => {
                 this.service.newEvent('add');
@@ -69,11 +73,18 @@ export class NewProjectComponent implements OnInit {
             });
     }
 
-    private updateProject() {
+    updateProject() {
+        this.parseProjectInfo(this.projectInfo);
         this.projectService.updateProjectInfo(this.projectInfo)
             .subscribe(() => {
                 const message = this.translate.instant('projects-page.update-success-message')
                 this.notifyService.showSuccess(message);
             });
+    }
+    
+    // Strip off convert $ to number.
+    parseProjectInfo(project: ProjectInfo) {
+        let cost = String(project.estimatedCost);
+        project.estimatedCost = +this.currencyPipe.parse(cost);
     }
 }

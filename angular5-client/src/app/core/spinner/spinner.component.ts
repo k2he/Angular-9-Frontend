@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
-  selector: 'app-app-loader',
-  templateUrl: './app-loader.component.html',
-  styleUrls: ['./app-loader.component.scss']
+  selector: 'app-spinner',
+  templateUrl: './spinner.component.html',
+  styleUrls: ['./spinner.component.scss']
 })
-export class AppLoaderComponent implements OnInit {
+export class SpinnerComponent implements OnInit {
 
   isLoading: boolean;
 

@@ -9,13 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModuleModule } from '../material-module/material-module.module'
 import { AuthenticationService } from '../api/authentication.service';
-import { NewProjectCountService } from '../services/newprojectcount.service';
+import { NewProjectCountService } from '../services/new-project-count.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AppLoaderComponent } from './app-loader/app-loader.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { DialogComponent } from '../dialog/dialog.component';
 
 @NgModule({
@@ -33,13 +33,13 @@ import { DialogComponent } from '../dialog/dialog.component';
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    AppLoaderComponent,
+    SpinnerComponent,
     DialogComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    AppLoaderComponent
+    SpinnerComponent
   ],
   entryComponents: [DialogComponent]
 })
