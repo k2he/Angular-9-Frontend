@@ -6,7 +6,7 @@
 export const environment = {
     production: false,
     
-    apiUrl: "http://www.kaihe.duckdns.org:8080",
+    apiPath: "http://www.kaihe.duckdns.org:8080",
   
     DEFAULT_AUTH_URL: 'http://www.kaihe.duckdns.org/login',
     GOOGLE_AUTH_URL: 'http://www.kaihe.duckdns.org:8080/oauth2/authorize/google?redirect_uri=http://www.kaihe.duckdns.org/home',
