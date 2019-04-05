@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { MaterialModuleModule } from '../material-module/material-module.module'
+import { FormsModule } from '@angular/forms';
 
 import { ContactRoutingModule } from './contact-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from "./contact.component";
-import { ContactusService } from '../api/contactus.service';
-import { UtilService } from '../api/util.service';
+import { ContactUsService } from '../api/contactus.service';
 
 @NgModule({
   imports: [
     SharedModule,
+    FormsModule,
     MaterialModuleModule,
     ContactRoutingModule,
   ],
@@ -17,8 +18,7 @@ import { UtilService } from '../api/util.service';
     ContactComponent
   ],
   providers: [
-    ContactusService, 
-    UtilService
+    ContactUsService
   ]
 })
 export class ContactModule { }

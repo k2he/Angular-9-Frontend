@@ -6,28 +6,28 @@ import { ManageUserComponent } from './manage-user/manage-user.component';
 
 
 const routes: Routes = [
-                        {
-                            path: '',
-                            component: AdminComponent,
-                            children: [
-                              {
-                                  path: '',
-                                  redirectTo: 'register',
-                                  pathMatch: 'full',
-                              },
-                              {
-                                  path: 'register',
-                                  component: RegisterUserComponent,  
-                              },
-                              {
-                                  path: 'manage',
-                                  component: ManageUserComponent,  
-                              }
-                            ]
-                          }
-                        ];
+    {
+        path: '',
+        component: AdminComponent,
+        children: [
+            {
+                path: '',
+                redirectTo: 'manage',
+                pathMatch: 'full',
+            },
+            {
+                path: 'manage',
+                component: ManageUserComponent,
+            },
+            {
+                path: 'register',
+                component: RegisterUserComponent,
+            }
+        ]
+    }
+];
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class AdminRoutingModule { }

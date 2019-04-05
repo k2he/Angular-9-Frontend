@@ -1,0 +1,136 @@
+{
+    "button": {
+        "edit": "Modifier",
+        "delete": "Effacer",
+        "login": "S'identifier",
+        "submit": "Soumettre",
+        "yes": "Oui",
+        "no": "Non"
+    },
+    "field_validation": {
+        "error": {
+            "required": "Ce champ est requis",
+            "min-length": "Vous devez entrer plus de {{length}} caractères",
+            "email": "S'il vous plaît, mettez une adresse email valide",
+            "phone": "s'il vous plaît entrer un numéro de téléphone valide"
+        }
+    },
+    "page-under-construction-message": "Cette fonctionnalité est encore en construction ~!",
+    
+    "header-page": {
+        "title": "Ma demande de démo",
+        "navlinks": {
+            "home": "Accueil",
+            "projects": "Projects",
+            "courses": "Cours fournit",
+            "contacts": "Nous contacter",
+            "admin": "Admin"
+        },
+        "greeting": "Bienvenue: {{name}}",
+        "login": "S'identifier",
+        "logout": "Connectez - Out",
+        "changeLanguage": "English"
+    },
+    "footer-page": {
+        "copyright": "Droits d'auteur © 2018 Kai He",
+        "contact": "Contact",
+        "email": "Email"
+    },
+    "home-page": {
+        "title": "Application de démonstration angulaire et API",
+        "subtitle": "Ceci est mon site de test personnel. C'est pour pratiquer de nouvelles technologies frontend et backend. (Pour l'instant, testez uniquement sous Chrome)",
+        "frontend-desc-title": "Technologies frontales:",
+        "frontend-desc-item1": "Angular 5 (Migrer vers 7)",
+        "frontend-desc-item2": "Angular Material",
+        "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
+        "frontend-desc-notes-link1-desc": "Ma GitHub (L'extrémité avant)",
+        "frontend-desc-notes-link2-desc": "Ma DockerHub",
+        "backend-desc-title": "Technologies REST APIs:",
+        "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
+        "backend-desc-item2": "JPA (Hibernate), mySQL",
+        "backend-desc-item3": "Oauth2, JWT, Private & Pubilc keys",
+        "backend-desc-item4": "Swagger, Log4j, Lambok, Sleuth, Zipkin",
+        "backend-desc-item5": "Docker, Docker Compose, AWS (EC2, RDS)",
+        "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
+        "desc-notes-title": "Pour plus de détails:"
+    },
+    "login-page": {
+        "title": "Veuillez vous connecter",
+        "or": "OU",
+        "google": "Connectez-vous avec Google",
+        "facebook": "Connectez-vous avec Facebook",
+        "facebook-tip": "Je n'ai pas encore configuré Facebook!",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe"
+    },
+    "projects-page": {
+        "delete-success-message": "Projet supprimé avec succès! 😎",
+        "update-success-message": "Projet mis à jour avec succès! 😎",
+        "create-success-message": "Projet créé avec succès! 😎",
+        "naviItems": {
+            "all": "Tous les projets",
+            "create": "Créer un nouveau projet",
+            "in-progress": "Projets en cours",
+            "schedule": "Calendrier des projets",
+            "completed": "Projets achevés"
+        },
+        "all-projects-page": {
+            "title": "Tous les projets",
+            "search": "Chercher:",
+            "table": {
+                "header-project": "Nom du projet",
+                "header-desc": "La description",
+                "header-due": "Date d'échéance",
+                "header-skill": "Compétences Requises",
+                "header-cost": "Coût estimé",
+                "header-status": "Statut",
+                "header-action": "Actes"
+            },
+            "delete-title": "Êtes-vous sûr de vouloir supprimer le projet sélectionné?",
+            "delete-content": "S'il vous plaît cliquez sur Oui pour continuer."
+        },
+        "in-progress-page": {
+            "title": "Projets en cours"
+        },
+        "new-project-page": {
+            "create-project-title": "Créer un nouveau projet",
+            "edit-project-title": "Modifier les détails du projet",
+            "form": {
+                "field-name": "Nom du projet",
+                "field-skill": "Compétences requises",
+                "field-cost": "Coût estimé",
+                "field-cost-excced-max": "Wow, c'est trop cher, on ne va pas le faire !!!",
+                "field-due": "Choisissez une date d'échéance du projet",
+                "field-desc": "Description du projet"
+            }
+        }
+    },
+    "contact-us-page": {
+        "title": "Contactez nous",
+        "sub-title": "Remplissez le formulaire et nous vous rappellerons",
+        "form": {
+            "field-name": "Prénom",
+            "field-email": "Email",
+            "field-phone": "Numéro de téléphone",
+            "field-subject": "Assujettir",
+            "field-message": "Message"
+        },
+        "create-success-message": "Nous avons reçu vos retours. Je vous remercie! 😎"
+    },
+    "admin-page": {
+        "naviItems": {
+            "manage": "Gérer les utilisateurs",
+            "register": "Enregistrer un utilisateur"
+        },
+        "manage-page": {
+            "title": "Gérer les utilisateurs",
+            "explaination": "Si vous pouvez voir cette page, vous êtes connecté en tant qu'administrateur.",
+            "detail-title": "Vous pouvez vous connecter en utilisant l'utilisateur normal ci-dessous, vous ne devriez pas voir cette page.",
+            "username-detail": "Nom d'utilisateur: test1",
+            "password-detail": "Mot de passe: 12345"
+        },
+        "register-page": {
+            "title": "Enregistrer un utilisateur"
+        }
+    }
+}

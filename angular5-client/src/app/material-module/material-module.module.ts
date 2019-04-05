@@ -8,41 +8,48 @@ import { MatNativeDateModule, MatDatepickerModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatToolbarModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  imports: [
-      CommonModule, 
+    imports: [
+        CommonModule,
 
-      MatSortModule,
-      MatListModule,
-      MatTooltipModule,
-      MatToolbarModule, 
-      MatButtonModule,
-      MatCardModule, 
-      MatInputModule, 
-      MatDialogModule, 
-      MatTableModule,
-      MatFormFieldModule,
-      MatNativeDateModule,
-      MatDatepickerModule,
-      MatMenuModule,
-      MatProgressSpinnerModule,
-  ],
-  exports: [
-      MatSortModule,
-      MatListModule,
-      MatTooltipModule,
-      MatToolbarModule, 
-      MatButtonModule,
-      MatCardModule, 
-      MatInputModule, 
-      MatDialogModule, 
-      MatTableModule,
-      MatFormFieldModule,
-      MatNativeDateModule,
-      MatDatepickerModule,
-      MatMenuModule,
-      MatProgressSpinnerModule,
-  ],
+        MatSortModule,
+        MatListModule,
+        MatTooltipModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatCardModule,
+        MatInputModule,
+        MatDialogModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatMenuModule,
+        MatProgressSpinnerModule,
+        MatSidenavModule,
+        MatSnackBarModule
+    ],
+    exports: [
+        MatSortModule,
+        MatListModule,
+        MatTooltipModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatDialogModule,
+        MatTableModule,
+        MatFormFieldModule,
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatMenuModule,
+        MatProgressSpinnerModule,
+        MatSidenavModule,
+        MatSnackBarModule
+    ],
 })
 export class MaterialModuleModule { }
