@@ -3,6 +3,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../api/authentication.service';
 
 export const OAuth2_RESPONSE: string = 'OAuth2Response';
@@ -25,6 +26,8 @@ export const OAuth2_RESPONSE: string = 'OAuth2Response';
 })
 export class HomeComponent implements OnInit {
 
+  apiPath: string;
+  
   constructor(private activeRoute: ActivatedRoute,
     private location: Location,
     private authService: AuthenticationService) {
@@ -37,6 +40,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.apiPath = environment.apiPath;
   }
 
 }

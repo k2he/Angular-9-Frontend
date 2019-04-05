@@ -9,14 +9,12 @@ import { SpinnerService } from '../../services/spinner.service';
 })
 export class SpinnerComponent implements OnInit {
 
-  isLoading: boolean;
+  isLoading$;
 
   constructor(private spinnerServie: SpinnerService) { }
 
   ngOnInit() {
-    this.spinnerServie.events$.subscribe(result => {
-      this.isLoading = result;
-    });
+    this.isLoading$ = this.spinnerServie.events$;
   }
 
 }
