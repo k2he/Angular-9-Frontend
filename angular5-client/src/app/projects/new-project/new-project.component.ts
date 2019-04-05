@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ProjectInfo } from "../../resources/project";
 import { ProjectService } from '../../api/project.service';
 import { UtilService } from '../../services/util.service';
-import { NewProjectCountService } from '../../api/newprojectcount.service';
+import { NewProjectCountService } from '../../services/newprojectcount.service';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
