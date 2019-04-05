@@ -9,12 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModuleModule } from '../material-module/material-module.module'
 import { AuthenticationService } from '../api/authentication.service';
-import { NewProjectCountService } from '../api/newprojectcount.service';
+import { NewProjectCountService } from '../services/newprojectcount.service';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AppLoaderComponent } from './app-loader/app-loader.component';
 
 @NgModule({
   imports: [
@@ -23,18 +24,20 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     FormsModule,
     TranslateModule,
-    MaterialModuleModule
+    MaterialModuleModule,
   ],
   declarations: [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    AppLoaderComponent
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AppLoaderComponent
   ]
 })
 

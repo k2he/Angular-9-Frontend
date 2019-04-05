@@ -5,7 +5,7 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatProgressSpinnerModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +27,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     //Below 2 are used in Globel Popup
     MatButtonModule,
     MatDialogModule,
-
+    MatProgressSpinnerModule,
+    
     // config for Ngx translate
     TranslateModule.forRoot({
       loader: {

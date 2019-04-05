@@ -1,18 +1,24 @@
 import { Injectable, Injector } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
 
 import { AuthenticationService } from './api/authentication.service';
+import { SpinnerService } from './services/spinner.service';
 import STORAGEKEYS from './config/storage-keys';
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
 
-    constructor(private injector: Injector, private router: Router) { }
+    constructor(private injector: Injector,
+        private router: Router,
+        private spinnerService: SpinnerService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        // Show Spinner
+        this.spinnerService.show();
+
         // add authorization header with jwt token if available
         const authService = this.injector.get(AuthenticationService);
         let token = authService.getAuthToken();
@@ -24,9 +30,16 @@ export class ApiInterceptor implements HttpInterceptor {
 
         // Handler API call failure
         return next.handle(request).pipe(
+            tap((event: HttpEvent<any>) => {
+                if (event instanceof HttpResponse) {
+                    this.spinnerService.hide(); // Hide Spinner
+                }
+                return event;
+            }),
             catchError((error, caught) => {
                 //intercept the respons error and displace it to the console
                 console.log(error);
+                this.spinnerService.hide(); // Hide Spinner
                 this.handleAuthError(error);
                 return of(error);
             }) as any);

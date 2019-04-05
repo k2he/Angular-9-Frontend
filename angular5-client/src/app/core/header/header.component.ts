@@ -3,12 +3,12 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { Router } from "@angular/router";
 
 import { TranslateService } from '@ngx-translate/core';
-import { NewProjectCountService } from '../../api/newprojectcount.service';
+import { NewProjectCountService } from '../../services/newprojectcount.service';
 import { AuthenticationService } from '../../api/authentication.service';
 import { AdminGuard } from '../../guard/admin-guard';
 import { AppUser } from '../../resources/app-user';
-import STORAGEKEYS from '../../config/storage-keys';
 import { UtilService } from '../../services/util.service';
+import STORAGEKEYS from '../../config/storage-keys';
 
 @Component({
   selector: 'app-header',
@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.projectService.events$.forEach(result => {
-      this.newProjectNum++
+      this.newProjectNum++;
     });
     this.loadData();
 
