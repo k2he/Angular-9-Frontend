@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AppLoaderComponent } from './app-loader/app-loader.component';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -32,13 +33,15 @@ import { AppLoaderComponent } from './app-loader/app-loader.component';
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    AppLoaderComponent
+    AppLoaderComponent,
+    DialogComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     AppLoaderComponent
-  ]
+  ],
+  entryComponents: [DialogComponent]
 })
 
 export class CoreModule {
