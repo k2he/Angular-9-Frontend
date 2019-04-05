@@ -3,7 +3,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { Router } from "@angular/router";
 
 import { TranslateService } from '@ngx-translate/core';
-import { NewProjectCountService } from '../../services/newprojectcount.service';
+import { NewProjectCountService } from '../../services/new-project-count.service';
 import { AuthenticationService } from '../../api/authentication.service';
 import { AdminGuard } from '../../guard/admin-guard';
 import { AppUser } from '../../resources/app-user';

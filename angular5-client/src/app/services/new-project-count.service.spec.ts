@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { NewProjectCountService } from './newprojectcount.service';
+import { NewProjectCountService } from './new-project-count.service';
 
 describe('ProjectnotifyService', () => {
   beforeEach(() => {
