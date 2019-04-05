@@ -52,6 +52,7 @@
         "backend-desc-item4": "Swagger, Log4j, Lambok, Sleuth, Zipkin",
         "backend-desc-item5": "Docker, Docker Compose, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
+        "backend-desc-notes-link2-desc": "APIs Swagger Link",
         "desc-notes-title": "Pour plus de détails:"
     },
     "login-page": {
