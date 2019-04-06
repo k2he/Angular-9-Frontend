@@ -4,7 +4,7 @@ export interface ProjectInfo {
     projectSummary: string;
     dueDate: Date;
     requiredSkills: string;
-    estimatedCost: string;
+    estimatedCost: number;
     statusId: number;
     projectStatus: ProjectStatus;
     createdOn: Date;

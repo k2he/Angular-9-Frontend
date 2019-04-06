@@ -48,8 +48,8 @@ const routes: Routes = [
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
-    { path: '',   redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', component: PageNotFoundComponent }  
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

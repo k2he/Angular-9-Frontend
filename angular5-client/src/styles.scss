@@ -64,7 +64,8 @@ html, body {
 
 		.main-container {
 			width: 100%;
-	
+			overflow: auto;
+
 			.content {
 				padding: 30px 35px 30px 35px;
 				overflow: hidden;

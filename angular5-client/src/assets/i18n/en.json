@@ -5,7 +5,8 @@
         "login": "Login",
         "submit": "Submit",
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "test": "Trigger Test"
     },
     "field_validation": {
         "error": {
@@ -24,7 +25,8 @@
             "projects": "Projects",
             "courses": "Course Provides",
             "contacts": "Contacts",
-            "admin": "Admin"
+            "admin": "Admin",
+            "tests": "Test APIs"
         },
         "greeting": "Welcome back: {{name}}",
         "login": "Log in",
@@ -52,7 +54,8 @@
         "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
         "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "My GitHub (Backend)",
-        "backend-desc-notes-link2-desc": "APIs Swagger Link",
+        "backend-desc-notes-link2-desc": "Registry Server UI",
+        "backend-desc-notes-link3-desc": "Zipkin UI",
         "desc-notes-title": "For details:"
     },
     "login-page": {
@@ -132,6 +135,27 @@
         },
         "register-page": {
             "title": "Register User"
+        }
+    },
+    "test-page": {
+        "naviItems": {
+            "error-handing": "Error Handing",
+            "other": "Others"
+        },
+        "error-handing-page": {
+            "title": "Microservice Resiliency Tests",
+            "retry-fail": {
+                "title": "Test 1: Retry Fail",
+                "description": "Expected Behaviour: Trigger API function (maxAttempts = 4), the function will fail on purpose, and will retry 4 times and then trigger recovery function."
+            },
+            "retry-sucess": {
+                "title": "Test 2: Retry Success",
+                "description": "Expected Behaviour: Trigger API function (maxAttempts = 4), the function will fail 3 times on purpose, and 4th time successfully calls Project service and get back result."
+            },
+            "circuit-breaker": {
+                "title": "Test 3: Circuit Breaker",
+                "description": "Expected Behaviour: Trigger API function (fallbackMethod=\"circuitBreakerDefault\") applied Circut Breaker, we make themethod to fail on purpose, and fall back method should get called."
+            }
         }
     }
 }

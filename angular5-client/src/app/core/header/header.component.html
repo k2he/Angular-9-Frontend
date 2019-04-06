@@ -16,6 +16,7 @@
       <ng-template [ngIf]="adminGuard.canActivate()">
         <button mat-button routerLink="/admin" [routerLinkActive]="['active']">{{ 'header-page.navlinks.admin' | translate }}</button>
       </ng-template>
+      <button mat-button routerLink="/test-apis" [routerLinkActive]="['active']">{{ 'header-page.navlinks.tests' | translate }}</button>
     </div>
 
     <div class="toolBar">

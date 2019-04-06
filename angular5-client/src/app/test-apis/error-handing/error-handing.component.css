@@ -1,3 +1,8 @@
+.tests-page {
+    overflow: auto;
+    height: calc(90vh - 150px);
+}
+
 .card-title {
     margin: 0px !important;
 }

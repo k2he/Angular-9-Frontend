@@ -5,7 +5,8 @@
         "login": "S'identifier",
         "submit": "Soumettre",
         "yes": "Oui",
-        "no": "Non"
+        "no": "Non",
+        "test": "Test de déclenchement"
     },
     "field_validation": {
         "error": {
@@ -24,7 +25,8 @@
             "projects": "Projects",
             "courses": "Cours fournit",
             "contacts": "Nous contacter",
-            "admin": "Admin"
+            "admin": "Admin",
+            "tests": "API de test"
         },
         "greeting": "Bienvenue: {{name}}",
         "login": "S'identifier",
@@ -52,7 +54,8 @@
         "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
         "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
-        "backend-desc-notes-link2-desc": "APIs Swagger Link",
+        "backend-desc-notes-link2-desc": "Interface du serveur de registre",
+        "backend-desc-notes-link3-desc": "Interface du Zipkin",
         "desc-notes-title": "Pour plus de détails:"
     },
     "login-page": {
@@ -132,6 +135,27 @@
         },
         "register-page": {
             "title": "Enregistrer un utilisateur"
+        }
+    },
+    "test-page": {
+        "naviItems": {
+            "error-handing": "La gestion des erreurs",
+            "other": "Autres"
+        },
+        "error-handing-page": {
+            "title": "Tests de résilience de microservices",
+            "retry-fail": {
+                "title": "Test 1: Echec de la tentative",
+                "description": "Comportement attendu: fonction de l'API de déclenchement (maxAttempts = 4), la fonction échouera exprès, elle tentera à nouveau 4 fois, puis déclenchera la fonction de récupération."
+            },
+            "retry-sucess": {
+                "title": "Test 2: Réessayer avec succès",
+                "description": "Comportement attendu: fonction API de déclenchement (maxAttempts = 4), la fonction échouera 3 fois volontairement et la 4ème fois appelle avec succès le service Project et récupère le résultat."
+            },
+            "circuit-breaker": {
+                "title": "Test 3: Disjoncteur",
+                "description": "Comportement attendu: La fonction API de déclenchement (fallbackMethod = \"circuitBreakerDefault\") appliquée à Circut Breaker, nous faisons en sorte que la méthode échoue exprès et que la méthode de repli doit être appelée."
+            }
         }
     }
 }
