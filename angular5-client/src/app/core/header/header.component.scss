@@ -7,7 +7,7 @@
 .mat-button {
     text-transform: uppercase;
     
-    :hover {
+    &:hover {
         background-color: #7c7c80fa;
         color: white;
     }

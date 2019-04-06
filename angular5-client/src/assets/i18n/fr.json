@@ -48,9 +48,9 @@
         "backend-desc-title": "Technologies REST APIs:",
         "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
         "backend-desc-item2": "JPA (Hibernate), mySQL",
-        "backend-desc-item3": "Oauth2, JWT, Private & Pubilc keys",
-        "backend-desc-item4": "Swagger, Log4j, Lambok, Sleuth, Zipkin",
-        "backend-desc-item5": "Docker, Docker Compose, AWS (EC2, RDS)",
+        "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
+        "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
+        "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
         "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
         "backend-desc-notes-link2-desc": "APIs Swagger Link",
         "desc-notes-title": "Pour plus de détails:"
