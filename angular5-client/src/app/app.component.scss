@@ -1,8 +1,14 @@
+.fullscreen {
+  height: 100%;
+  width: 100%;
+}
+
 .spacer {
   flex: 1 1 auto;
 }
 
 .main-content {
-	min-height: 545px;
-    position: relative;
+  height: calc(100% - 160px);
+  position: relative;
+  min-height: 500px;
 }
