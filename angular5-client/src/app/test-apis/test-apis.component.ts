@@ -6,7 +6,7 @@ import { SideNavItem } from '../shared/side-navi/side-navi.types'
 @Component({
   selector: 'app-test-apis',
   templateUrl: './test-apis.component.html',
-  styleUrls: ['./test-apis.component.css']
+  styleUrls: ['./test-apis.component.scss']
 })
 export class TestApisComponent implements OnInit {
 

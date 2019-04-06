@@ -1,5 +1,5 @@
 const APIROUTES = {
-    login: '/login',
+    login: '/auth/login',
     projects: '/projects',
     contactus: '/contactus',
     users: '/users',
