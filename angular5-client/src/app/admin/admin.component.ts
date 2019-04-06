@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 import { SideNavItem } from '../shared/side-navi/side-navi.types'
 
@@ -9,13 +10,15 @@ import { SideNavItem } from '../shared/side-navi/side-navi.types'
 })
 export class AdminComponent implements OnInit {
 
-  //TODO: later can load the list from database
-  naviListItems: SideNavItem[] = [
-    { name: 'Manage User', url: "/admin/manage", active: true },
-    { name: 'Register User', url: "/admin/register", active: true }
-  ];
+  naviListItems: SideNavItem[];
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+    //TODO: later can load the list from database
+    this.naviListItems = [
+      { name: this.translate.instant('admin-page.naviItems.manage'), url: "/admin/manage", active: true },
+      { name: this.translate.instant('admin-page.naviItems.register'), url: "/admin/register", active: true }
+    ];
+  }
 
   ngOnInit() {
   }

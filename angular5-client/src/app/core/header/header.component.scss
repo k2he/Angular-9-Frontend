@@ -7,7 +7,7 @@
 .mat-button {
     text-transform: uppercase;
     
-    :hover {
+    &:hover {
         background-color: #7c7c80fa;
         color: white;
     }
@@ -74,8 +74,6 @@
     text-align: center;
     background-color: #da2929;
     position: absolute;
-    top: -2px;
-    left: 186px;
     z-index: 10;
 }
 .welcome {

@@ -1,5 +1,5 @@
 
-import { throwError,  Observable } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -9,7 +9,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { ProjectInfo } from '../resources/project';
 import APIROUTES from '../config/api-routes';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class ProjectService {
 
     public static ROUTES = {
@@ -17,11 +19,11 @@ export class ProjectService {
     };
 
     constructor(private http: HttpClient) { }
-    
-    public getAllProjects(): Observable<ProjectInfo[]>{
+
+    public getAllProjects(): Observable<ProjectInfo[]> {
         return this.http.get<ProjectInfo[]>(ProjectService.ROUTES.projects);
     }
-    
+
     public createProjectInfo(info: ProjectInfo): Observable<ProjectInfo> {
         return this.http.post<ProjectInfo>(ProjectService.ROUTES.projects, info);
     }
@@ -33,7 +35,7 @@ export class ProjectService {
     public deleteProjectInfoById(id: string | number): Observable<ProjectInfo> {
         return this.http.delete<ProjectInfo>(`${ProjectService.ROUTES.projects}/${id}`);
     }
-    
+
     public updateProjectInfo(info: ProjectInfo) {
         return this.http.post<ProjectInfo>(ProjectService.ROUTES.projects, info);
     }

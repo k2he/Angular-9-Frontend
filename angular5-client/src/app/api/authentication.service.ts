@@ -1,4 +1,4 @@
-import { Observable ,  Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
@@ -16,14 +16,16 @@ export class LogoutAction {
 export type AuthenticationEvent = LoginAction | LogoutAction;
 
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class AuthenticationService {
-    
+
     private authEvents: Subject<AuthenticationEvent>;
     public static ROUTES = {
         login: `${environment.apiPath}${APIROUTES.login}`
     };
-    
+
     constructor(private http: HttpClient) {
         this.authEvents = new Subject<AuthenticationEvent>();
     }
@@ -58,6 +60,7 @@ export class AuthenticationService {
     logout(): void {
         localStorage.removeItem(STORAGEKEYS.JWT_TOKEN);
         localStorage.removeItem(STORAGEKEYS.CURRENT_USER);
+        localStorage.removeItem(STORAGEKEYS.LANGUAGE_CHOOSEN);
         this.authEvents.next(new LogoutAction());
     }
 
@@ -86,7 +89,7 @@ export class AuthenticationService {
     getCurrentUser(): AppUser {
         return JSON.parse(localStorage.getItem(STORAGEKEYS.CURRENT_USER));
     }
-    
+
     get events(): Observable<AuthenticationEvent> {
         return this.authEvents;
     }

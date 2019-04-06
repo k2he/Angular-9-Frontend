@@ -1,25 +1,26 @@
 
-import { throwError,  Observable } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { UtilService } from './util.service';
-
+import { UtilService } from '../services/util.service';
 import { ContactInfo } from '../resources/contact';
 import APIROUTES from '../config/api-routes';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class ContactUsService {
-  
+
     public static ROUTES = {
         contactus: `${environment.apiPath}${APIROUTES.contactus}`
     };
-    
-    constructor(private http: HttpClient, 
-                private utilService: UtilService) { }
-    
-    public getAllContactInfos(): Observable<ContactInfo[]>{
+
+    constructor(private http: HttpClient,
+        private utilService: UtilService) { }
+
+    public getAllContactInfos(): Observable<ContactInfo[]> {
         return this.http.get<ContactInfo[]>(ContactUsService.ROUTES.contactus);
     }
 
@@ -28,14 +29,14 @@ export class ContactUsService {
     }
 
     public getContactInfoById(todoId: number) {
-      // will use this.http.get()
+        // will use this.http.get()
     }
 
     public updateContactInfo(info: ContactInfo) {
-      // will use this.http.put()
+        // will use this.http.put()
     }
 
     public deleteContactInfoById(infoId: number) {
-      // will use this.http.delete()
+        // will use this.http.delete()
     }
 }

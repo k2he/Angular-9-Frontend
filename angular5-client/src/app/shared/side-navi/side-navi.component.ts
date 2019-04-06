@@ -8,11 +8,11 @@ import { SideNavItem } from './side-navi.types';
 })
 export class SideNaviComponent implements OnInit {
 
-    @Input('naviItemList') naviItemList: SideNavItem[];
+  @Input('naviItemList') naviItemList: SideNavItem[];
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }

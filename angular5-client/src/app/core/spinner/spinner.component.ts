@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   selector: 'app-spinner',
@@ -8,9 +9,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class SpinnerComponent implements OnInit {
 
-  constructor() { }
+  isLoading$;
+
+  constructor(private spinnerServie: SpinnerService) { }
 
   ngOnInit() {
+    this.isLoading$ = this.spinnerServie.events$;
   }
 
 }
