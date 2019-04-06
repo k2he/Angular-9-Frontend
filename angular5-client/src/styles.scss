@@ -20,7 +20,7 @@ html, body {
 }
 
 .list-block {
-    margin: 15px 0px;
+    margin: 20px 0px;
 
     .description-title { 
         font-size: 16px;
@@ -29,8 +29,11 @@ html, body {
     }
     
     .description-item {
-        font-size: 13px;
-        display: inline-block;
+		font-size: 14px !important;
+		font-family: Comic Sans MS;
+		display: inline-block;
+		text-overflow: ellipsis;
+  		overflow: hidden; 
     }
     
     .description-notes {
@@ -38,7 +41,7 @@ html, body {
 	}
 	
 	.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
-		height: 22px;
+		height: 25px !important;
 	}
 }
 
@@ -143,10 +146,6 @@ CSS for both login and home page
 			float: left;
 		}
 
-		:hover {
-			background-color: #dad7d7;
-		}
-
 		.no {
 			/* float: right; */
 			margin-left: 175px !important;
@@ -170,7 +169,6 @@ CSS for both login and home page
 /*
 Customized CSS for header page
 */
-
 .mat-card-header .mat-card-title {
 	font-size: 16px !important;
 }
@@ -259,5 +257,20 @@ Customized CSS for header page
 		.mat-simple-snackbar-action {
 			color: $snackbar-color;
 		}
+	}
+}
+
+.app {
+	::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 7px;
+  	}
+  
+  	::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		border-radius: 5px;
+    	background-color: #6b6767cf;
+    	opacity: 0.5;
+    	transition: opacity .15s ease-in-out;
 	}
 }

@@ -6,7 +6,7 @@
 
     <div class="nav-links">
 
-      <button mat-button routerLink="/home" [routerLinkActive]="['active']">{{ 'header-page.navlinks.home' | translate }}</button>
+      <button mat-button routerLink="/home" [routerLinkActive]="['active']" on>{{ 'header-page.navlinks.home' | translate }}</button>
       <div class="display-inline">
         <div class="new-project-circle" *ngIf="newProjectNum">{{newProjectNum}}</div>
         <button mat-button routerLink="/projects" [routerLinkActive]="['active']" translate>{{ 'header-page.navlinks.projects' | translate }}</button>
