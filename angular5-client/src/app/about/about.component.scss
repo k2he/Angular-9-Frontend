@@ -1,0 +1,42 @@
+.about {
+    .content-block {
+        margin-top: 30px;
+
+        .description-title {
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 20px;
+
+            .section-title {
+                font-weight: bold;
+                font-size: 15px;
+            }
+            .section-text {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    img {
+        height: 95%;
+        width: 95%;
+        
+    }
+
+    .link-img {
+        height: 24px;
+        width: 24px;
+        vertical-align: bottom;
+        margin-right: 3px;
+    }
+    
+    .list-block {
+        .description-title { 
+            font-size: 19px !important;
+            color: #514747 !important;
+        }
+    }
+}
