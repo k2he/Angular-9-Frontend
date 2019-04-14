@@ -45,14 +45,17 @@ html, body {
 	}
 }
 
-.main-content {
+.content-with-no-background {
+	height: 90vmin;
+
 	.page-main-container {
 		background-color: white;
 		margin:15px 50px 10px 50px;
 		padding: 20px 30px;
-		min-height:650px;
 		border-radius: 5px;
 		position: relative;
+		overflow: auto;
+		height: calc(100% - 55px);
 	}
 
 	.page-main-container-with-sideNavi {
@@ -61,6 +64,7 @@ html, body {
 		border-radius: 5px;
 		position: relative;
 		height: calc(100% - 15px);
+		overflow: auto;
 
 		.main-container {
 			width: 100%;
@@ -119,8 +123,11 @@ CSS for both login and home page
   	-moz-background-size: cover;
   	-o-background-size: cover;
 	background-size: cover;
-	height: 100%;
 
+	.content-with-home-background {
+        height: calc(100vh - 160px);
+        position: relative;
+	}
 }
 
 /* Material customized CSS */
