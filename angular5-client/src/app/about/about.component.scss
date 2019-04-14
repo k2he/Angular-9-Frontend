@@ -20,19 +20,11 @@
         }
     }
 
-    img {
+    img.full-size {
         height: 95%;
-        width: 95%;
-        
+        width: 95%; 
     }
 
-    .link-img {
-        height: 24px;
-        width: 24px;
-        vertical-align: bottom;
-        margin-right: 3px;
-    }
-    
     .list-block {
         .description-title { 
             font-size: 19px !important;

@@ -4,23 +4,40 @@
     overflow: auto;
     background-color: #f1f3f9;
     position: absolute;
-    right: 13%;
-    top: 12%;
-    width: 36vmax;
-    height: 60vh;
+    right: 16%;
+    top: 18%;
+    width: 28vmax;
+    min-height: 300px;
     max-height: 450px;
-    padding: 13px 20px;
+    padding: 20px 20px;
     border-radius: 3px;
 
     .section-title {
-        font-size: 24px;
+        font-size: 26px;
+        font-family: Verdana, sans-serif;
         font-weight: bold;
         color: #0e0e10de;
     }
     
     .section-body {
-        margin-top: 10px;
-        font-size: 14px;
+        font-family: Trebuchet MS, sans-serif;
+        margin-top: 30px;
+        font-size: 16px;
+
+        .section-paragraph {
+            margin-top: 20px;
+        }
+
+        .section-notes {
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        a.highlight {
+            font-size: 18px;
+            color: #379808ed;
+            // color: #b3062ced;
+        }
     }
 }
 

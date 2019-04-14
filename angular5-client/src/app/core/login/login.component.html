@@ -1,11 +1,11 @@
 <div class="login home-background">
   <div class="content-with-home-background">
-      <mat-card [@showUp] class="center width-400px login-card float-content-shadow">
+    <mat-card [@showUp] class="center width-400px login-card float-content-shadow">
       <mat-card-header>
         <mat-card-title class="popup-title">{{ 'login-page.title' | translate }}</mat-card-title>
-        <a class="display-inline tools" matTooltip="Username: test Password: 12345">
+        <!-- <a class="display-inline tools" matTooltip="Username: test Password: 12345">
           <i class="material-icons">subject</i>
-        </a>
+        </a> -->
       </mat-card-header>
       <mat-card-content>
         <div>
@@ -16,13 +16,16 @@
             <a class="btn btn-block social-btn" matTooltip="{{ 'login-page.facebook-tip' | translate }}">
               <img src="/assets/images/fb-logo.png" alt="Facebook" />{{ 'login-page.facebook' | translate }}
             </a>
-              <!-- <a class="btn btn-block social-btn" (click)="socialLogin('facebook')"><img src="/assets/images/fb-logo.png" alt="Facebook" />{{ 'login-page.facebook' | translate }}</a> -->
+            <!-- <a class="btn btn-block social-btn" (click)="socialLogin('facebook')"><img src="/assets/images/fb-logo.png" alt="Facebook" />{{ 'login-page.facebook' | translate }}</a> -->
 
             <div class="or-separator">
               <span class="or-text">{{ 'login-page.or' | translate }}</span>
             </div>
           </div>
         </div>
+        <a class="display-inline tools" matTooltip="Username: test Password: 12345">
+          <i class="material-icons">lock_open</i>
+        </a>
         <div *ngIf="loginFailErrorMessage" class="error">{{loginFailErrorMessage}}</div>
         <form (ngSubmit)="login()" (keydown.enter)="login()" #loginForm='ngForm'>
           <mat-form-field class="full-width">

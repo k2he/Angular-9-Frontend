@@ -3,21 +3,20 @@
 		<div [@flyIn] class="main-content float-content-shadow">
 			<div class="section-title">{{ 'home-page.title' | translate }}</div>
 			<div class="section-body">
-				<span>{{ 'home-page.subtitle' | translate }}</span>
-				<div class="list-block">
-					<span class="description-title">{{ 'home-page.frontend-desc-title' | translate }}</span>
-					<mat-list dense>
-						<mat-list-item class="description-item">{{ 'home-page.frontend-desc-item1' | translate }}</mat-list-item>
-						<mat-list-item class="description-item">{{ 'home-page.frontend-desc-item2' | translate }}</mat-list-item>
-						<mat-list-item class="description-item">{{ 'home-page.frontend-desc-item3' | translate }}</mat-list-item>
-					</mat-list>
-					<div class="description-notes">
-						<span>{{ 'home-page.desc-notes-title' | translate }}</span>
-						<a class="link" href="https://github.com/k2he/Angular-7-Frontend/tree/monolithic-v1.1-cloud" target="_blank">{{ 'home-page.frontend-desc-notes-link1-desc' | translate }}</a>
-						<a class="link" href="https://cloud.docker.com/repository/list" target="_blank">{{ 'home-page.frontend-desc-notes-link2-desc' | translate }}</a>
-					</div>
+				<div class="section-paragraph">
+					<span>{{ 'home-page.subtitle' | translate }}</span>
 				</div>
-				
+				<div class="section-paragraph">
+					For more detail about Arcetehcture design and 
+					Technology stack, Please visist:
+					<a class="highlight" routerLink="/about">Design Page</a>
+				</div>
+
+				<div class="section-notes">
+					Notes: Please use Chrome
+					<img class="link-img" src="/assets/images/chrome-icon.png" />
+					since currently features only tested in chrome. Sorry for the inconvinience!
+				</div>
 			</div>
 		</div>
 	</div>
