@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {ViewEncapsulation} from '@angular/core';
 
 import { environment } from '../../../environments/environment';
 import { AuthenticationService } from '../../api/authentication.service';

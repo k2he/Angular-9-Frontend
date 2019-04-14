@@ -22,6 +22,7 @@
         "title": "Ma demande de démo",
         "navlinks": {
             "home": "Accueil",
+            "about": "Informations de conception",
             "projects": "Projects",
             "courses": "Cours fournit",
             "contacts": "Nous contacter",
@@ -40,23 +41,7 @@
     },
     "home-page": {
         "title": "Application de démonstration angulaire et API",
-        "subtitle": "Ceci est mon site de test personnel. C'est pour pratiquer de nouvelles technologies frontend et backend. (Pour l'instant, testez uniquement sous Chrome)",
-        "frontend-desc-title": "Technologies frontales:",
-        "frontend-desc-item1": "Angular 5 (Migrer vers 7)",
-        "frontend-desc-item2": "Angular Material",
-        "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
-        "frontend-desc-notes-link1-desc": "Ma GitHub (L'extrémité avant)",
-        "frontend-desc-notes-link2-desc": "Ma DockerHub",
-        "backend-desc-title": "Technologies REST APIs:",
-        "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
-        "backend-desc-item2": "JPA (Hibernate), mySQL",
-        "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
-        "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
-        "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
-        "backend-desc-notes-link1-desc": "Ma GitHub (Backend)",
-        "backend-desc-notes-link2-desc": "Interface du serveur de registre",
-        "backend-desc-notes-link3-desc": "Interface du Zipkin",
-        "desc-notes-title": "Pour plus de détails:"
+        "subtitle": "Ceci est mon site de test personnel. C'est pour pratiquer de nouvelles technologies frontend et backend. (Pour l'instant, testez uniquement sous Chrome)"
     },
     "login-page": {
         "title": "Veuillez vous connecter",
@@ -156,6 +141,33 @@
                 "title": "Test 3: Disjoncteur",
                 "description": "Comportement attendu: La fonction API de déclenchement (fallbackMethod = \"circuitBreakerDefault\") appliquée à Circut Breaker, nous faisons en sorte que la méthode échoue exprès et que la méthode de repli doit être appelée."
             }
+        }
+	},
+    "about-page": {
+        "naviItems": {
+            "backend": "Back-end Design",
+            "frontend": "Front-end Design"
+        },
+        "source-code": "Source Code: ",
+        "backend-page": {
+            "title": "Back-end Architecture",
+            "backend-desc-title": "Technologies:",
+            "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
+            "backend-desc-item2": "JPA (Hibernate), mySQL",
+            "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
+            "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
+            "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
+            "backend-desc-notes-link1-desc": "My GitHub (Backend)",
+            "backend-desc-notes-link2-desc": "APIs Swagger Link"
+        },
+        "frontend-page": {
+            "title": "Front-end Design",
+            "frontend-desc-title": "Technologies frontales:",
+            "frontend-desc-item1": "Angular 5 (Migrer vers 7)",
+            "frontend-desc-item2": "Angular Material",
+            "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
+            "frontend-desc-notes-link1-desc": "Ma GitHub (L'extrémité avant)",
+            "frontend-desc-notes-link2-desc": "Ma DockerHub"
         }
     }
 }

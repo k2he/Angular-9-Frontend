@@ -22,6 +22,7 @@
         "title": "My Demo App",
         "navlinks": {
             "home": "Home",
+            "about": "Desgin Info",
             "projects": "Projects",
             "courses": "Course Provides",
             "contacts": "Contacts",
@@ -40,23 +41,7 @@
     },
     "home-page": {
         "title": "Angular and APIs Demo App",
-        "subtitle": "This is my personal testing purpose website. It's for practicing new frontend and backend technologies. (For now, fully test under Chrome only)",
-        "frontend-desc-title": "Front-end Technologies:",
-        "frontend-desc-item1": "Angular 5 (Migrated to 7)",
-        "frontend-desc-item2": "Angular Material",
-        "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
-        "frontend-desc-notes-link1-desc": "My GitHub (Frontend)",
-        "frontend-desc-notes-link2-desc": "My DockerHub",
-        "backend-desc-title": "REST APIs Technologies:",
-        "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
-        "backend-desc-item2": "JPA (Hibernate), mySQL",
-        "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
-        "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
-        "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
-        "backend-desc-notes-link1-desc": "My GitHub (Backend)",
-        "backend-desc-notes-link2-desc": "Registry Server UI",
-        "backend-desc-notes-link3-desc": "Zipkin UI",
-        "desc-notes-title": "For details:"
+        "subtitle": "This is my personal testing purpose website. It's for practicing new frontend and backend technologies. (For now, fully test under Chrome only)"
     },
     "login-page": {
         "title": "Please Sign In",
@@ -136,6 +121,33 @@
         "register-page": {
             "title": "Register User"
         }
+    },
+    "about-page": {
+        "naviItems": {
+            "backend": "Back-end Design",
+            "frontend": "Front-end Design"
+        },
+        "source-code": "Source Code: ",
+        "backend-page": {
+            "title": "Back-end Architecture",
+            "backend-desc-title": "Technologies:",
+            "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
+            "backend-desc-item2": "JPA (Hibernate), mySQL",
+            "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
+            "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
+            "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
+            "backend-desc-notes-link1-desc": "My GitHub (Backend)",
+            "backend-desc-notes-link2-desc": "APIs Swagger Link"
+        },
+        "frontend-page": {
+            "title": "Front-end Design",
+            "frontend-desc-title": "Front-end Technologies:",
+            "frontend-desc-item1": "Angular 5 (Migrated to 7)",
+            "frontend-desc-item2": "Angular Material",
+            "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate(Muti-language)",
+            "frontend-desc-notes-link1-desc": "My GitHub (Frontend)",
+            "frontend-desc-notes-link2-desc": "My DockerHub"
+         }
     },
     "test-page": {
         "naviItems": {

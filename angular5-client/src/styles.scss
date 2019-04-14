@@ -19,6 +19,12 @@ html, body {
 	color:#f70d0d;
 }
 
+.description-with-link {
+	a {
+		margin-right: 10px;
+	}
+}
+
 .list-block {
     margin: 20px 0px;
 
@@ -29,24 +35,19 @@ html, body {
     }
     
     .description-item {
-		font-size: 14px !important;
 		font-family: Comic Sans MS;
 		display: inline-block;
-		text-overflow: ellipsis;
-  		overflow: hidden; 
+		// text-overflow: ellipsis;
+		  // overflow: hidden; 
     }
     
     .description-notes {
         margin: 10px 0px;
 	}
-	
-	.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
-		height: 25px !important;
-	}
 }
 
 .content-with-no-background {
-	height: 90vmin;
+	min-height: 95vh;
 
 	.page-main-container {
 		background-color: white;
@@ -54,8 +55,7 @@ html, body {
 		padding: 20px 30px;
 		border-radius: 5px;
 		position: relative;
-		overflow: auto;
-		height: calc(100% - 55px);
+		min-height: calc(90vh - 10px);
 	}
 
 	.page-main-container-with-sideNavi {
@@ -63,12 +63,11 @@ html, body {
 		margin:15px 50px 0px 50px;
 		border-radius: 5px;
 		position: relative;
-		height: calc(100% - 15px);
-		overflow: auto;
+		min-height: calc(95vh - 20px);
 
 		.main-container {
 			width: 100%;
-			overflow: auto;
+			margin-bottom: 20px;
 
 			.content {
 				padding: 30px 35px 30px 35px;
@@ -119,7 +118,7 @@ html, body {
 CSS for both login and home page
 */
 .home-background {
-	background: url(assets/home_background.jpg) no-repeat center center; 
+	background: url(assets/images/home_background.jpg) no-repeat center center; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -211,12 +210,20 @@ Customized CSS for header page
 	width: 600px;
 }
 
+.margin-left-5px {
+	margin-left: 5px;
+}
+
 .margin-top-50px {
 	margin-top: 50px;
 }
 
 .margin-top-15px {
 	margin-top: 15px;
+}
+
+.margin-top-30px {
+	margin-top: 30px;
 }
 
 .display-inline { 

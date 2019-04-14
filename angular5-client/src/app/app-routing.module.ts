@@ -19,6 +19,10 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
+        path: 'about',
+        loadChildren: 'app/about/about.module#AboutModule'
+    },
+    {
         path: 'projects',
         loadChildren: 'app/projects/projects.module#ProjectsModule',
         canLoad: [LoadAuthGuard],
