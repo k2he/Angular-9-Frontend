@@ -28,7 +28,8 @@
 	color: #ace09f;
 	font-size: 26px;
     line-height: 31px;
-    font-family: georgia,garamond,serif;
+    // font-family: Noto Sans, sans-serif;
+    font-family: Didot, serif;
     border-radius:5px;
     margin-left: 20px;
     -webkit-box-shadow: 1px 2px 11px 5px #aaff078c;  /* Safari*/
@@ -41,7 +42,11 @@
 	position: absolute;
 	right: 170px;
 	color: #dadada;
-	bottom: 13px;
+    bottom: 13px;
+    
+    .mat-button {
+        font-family: Helvetica, sans-serif;
+    }
 }
 .toolBar {
     position: absolute;

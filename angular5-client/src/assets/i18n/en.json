@@ -22,7 +22,7 @@
         "title": "My Demo App",
         "navlinks": {
             "home": "Home",
-            "about": "Desgin Info",
+            "about": "Desgin",
             "projects": "Projects",
             "courses": "Course Provides",
             "contacts": "Contacts",
@@ -40,8 +40,8 @@
         "email": "Email"
     },
     "home-page": {
-        "title": "Angular and APIs Demo App",
-        "subtitle": "This is my personal testing purpose website. It's for practicing new frontend and backend technologies. (For now, fully test under Chrome only)"
+        "title": "Angular and Microservice Demo",
+        "subtitle": "This application is built using Angular on front-end and Spring Cloud Microservice on back-end."
     },
     "login-page": {
         "title": "Please Sign In",

@@ -48,7 +48,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
     private handleAuthError(error: HttpErrorResponse): Observable<any> {
         //handle your auth error or rethrow
-        if (error.status === 401) {
+        if (error.status === 401 && !this.isLoginError(error)) { //Login already has logic to handle failure, hence we don't want to handle it here.
             // Delete Invalid Token and User Information
             localStorage.removeItem(STORAGEKEYS.JWT_TOKEN);
             localStorage.removeItem(STORAGEKEYS.CURRENT_USER);
@@ -59,5 +59,10 @@ export class ApiInterceptor implements HttpInterceptor {
             return of(error.message);
         }
         throw error;
+    }
+
+    private isLoginError(error: HttpErrorResponse) {
+        const url = error.url;
+        return url.includes('/login');
     }
 }
