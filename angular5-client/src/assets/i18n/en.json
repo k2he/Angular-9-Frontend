@@ -147,7 +147,7 @@
             "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate(Muti-language)",
             "frontend-desc-notes-link1-desc": "My GitHub (Frontend)",
             "frontend-desc-notes-link2-desc": "My DockerHub"
-         }
+        }
     },
     "test-page": {
         "naviItems": {
