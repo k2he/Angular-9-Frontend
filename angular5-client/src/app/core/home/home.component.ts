@@ -26,10 +26,6 @@ export const OAuth2_RESPONSE: string = 'OAuth2Response';
 })
 export class HomeComponent implements OnInit {
 
-  apiPath: string;
-  registryPath: string; //Port 8761
-  zipkinPath: string; //Port 9411
-
   constructor(private activeRoute: ActivatedRoute,
     private location: Location,
     private authService: AuthenticationService) {
@@ -42,13 +38,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiPath = environment.apiPath;
-
-    // Replace with correct port number.
-    const index = this.apiPath.lastIndexOf(":");
-    const basePath = this.apiPath.substring(0, index);
-    this.registryPath = `${basePath}:8761`;
-    this.zipkinPath = `${basePath}:9411`;
   }
 
 }
