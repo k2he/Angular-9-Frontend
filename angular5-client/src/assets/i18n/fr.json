@@ -22,7 +22,7 @@
         "title": "Ma demande de démo",
         "navlinks": {
             "home": "Accueil",
-            "about": "Informations de conception",
+            "about": "Conception",
             "projects": "Projects",
             "courses": "Cours fournit",
             "contacts": "Nous contacter",
@@ -40,8 +40,12 @@
         "email": "Email"
     },
     "home-page": {
-        "title": "Application de démonstration angulaire et API",
-        "subtitle": "Ceci est mon site de test personnel. C'est pour pratiquer de nouvelles technologies frontend et backend. (Pour l'instant, testez uniquement sous Chrome)"
+        "title": "Démo angulaire et microservice",
+        "subtitle": "Cette application est construite avec Angular sur le système frontal et Spring Cloud Microservice sur le système principal.",
+        "design-description": "Pour plus de détails sur la pile Arcetehcture et la technologie, consultez les pages suivantes:",
+        "design-link-description": "Page de conception",
+        "notes-part1": "Notes: S'il vous plaît utiliser Chrome",
+        "notes-part2": "depuis, les fonctionnalités ne sont actuellement testées qu'en chrome. Désolé pour l'inconvinience!"
     },
     "login-page": {
         "title": "Veuillez vous connecter",
@@ -145,29 +149,59 @@
 	},
     "about-page": {
         "naviItems": {
-            "backend": "Back-end Design",
-            "frontend": "Front-end Design"
+            "backend": "Conception du back-end",
+            "frontend": "Conception frontale"
         },
-        "source-code": "Source Code: ",
+        "source-code": "Code source: ",
         "backend-page": {
-            "title": "Back-end Architecture",
-            "backend-desc-title": "Technologies:",
-            "backend-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
-            "backend-desc-item2": "JPA (Hibernate), mySQL",
-            "backend-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
-            "backend-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
-            "backend-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
-            "backend-desc-notes-link1-desc": "My GitHub (Backend)",
-            "backend-desc-notes-link2-desc": "APIs Swagger Link"
+            "title": "Architecture back-end",
+            "source-code-github": "Mon GitHub (Backend)",
+            "source-code-dockerhub": "Docker Hub",
+            "source-code-swagger": "APIs Swagger Link",
+            "design-description": "API REST construites à l'aide de Microservice Archtecture. Desgin diagramme comme ci-dessous:",
+            "tech-list-title": "Les technologies:",
+            "tech-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
+            "tech-desc-item2": "JPA (Hibernate), mySQL",
+            "tech-desc-item3": "Database Auth, Oauth2 (Social Auth), JWT, Private & Pubilc keys",
+            "tech-desc-item4": "Swagger2, Log4j, Lambok, Sleuth, Hystrix, Spring Retry, Zipkin",
+            "tech-desc-item5": "Docker, Docker Compose, Kubernetes, AWS (EC2, RDS)",
+            "security-title": "Conception de sécurité et flux de travail",
+            "security-desc": "Utilisation du jeton JWT (heure d'expiration et rôle d'utilisateur inclus) pour valider l'accès utilisateur. Première fois que l'utilisateur tente de se connecter, redirigez-le vers le serveur d'authentification.",
+            "auth-title": "Conception du serveur d'authentification",
+            "auth-desc1": "1) Si l'utilisateur choisit de se connecter à l'aide d'un nom d'utilisateur et d'un mot de passe, validez à nouveau les informations utilisateur stockées dans la base de données avec le rôle utilisateur.",
+            "auth-desc2": "2) Si l'utilisateur choisit de se connecter à l'aide de la connexion sociale, redirigez-vous vers la page de connexion sociale, s'il autorise l'accès (e-mail et profil). Le système créera automatiquement un nouveau compte en utilisant Email.",
+            "auth-text": "En cas de connexion réussie, le jeton JWT contenant les rôles d’utilisateur sera généré et signé avec la clé privée du magasin de clés, puis renvoyé en tant que réponse de connexion. De plus, il existe un point de terminaison REST pour accéder à la clé publique.",
+            "key-title": "Clé publique et privée",
+            "key-desc": "Les clés publique et privée sont stockées dans le magasin de clés pour empêcher l’extérieur d’obtenir une clé privée.",
+            "service-title": "Chaque service individuel",
+            "service-desc1": "L'appel à chaque service individuel doit également être validé à l'aide d'un jeton JWT afin d'améliorer la sécurité au niveau de service individuel.",
+            "service-desc2": "Chaque service récupérera la clé publique du serveur Auth puis validera le jeton JWT entrant. Si la validation échoue, la demande est rejetée. En cas de succès, les ressources seront retournées.",
+            "deploy-title" : "Déploiement",
+            "deploy-desc1": "Chaque service contient un fichier Docker, et les images du menu fixe se trouvent sur le hub du menu fixe:",
+            "deploy-desc2": "Il peut être déployé sur le cloud en utilisant Kubernetes ou Cloud Provider dispose de son propre outil pour faciliter le déploiement. Par exemple: AWS peut utiliser ECS pour déployer le menu fixe dans des instances EC2 et effectuer une mise à l'échelle automatique."
         },
         "frontend-page": {
-            "title": "Front-end Design",
-            "frontend-desc-title": "Technologies frontales:",
-            "frontend-desc-item1": "Angular 5 (Migrer vers 7)",
-            "frontend-desc-item2": "Angular Material",
-            "frontend-desc-item3": "SCSS, RxJS 6.3, NGX Translate",
-            "frontend-desc-notes-link1-desc": "Ma GitHub (L'extrémité avant)",
-            "frontend-desc-notes-link2-desc": "Ma DockerHub"
+            "title": "Conception frontale",
+            "source-code-github": "Mon GitHub (Frontend)",
+            "source-code-dockerhub": "Docker Hub",
+            "tech-desc-title": "Technologies frontales:",
+            "tech-desc-item1": "Angular 5 (Migrated to 7)",
+            "tech-desc-item2": "Angular Material",
+            "tech-desc-item3": "SCSS, RxJS 6.3, NGX Translate(Muti-language)",
+            "feature-title": "Caractéristiques frontales:",
+            "feature-desc": "Ce site a été conçu uniquement pour apprendre Angular. Nous avons donc essayé d’utiliser toutes les fonctionnalités angulaires et de respecter les meilleures normes de codage.",
+            "structure-title": "Structure du code",
+            "structure-desc": "Les composants d'en-tête, de pied de page, d'accueil, de connexion et de page non trouvée sont dans le module principal, et les directives, les tubes et les composants partagés sont sous le module partagé.",
+            "language-title": "Langue multiple - anglais / français pour l'instant (i18n)",
+            "language-desc": "L'application prend en charge les versions anglaise et française, si vous cliquez sur l'icône de langue dans le coin supérieur droit de l'écran, tout le site passe en français, puis cliquez à nouveau pour revenir à l'anglais.",
+            "forms-title": "Forms, validation, Pipe, Directive",
+            "form-desc": "Créer une page de projet est construite à l'aide d'un formulaire réactif, et la page de contact est construite à l'aide d'un formulaire basé sur des modèles. Les deux pages implémentaient la validation de formulaire et créaient un tuyau et une directive en devise pour convertir le montant en $ champs et reconvertir.",
+            "lazy-load-title": "Lazy Loading",
+            "lazy-load-desc": "Beaucoup de cas, l'utilisateur ne va que sur certaines pages, le chargement de Lazying est donc très important.",
+            "globel-handler-title": "Erreur Globle lors de la remise, Globle Afficher / Masquer le chargement de Spinner, jeton d’authentification JWT",
+            "globel-handler-desc": "Ceux-ci sont implémentés à l'aide de HttpInterceptor.",
+            "user-role-title": "Vérification du rôle de l'utilisateur",
+            "user-role-desc": "Par défaut, tous les utilisateurs donnent un accès administrateur. Vous pouvez donc voir l'onglet Admin et vous pouvez accéder à cette page. Si vous vous connectez en tant qu'utilisateur normal (le compte d'utilisateur et le mot de passe sont sur la page Admin), vous ne pourrez pas voir. Onglet Admin / page."
         }
     }
 }
