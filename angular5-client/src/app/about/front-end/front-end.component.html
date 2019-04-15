@@ -5,69 +5,66 @@
       <span>{{ 'about-page.source-code' | translate }}</span>
       <a class="link" href="https://github.com/k2he/Angular-7-Frontend/tree/monolithic-v1.1-cloud" target="_blank">
         <img class="link-img" src="/assets/images/github-icon-2.png" />
-        <span>{{ 'about-page.frontend-page.frontend-desc-notes-link1-desc' | translate }}</span>
+        <span>{{ 'about-page.frontend-page.source-code-github' | translate }}</span>
       </a>
       <a class="link" href="https://cloud.docker.com/repository/docker/victoryssmile/angular-app" target="_blank">
         <img class="link-img" src="/assets/images/docker_hub.png" />
-        <span>{{ 'about-page.frontend-page.frontend-desc-notes-link2-desc' | translate }}</span>
+        <span>{{ 'about-page.frontend-page.source-code-dockerhub' | translate }}</span>
       </a>
     </div>
     <div class="list-block margin-top-30px">
-      <span class="description-title">{{ 'about-page.frontend-page.frontend-desc-title' | translate }}</span>
+      <span class="description-title">{{ 'about-page.frontend-page.tech-desc-title' | translate }}</span>
       <mat-list>
-        <mat-list-item class="description-item">{{ 'about-page.frontend-page.frontend-desc-item1' | translate }}</mat-list-item>
-        <mat-list-item class="description-item">{{ 'about-page.frontend-page.frontend-desc-item2' | translate }}</mat-list-item>
-        <mat-list-item class="description-item">{{ 'about-page.frontend-page.frontend-desc-item3' | translate }}</mat-list-item>
+        <mat-list-item class="description-item">{{ 'about-page.frontend-page.tech-desc-item1' | translate }}</mat-list-item>
+        <mat-list-item class="description-item">{{ 'about-page.frontend-page.tech-desc-item2' | translate }}</mat-list-item>
+        <mat-list-item class="description-item">{{ 'about-page.frontend-page.tech-desc-item3' | translate }}</mat-list-item>
       </mat-list>
     </div>
     <div class="content-block">
       <div>
-        <div class="description-title">Front-end Features:</div>
+        <div class="description-title">{{ 'about-page.frontend-page.feature-title' | translate }}</div>
         <div class="section">
-          <div class="section-text">This site was build just for learning Angular, so tried to use all Angular Feature and to follow best coding standard.
+          <div class="section-text">
+              {{ 'about-page.frontend-page.feature-desc' | translate }}
           </div>
 
           <div class="section">
-            <div class="section-title margin-top-30px">Code Structure</div>
+            <div class="section-title margin-top-30px">{{ 'about-page.frontend-page.structure-title' | translate }}</div>
             <div class="section-text">
-              Header, Footer, Home, Login, Page Not Found componments are in Core Module, and shared directives, pipes and shared components
-              are under Shared Module.
-            </div>
-          </div>
-
-          <div class="section">
-            <div class="section-title">Mutiple Language - English/French for now (i18n)</div>
-            <div class="section-text">
-              The application support English and French version, if you click on Language Icon on top right corner of screen, whole site
-              will switched to French, and click again, bring you back to English.
+                {{ 'about-page.frontend-page.structure-desc' | translate }}
             </div>
           </div>
 
           <div class="section">
-            <div class="section-title">Forms, validation, Pipe, Directive </div>
+            <div class="section-title">{{ 'about-page.frontend-page.language-title' | translate }}</div>
             <div class="section-text">
-              Create Project Page is built use Reactive Form, and Contact Page is built using Template-driven Form. Both pages implemented
-              form validation, and created an currency Pipe and Directive to convert amount into $ field and convert back.
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-title">Lazy Loading</div>
-            <div class="section-text">
-              Lot of case, user only goes to certain pages, so Lazying loading is really important.
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-title">Globle Error handing, Globle Show/Hide loading Spinner, JWT authentication token</div>
-            <div class="section-text">
-              These are implemented using HttpInterceptor.
+                {{ 'about-page.frontend-page.language-desc' | translate }}
             </div>
           </div>
 
           <div class="section">
-            <div class="section-title">User Role check</div>
+            <div class="section-title">{{ 'about-page.frontend-page.forms-title' | translate }}</div>
             <div class="section-text">
-              By Default, all user is giving Admin access, so you can see Admin tab and you are able to visit that page, if you login as
-              Normal User (User account and password is on Admin page), you won't be able to see Admin tab/page.
+                {{ 'about-page.frontend-page.form-desc' | translate }}
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-title">{{ 'about-page.frontend-page.lazy-load-title' | translate }}</div>
+            <div class="section-text">
+                {{ 'about-page.frontend-page.lazy-load-desc' | translate }}
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-title">{{ 'about-page.frontend-page.globel-handler-title' | translate }}</div>
+            <div class="section-text">
+                {{ 'about-page.frontend-page.globel-handler-desc' | translate }}
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">{{ 'about-page.frontend-page.user-role-title' | translate }}</div>
+            <div class="section-text">
+                {{ 'about-page.frontend-page.user-role-desc' | translate }}
             </div>
           </div>
         </div>
