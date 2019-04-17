@@ -6,11 +6,11 @@
 export const environment = {
     production: false,
     
-    apiPath: "http://www.kaihe.duckdns.org:8080",
+    apiPath: "http://www.kaihetech.com:8080",
   
-    DEFAULT_AUTH_URL: 'http://www.kaihe.duckdns.org/login',
-    GOOGLE_AUTH_URL: 'http://www.kaihe.duckdns.org:8080/oauth2/authorize/google?redirect_uri=http://www.kaihe.duckdns.org/home',
-    FACEBOOK_AUTH_URL: 'http://www.kaihe.duckdns.org:8080/oauth2/authorize/facebook?redirect_uri=http://www.kaihe.duckdns.org:4200/home',
-    GITHUB_AUTH_URL: 'http://www.kaihe.duckdns.org:8080/oauth2/authorize/github?redirect_uri=http://www.kaihe.duckdns.org:4200/home',
+    DEFAULT_AUTH_URL: 'http://www.kaihetech.com/login',
+    GOOGLE_AUTH_URL: 'http://www.kaihetech.com:8080/oauth2/authorize/google?redirect_uri=http://www.kaihetech.com/home',
+    FACEBOOK_AUTH_URL: 'http://www.kaihetech.com:8080/oauth2/authorize/facebook?redirect_uri=http://www.kaihetech.com/home',
+    GITHUB_AUTH_URL: 'http://www.kaihetech.com:8080/oauth2/authorize/github?redirect_uri=http://www.kaihetech.com/home',
   };
   
