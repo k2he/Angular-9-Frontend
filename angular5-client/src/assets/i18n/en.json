@@ -178,7 +178,9 @@
             "globel-handler-title": "Globle Error handing, Globle Show/Hide loading Spinner, JWT authentication token",
             "globel-handler-desc": "These are implemented using HttpInterceptor.",
             "user-role-title": "User Role check",
-            "user-role-desc": "By Default, all user is giving Admin access, so you can see Admin tab and you are able to visit that page, if you login as Normal User (User account and password is on Admin page), you won't be able to see Admin tab/page."
+            "user-role-desc": "By Default, all user is giving Admin access, so you can see Admin tab and you are able to visit that page, if you login as Normal User (User account and password is on Admin page), you won't be able to see Admin tab/page.",
+            "deploy-title" : "Deployment & Https Certificate",
+            "deploy-desc": "Docker Image is build using Docker multi-stage build to significantly reduce the size. HTTPS (SSL) certificate is generated using Certbot (Let's Encrypt) with script to do auto renew as well."
         }
     }
 }

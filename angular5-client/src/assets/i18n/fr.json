@@ -178,7 +178,9 @@
             "globel-handler-title": "Erreur Globle lors de la remise, Globle Afficher / Masquer le chargement de Spinner, jeton d’authentification JWT",
             "globel-handler-desc": "Ceux-ci sont implémentés à l'aide de HttpInterceptor.",
             "user-role-title": "Vérification du rôle de l'utilisateur",
-            "user-role-desc": "Par défaut, tous les utilisateurs donnent un accès administrateur. Vous pouvez donc voir l'onglet Admin et vous pouvez accéder à cette page. Si vous vous connectez en tant qu'utilisateur normal (le compte d'utilisateur et le mot de passe sont sur la page Admin), vous ne pourrez pas voir. Onglet Admin / page."
+            "user-role-desc": "Par défaut, tous les utilisateurs donnent un accès administrateur. Vous pouvez donc voir l'onglet Admin et vous pouvez accéder à cette page. Si vous vous connectez en tant qu'utilisateur normal (le compte d'utilisateur et le mot de passe sont sur la page Admin), vous ne pourrez pas voir. Onglet Admin / page.",
+            "deploy-title" : "Déploiement & Certificat SSL",
+            "deploy-desc": "Docker Image est construit en utilisant la construction multi-étapes de Docker pour réduire considérablement la taille. Le certificat HTTPS (SSL) est généré à l'aide de Certbot (Let's Encrypt) avec un script pour effectuer également le renouvellement automatique."
         }
     }
 }
