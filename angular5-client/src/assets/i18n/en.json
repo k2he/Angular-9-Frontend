@@ -42,8 +42,8 @@
         "subtitle": "This application is built using Angular on front-end and Spring Cloud Microservice on back-end.",
         "design-description": "For more detail about Arcetehcture design and Technology stack, Please visist:",
         "design-link-description": "Design Page",
-        "notes-part1": "Notes: Please use Chrome",
-        "notes-part2": "since currently features only tested in chrome. Sorry for the inconvinience!"
+        "notes-part1": "Notes: This application is testing under all ",
+        "notes-part2": ", but not IE. Sorry for the inconvinience!"
     },
     "login-page": {
         "title": "Please Sign In",
@@ -180,7 +180,8 @@
             "user-role-title": "User Role check",
             "user-role-desc": "By Default, all user is giving Admin access, so you can see Admin tab and you are able to visit that page, if you login as Normal User (User account and password is on Admin page), you won't be able to see Admin tab/page.",
             "deploy-title" : "Deployment & Https Certificate",
-            "deploy-desc": "Docker Image is build using Docker multi-stage build to significantly reduce the size. HTTPS (SSL) certificate is generated using Certbot (Let's Encrypt) with script to do auto renew as well."
+            "deploy-desc1": "Docker Image is build using Docker multi-stage build to significantly reduce the size. HTTPS (SSL) certificate is generated using Certbot (Let's Encrypt) with script to do auto renew as well.",
+            "deploy-desc2": "Reserve Proxy is setted up to use same SSL certificate for APIs."
         }
     }
 }
