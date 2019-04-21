@@ -11,7 +11,7 @@ html, body {
 
 .tools {
 	.material-icons {
-		color: #8ad021ed;
+		color: #8ad021;
 	}
 }
 
@@ -26,8 +26,8 @@ html, body {
 }
 
 .link-img {
-	height: 24px;
-	width: 24px;
+	height: 22px;
+	width: 22px;
 	vertical-align: bottom;
 	margin-right: 3px;
 }
@@ -38,7 +38,7 @@ html, body {
     .description-title { 
         font-size: 16px;
         font-weight: bold;
-        color: #0e0e10de;
+        color: #0e0e10;
     }
     
     .description-item {
@@ -57,7 +57,7 @@ html, body {
 	min-height: 95vh;
 
 	.page-main-container {
-		background-color: white;
+		background-color: #ffffff;
 		margin:15px 50px 10px 50px;
 		padding: 20px 30px;
 		border-radius: 5px;
@@ -66,7 +66,7 @@ html, body {
 	}
 
 	.page-main-container-with-sideNavi {
-		background-color: white;
+		background-color: #ffffff;
 		margin:15px 50px 0px 50px;
 		border-radius: 5px;
 		position: relative;
@@ -110,9 +110,9 @@ html, body {
 }
 
 .float-content-shadow {
-	-webkit-box-shadow: 0px 0px 6px 2px #969696d9 !important;  /* Safari*/
-	-moz-box-shadow:    0px 0px 6px 2px #969696d9 !important;  /* Firefox */
-	box-shadow:         0px 0px 6px 2px #969696d9 !important;  /* Other */
+	-webkit-box-shadow: 0px 0px 6px 2px #969696 !important;  /* Safari*/
+	-moz-box-shadow:    0px 0px 6px 2px #969696 !important;  /* Firefox */
+	box-shadow:         0px 0px 6px 2px #969696 !important;  /* Other */
 }
 
 .popup-title {
@@ -191,7 +191,7 @@ Customized CSS for header page
 .mat-table {
 	.mat-button{
 		color: #545454;
-		background-color: #b3b3b34f;
+		background-color: #b3b3b3;
 		border-radius: 8px;
 	}
 }
@@ -264,7 +264,7 @@ Customized CSS for header page
 	}
 
 	.snackbar-success {
-		background:#AABA0A;
+		background:#aaba0a;
 		color: $snackbar-color;
 
 		.mat-simple-snackbar-action {
@@ -273,7 +273,7 @@ Customized CSS for header page
 	}
 
 	.snackbar-error {
-		background:#c72121eb;
+		background:#c72121;
 		color: $snackbar-color;
 		
 		.mat-simple-snackbar-action {
@@ -291,7 +291,7 @@ Customized CSS for header page
   	::-webkit-scrollbar-thumb {
 		border-radius: 5px;
 		border-radius: 5px;
-    	background-color: #6b6767cf;
+    	background-color: #6b6767;
     	opacity: 0.5;
     	transition: opacity .15s ease-in-out;
 	}
