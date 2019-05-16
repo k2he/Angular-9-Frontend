@@ -21,7 +21,7 @@
         "title": "My Demo App",
         "navlinks": {
             "home": "Home",
-            "about": "Desgin",
+            "about": "Design",
             "projects": "Projects",
             "courses": "Course Provides",
             "contacts": "Contacts",
@@ -135,7 +135,7 @@
             "source-code-github": "My GitHub (Backend)",
             "source-code-dockerhub": "Docker Hub",
             "source-code-swagger": "APIs Swagger Link",
-            "design-description": "REST APIs built using Microservices Archtecture. Desgin diagram as below:",
+            "design-description": "REST APIs built using Microservices Archtecture. Design diagram as below:",
             "tech-list-title": "Technologies:",
             "tech-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
             "tech-desc-item2": "JPA (Hibernate), mySQL",
