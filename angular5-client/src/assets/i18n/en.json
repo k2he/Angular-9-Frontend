@@ -22,7 +22,7 @@
         "title": "My Demo App",
         "navlinks": {
             "home": "Home",
-            "about": "Desgin",
+            "about": "Design",
             "projects": "Projects",
             "courses": "Course Provides",
             "contacts": "Contacts",
@@ -138,7 +138,8 @@
             "source-code-dockerhub": "Docker Hub",
             "source-code-registry": "Registry Server UI",
             "source-code-zipkin": "Zipkin UI",
-            "design-description": "REST APIs built using Microservice Archtecture. Desgin diagram as below:",
+            "source-code-kibana": "Kibana (ELK)",
+            "design-description": "REST APIs built using Microservice Archtecture. Design diagram as below:",
             "tech-list-title": "Technologies:",
             "tech-desc-item1": "Spring Boot 2, Spring Security 5, Spring Cloud, Spring AOP",
             "tech-desc-item2": "JPA (Hibernate), mySQL",

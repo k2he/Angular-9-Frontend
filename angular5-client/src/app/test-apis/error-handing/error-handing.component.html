@@ -9,7 +9,7 @@
       </mat-card-actions>
       <mat-card-content>
         <span>Result:</span>
-        <div class="row" *ngIf="retryFailResult">{{retryFailResult}}</div>
+        <div class="row" *ngIf="retryFailResult"><pre>{{retryFailResult}}</pre></div>
       </mat-card-content>
     </mat-card>
 
@@ -21,7 +21,7 @@
       </mat-card-actions>
       <mat-card-content>
         <span>Result:</span>
-        <div class="row" *ngIf="retrySuccessResult">{{retrySuccessResult}}</div>
+        <div class="row" *ngIf="retrySuccessResult"><pre>{{retrySuccessResult}}</pre></div>
       </mat-card-content>
     </mat-card>
 
@@ -33,7 +33,7 @@
       </mat-card-actions>
       <mat-card-content>
         <span>Result:</span>
-        <div class="row" *ngIf="circuitBreakerResult">{{circuitBreakerResult}}</div>
+        <div class="row" *ngIf="circuitBreakerResult"><pre>{{circuitBreakerResult}}</pre></div>
       </mat-card-content>
     </mat-card>
   </div>

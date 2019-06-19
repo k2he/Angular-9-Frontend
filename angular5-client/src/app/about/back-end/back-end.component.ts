@@ -11,6 +11,7 @@ export class BackEndComponent implements OnInit {
   apiPath: string;
   registryPath: string; //Port 8761
   zipkinPath: string; //Port 9411
+  kibanaPath: string;
 
   constructor() { }
 
@@ -22,6 +23,7 @@ export class BackEndComponent implements OnInit {
     const basePath = this.apiPath.substring(0, index);
     this.registryPath = `${basePath}:8761`;
     this.zipkinPath = `${basePath}:9411`;
+    this.kibanaPath = `${basePath}:5601`;
   }
 
 }
