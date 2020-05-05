@@ -20,29 +20,29 @@ const routes: Routes = [
     },
     {
         path: 'about',
-        loadChildren: 'app/about/about.module#AboutModule'
+        loadChildren: () => import('app/about/about.module').then(m => m.AboutModule)
     },
     {
         path: 'projects',
-        loadChildren: 'app/projects/projects.module#ProjectsModule',
+        loadChildren: () => import('app/projects/projects.module').then(m => m.ProjectsModule),
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
     {
         path: 'courses',
-        loadChildren: 'app/courses/courses.module#CoursesModule',
+        loadChildren: () => import('app/courses/courses.module').then(m => m.CoursesModule),
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
     {
         path: 'contact',
-        loadChildren: 'app/contact/contact.module#ContactModule',
+        loadChildren: () => import('app/contact/contact.module').then(m => m.ContactModule),
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
     {
         path: 'admin',
-        loadChildren: 'app/admin/admin.module#AdminModule',
+        loadChildren: () => import('app/admin/admin.module').then(m => m.AdminModule),
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard, AdminGuard]
     },
