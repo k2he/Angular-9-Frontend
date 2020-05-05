@@ -20,7 +20,7 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
     displayedColumns = ['name', 'description', 'due', 'skills', 'estimatedCost', 'status', 'actions'];
     dataSource;
 
-    @ViewChild(MatSort, { static: true }) sort: MatSort;
+    @ViewChild(MatSort) sort: MatSort;
 
     constructor(private projectService: ProjectService,
         private translate: TranslateService,
