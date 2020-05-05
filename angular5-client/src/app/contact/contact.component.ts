@@ -16,7 +16,7 @@ export class ContactComponent {
     contectInfo: ContactInfo = <ContactInfo>{};
     PHONE_NUMBER_REGEX = "^\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})$";
 
-    @ViewChild('contactUsForm') form;
+    @ViewChild('contactUsForm', { static: true }) form;
 
     constructor(private contactService: ContactUsService,
         private translate: TranslateService,
