@@ -15,7 +15,7 @@ In addition, it added logic to build multiple environment Docker Image.
 ## microservice-v1.0-docker
 This branch is for Microservice APIs Frontend, it is able to build into Docker Image.
 
-## monolithic-v1.0-migrateToAngular9
+## monolithic-v1.3-migrateToAngular9
 This branch is for Monolithic APIs Frontend, also able to build into Docker Image.
 
 ## Domain name 
