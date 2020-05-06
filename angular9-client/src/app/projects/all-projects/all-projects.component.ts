@@ -5,7 +5,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 
 import { ProjectService } from '../../api/project.service';
-import { ProjectInfo } from "../../resources/project";
 import { Observable } from 'rxjs';
 import { CustomCurrencyPipe } from '../../shared/pipes/custom-currency.pipe';
 import { DialogComponent } from '../../dialog/dialog.component';
@@ -60,13 +59,16 @@ export class AllProjectsComponent implements OnInit, AfterViewChecked {
     }
 
     openDialog(projectId: string): void {
-        let dialogRef = this.dialog.open(DialogComponent, {
-            data: { title: this.translate.instant('projects-page.all-projects-page.delete-title'), content: this.translate.instant('projects-page.all-projects-page.delete-content') }
+        const dialogRef = this.dialog.open(DialogComponent, {
+            data: {
+                title: this.translate.instant('projects-page.all-projects-page.delete-title'),
+                content: this.translate.instant('projects-page.all-projects-page.delete-content')
+            }
         });
 
         dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed. Result is ' + result);
-            if (result == 'yes') {
+            if (result === 'yes') {
                 this.processDelete(projectId);
             }
         });
