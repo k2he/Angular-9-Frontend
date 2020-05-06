@@ -1,5 +1,5 @@
 # Stage 1
-FROM node:8.11.2-alpine as node
+FROM node:14.0.0-alpine as node
 
 WORKDIR /usr/src/app
 
@@ -12,8 +12,8 @@ COPY . .
 RUN npm run build
 
 # Stage 2
-FROM nginx:1.13.12-alpine
+FROM nginx:1.17.10-alpine
 
-COPY --from=node /usr/src/app/dist/angular5-client /usr/share/nginx/html
+COPY --from=node /usr/src/app/dist/angular9-client /usr/share/nginx/html
 
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
