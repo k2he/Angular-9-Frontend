@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angualar5-clients": {
+    "angualar9-clients": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,7 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/angular5-client",
+            "outputPath": "dist/angular9-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -63,21 +63,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angualar5-clients:build"
+            "browserTarget": "angualar9-clients:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angualar5-clients:build:production"
+              "browserTarget": "angualar9-clients:build:production"
             },
             "cloud": {
-              "browserTarget": "angualar5-clients:build:cloud"
+              "browserTarget": "angualar9-clients:build:cloud"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angualar5-clients:build"
+            "browserTarget": "angualar9-clients:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
         }
       }
     },
-    "angualar5-clients-e2e": {
+    "angualar9-clients-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -120,7 +120,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angualar5-clients:serve"
+            "devServerTarget": "angualar9-clients:serve"
           }
         },
         "lint": {
@@ -137,7 +137,7 @@
       }
     }
   },
-  "defaultProject": "angualar5-clients",
+  "defaultProject": "angualar9-clients",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
