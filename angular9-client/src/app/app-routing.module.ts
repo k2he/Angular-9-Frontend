@@ -48,7 +48,7 @@ const routes: Routes = [
     },
     {
         path: 'test-apis',
-        loadChildren: 'app/test-apis/test-apis.module#TestApisModule',
+        loadChildren: () => import('app/test-apis/test-apis.module').then(m => m.TestApisModule),
         canLoad: [LoadAuthGuard],
         canActivate: [ActiveAuthGuard]
     },
