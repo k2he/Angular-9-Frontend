@@ -1,3 +1,7 @@
+Demo screen shots: 
+1)
+<img src="https://github.com/k2he/Angular-9-Frontend/screen_shot_1.png">
+
 # Angular-9-Frontend
 This contains 2 version. 1) Monolithic APIs.  2) Microservices APIs (Microservices have more UI which show retry and other resilience logics.
 
@@ -18,8 +22,3 @@ This branch is for Microservice APIs Frontend, it is able to build into Docker I
 ## Domain name 
 Since it's just for personal test, it's good to use 
 https://www.duckdns.org/domains
-
-Demo screen shots: 
-
-1)
-<img src="https://github.com/k2he/spring-cloud-stream-kafka/blob/interactive_queries_stable/kafka-stream-1.png">
