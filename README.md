@@ -19,7 +19,3 @@ This branch is for Microservice APIs Frontend, it is able to build into Docker I
 Since it's just for personal test, it's good to use 
 https://www.duckdns.org/domains
 
-Demo screen shots: 
-
-1)
-<img src="https://github.com/k2he/spring-cloud-stream-kafka/blob/interactive_queries_stable/kafka-stream-1.png">
